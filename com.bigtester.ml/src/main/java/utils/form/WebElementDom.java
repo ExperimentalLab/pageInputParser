@@ -35,6 +35,18 @@ public class WebElementDom {
 //	private WebElementDom previousSibling;//Nullable
 //	private WebElementDom nextSibling;//Nullable
 	WebElementDom(Node domPointer) {
-		domNodePointer = domPointer;
+		setDomNodePointer(domPointer);
+	}
+	/**
+	 * @return the domNodePointer
+	 */
+	public Node getDomNodePointer() {
+		return domNodePointer;
+	}
+	/**
+	 * @param domNodePointer the domNodePointer to set
+	 */
+	public void setDomNodePointer(Node domNodePointer) {
+		this.domNodePointer = domNodePointer;
 	}
 }

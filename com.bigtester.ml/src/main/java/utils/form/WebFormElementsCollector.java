@@ -75,12 +75,23 @@ abstract public class WebFormElementsCollector {
 		while ((t = cNodes.item(i++)) != null)
 			switch (t.getNodeType()) {
 			case Node.ELEMENT_NODE: // Element Node
-				fnCleanNode(t);
-				break;
+				if (!t.getNodeName().equalsIgnoreCase("br")) {
+					fnCleanNode(t);
+					break;
+				} else  {
+					node.removeChild(t);
+					i--;
+					break;
+				}
 			case Node.TEXT_NODE: // Text Node
 				if (!t.getNodeValue().trim().equals(""))
 					break;
-			case 8: // Comment Node (and Text Node without non-whitespace
+				else {
+					node.removeChild(t);
+					i--;
+					break;
+				}
+			case Node.COMMENT_NODE: // Comment Node (and Text Node without non-whitespace
 					// content)
 				node.removeChild(t);
 				i--;

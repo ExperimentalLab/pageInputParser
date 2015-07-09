@@ -50,17 +50,23 @@ public class WebFormUserInputsCollectorTest {
 		System.out.println("\n*******************\n");
 		System.out.println("\n*******************\n");
 		for (UserInputDom dom : col.getUserInputs()) {
+			
+			printDocument(dom.getDomNodePointer(), System.out);
+			System.out.println("\n--above Node print----\n");
+			
 			List<Node> nodes = dom.getMachineLearningDomHtmlPointers();
 			if (nodes != null)
 				for (Node node : nodes)
 					printDocument(node, System.out);
-			System.out.println("\n---------------\n");
+			System.out.println("\n------above node ML code---------\n");
 			printDocument(dom.getLabelDomPointer(), System.out);
+			System.out.println("\n------above node lable code-----------------------\n");
+			
 			List<Node> nodes2 = dom.getAdditionalInfoNodes();
 			if (nodes2 != null)
 				for (Node node2 : nodes2)
 					printDocument(node2, System.out);
-			System.out.println("\n================\n");
+			System.out.println("\n=======above node additional info code=========\n");
 
 		}
 
