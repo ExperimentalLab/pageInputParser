@@ -20,6 +20,8 @@
  *******************************************************************************/
 package utils.form;
 
+import javax.xml.parsers.ParserConfigurationException;
+
 import org.openqa.selenium.WebDriver;
 import org.w3c.dom.Document;
 
@@ -33,8 +35,9 @@ public class ConfirmButtonCandidatesCollector extends WebFormElementsCollector{
 
 	/**
 	 * @param webD
+	 * @throws ParserConfigurationException 
 	 */
-	public ConfirmButtonCandidatesCollector(Document doc) {
+	public ConfirmButtonCandidatesCollector(Document doc) throws ParserConfigurationException {
 		super(doc);
 	}
 

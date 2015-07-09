@@ -25,6 +25,8 @@ import java.util.List;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
+import javax.xml.parsers.ParserConfigurationException;
+
 import org.openqa.selenium.WebDriver;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
@@ -43,34 +45,43 @@ import static org.joox.JOOX.*;
 public class WebFormUserInputsCollector extends WebFormElementsCollector {
 	final private List<UserInputDom> userInputs = new ArrayList<UserInputDom>();
 
-	public WebFormUserInputsCollector(Document domDoc) {
+	public WebFormUserInputsCollector(Document domDoc)
+			throws ParserConfigurationException {
 		super(domDoc);
-		collectUserInputs(domDoc);
+
+		collectUserInputs(super.getCleanedDoc());
 	}
 
 	private void collectUserInputs(Document domDoc) {
-			NodeList htmlInputs = domDoc.getElementsByTagName("input");
-			for (int i = 0; i < htmlInputs.getLength(); i++) {
-				Node coreNode = htmlInputs.item(i);
-				if ($(coreNode).parentsUntil("form").isNotEmpty()) {
-					Node form = $(coreNode).parentsUntil("form").get().get(0);
-					userInputs.add(initUserInputDomInsideOfForm(domDoc, coreNode, form));
-				} else {
-					//TODO collect input out of form element
-				}
-			}
+		NodeList htmlInputs = domDoc.getElementsByTagName("input");
+		for (int i = 0; i < htmlInputs.getLength(); i++) {
+			Node coreNode = htmlInputs.item(i);
+			if ($(coreNode).parentsUntil("form").isNotEmpty()
+					&& !$(coreNode).attr("type").equalsIgnoreCase("hidden")) {
 
-			NodeList htmlTextAreas = domDoc.getElementsByTagName("textarea");
-			for (int i = 0; i < htmlTextAreas .getLength(); i++) {
-				Node coreNode = htmlTextAreas.item(i);
-				if ($(coreNode).parentsUntil("form").isNotEmpty()) {
-					Node form = $(coreNode).parentsUntil("form").get().get(0);
-					userInputs.add(initUserInputDomInsideOfForm(domDoc, coreNode, form));
-				} else {
-					//TODO collect input out of form element
-				}
+				List<Element> parents = $(coreNode).parentsUntil("form")
+						.parent().get();
+				userInputs.add(initUserInputDomInsideOfForm(domDoc, coreNode,
+						parents.get(parents.size() - 1)));
+
+			} else {
+				// TODO collect input out of form element
 			}
-			
+		}
+
+		NodeList htmlTextAreas = domDoc.getElementsByTagName("textarea");
+		for (int i = 0; i < htmlTextAreas.getLength(); i++) {
+			Node coreNode = htmlTextAreas.item(i);
+			if ($(coreNode).parentsUntil("form").isNotEmpty()) {
+				List<Element> parents = $(coreNode).parentsUntil("form")
+						.parent().get();
+				userInputs.add(initUserInputDomInsideOfForm(domDoc, coreNode,
+						parents.get(parents.size() - 1)));
+			} else {
+				// TODO collect input out of form element
+			}
+		}
+
 	}
 
 	private void fillOutNonLabeledFieldLabelDomPointer(
@@ -157,8 +168,8 @@ public class WebFormUserInputsCollector extends WebFormElementsCollector {
 			Node inputNode, Node form) {
 		// NodeList allInputNodes, Node inputNodeParentForm) {
 		UserInputDom retVal = new UserInputDom(inputNode);
-		retVal.setParentFormPointer($(inputNode).parentsUntil("form").get()
-				.get(0));
+
+		retVal.setParentFormPointer(form);
 		Node tempParent = inputNode.getParentNode();
 		boolean singleFieldForm = false;
 		boolean singleFieldFormInputHasNoSibling = false;
@@ -298,8 +309,9 @@ public class WebFormUserInputsCollector extends WebFormElementsCollector {
 						leastNonInputSiblingsParent, false);
 			} else {
 				if (($(maxInputParentNoOtherInput.getPreviousSibling()).find(
-						"input").isEmpty() && $(maxInputParentNoOtherInput.getPreviousSibling()).find(
-								"textarea").isEmpty())
+						"input").isEmpty() && $(
+						maxInputParentNoOtherInput.getPreviousSibling()).find(
+						"textarea").isEmpty())
 						&& $(maxInputParentNoOtherInput.getPreviousSibling())
 								.find("label").isNotEmpty()) {
 					List<Element> labels2 = $(
@@ -314,9 +326,13 @@ public class WebFormUserInputsCollector extends WebFormElementsCollector {
 
 					retVal.setLabelDomPointer(labels2.get(0));
 
-					if ($(maxInputParentNoOtherInput.getNextSibling()
-									.getNextSibling()).find("input").isEmpty() && $(maxInputParentNoOtherInput.getNextSibling()
-											.getNextSibling()).find("textarea").isEmpty()) {
+					if ($(
+							maxInputParentNoOtherInput.getNextSibling()
+									.getNextSibling()).find("input").isEmpty()
+							&& $(
+									maxInputParentNoOtherInput.getNextSibling()
+											.getNextSibling()).find("textarea")
+									.isEmpty()) {
 						fillOutAddtionalInfoNode(retVal,
 								maxInputParentNoOtherInput,
 								maxInputParentNoOtherInput.getParentNode(),
@@ -329,11 +345,13 @@ public class WebFormUserInputsCollector extends WebFormElementsCollector {
 							maxInputParentNoOtherInput,
 							maxInputParentNoOtherInput.getParentNode(), false);
 				} else if ($(maxInputParentNoOtherInput.getPreviousSibling())
-						.find("input").isNotEmpty() || $(maxInputParentNoOtherInput.getPreviousSibling())
-						.find("textarea").isNotEmpty()
+						.find("input").isNotEmpty()
+						|| $(maxInputParentNoOtherInput.getPreviousSibling())
+								.find("textarea").isNotEmpty()
 						|| $(maxInputParentNoOtherInput.getNextSibling()).find(
-								"input").isNotEmpty() || $(maxInputParentNoOtherInput.getNextSibling()).find(
-										"textarea").isNotEmpty()) {
+								"input").isNotEmpty()
+						|| $(maxInputParentNoOtherInput.getNextSibling()).find(
+								"textarea").isNotEmpty()) {
 					// most likely field information has been inside Node
 					// maxInputParentNoOtherInput
 					List<Node> tempList = new ArrayList<Node>();
@@ -355,13 +373,14 @@ public class WebFormUserInputsCollector extends WebFormElementsCollector {
 
 				} else if ((maxInputParentNoOtherInput.getPreviousSibling() != null && ($(
 						maxInputParentNoOtherInput.getPreviousSibling()).find(
-						"input").isEmpty() && $(maxInputParentNoOtherInput.getPreviousSibling()).find(
-								"textarea").isEmpty()))
+						"input").isEmpty() && $(
+						maxInputParentNoOtherInput.getPreviousSibling()).find(
+						"textarea").isEmpty()))
 						|| (maxInputParentNoOtherInput.getNextSibling() != null && ($(
 								maxInputParentNoOtherInput.getNextSibling())
 								.find("input").isEmpty() && $(
-										maxInputParentNoOtherInput.getNextSibling())
-										.find("textarea").isEmpty()))) {
+								maxInputParentNoOtherInput.getNextSibling())
+								.find("textarea").isEmpty()))) {
 					// most likely field information is out of
 					// maxInputParentNoOtherInput
 					List<Node> tempList = new ArrayList<Node>();
@@ -375,9 +394,11 @@ public class WebFormUserInputsCollector extends WebFormElementsCollector {
 
 					if ($(
 							maxInputParentNoOtherInput.getNextSibling()
-									.getNextSibling()).find("input").isEmpty() && $(
-											maxInputParentNoOtherInput.getNextSibling()
-											.getNextSibling()).find("textarea").isEmpty()) {
+									.getNextSibling()).find("input").isEmpty()
+							&& $(
+									maxInputParentNoOtherInput.getNextSibling()
+											.getNextSibling()).find("textarea")
+									.isEmpty()) {
 						fillOutAddtionalInfoNode(retVal,
 								maxInputParentNoOtherInput,
 								maxInputParentNoOtherInput.getParentNode(),
@@ -457,8 +478,6 @@ public class WebFormUserInputsCollector extends WebFormElementsCollector {
 	public final List<UserInputDom> getUserInputs() {
 		return userInputs;
 	}
-
-	
 
 	// private boolean has2ChildInputNodes(Node node) {
 	// boolean retVal;
