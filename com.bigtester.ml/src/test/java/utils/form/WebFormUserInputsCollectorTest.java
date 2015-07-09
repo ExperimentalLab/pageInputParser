@@ -47,19 +47,20 @@ public class WebFormUserInputsCollectorTest {
 
 		Document doc = db.parse(is);
 		WebFormUserInputsCollector col = new WebFormUserInputsCollector(doc);
-		System.out.println("*******************");
-		System.out.println("*******************");
+		System.out.println("\n*******************\n");
+		System.out.println("\n*******************\n");
 		for (UserInputDom dom : col.getUserInputs()) {
 			List<Node> nodes = dom.getMachineLearningDomHtmlPointers();
 			if (nodes != null)
 				for (Node node : nodes)
 					printDocument(node, System.out);
-			System.out.println("---------------");
+			System.out.println("\n---------------\n");
+			printDocument(dom.getLabelDomPointer(), System.out);
 			List<Node> nodes2 = dom.getAdditionalInfoNodes();
 			if (nodes2 != null)
 				for (Node node2 : nodes2)
 					printDocument(node2, System.out);
-			System.out.println("================");
+			System.out.println("\n================\n");
 
 		}
 

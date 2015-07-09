@@ -21,6 +21,7 @@
 package utils.form;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
@@ -43,6 +44,8 @@ import static org.joox.JOOX.*;
  *
  */
 public class WebFormUserInputsCollector extends WebFormElementsCollector {
+	final static public String[] LEFTLABELEDINPUTTYPES = { "text", "date", };
+	final static public String[] RIGHTLABELEDINPUTTYPES = { "radio", "checkbox" };
 	final private List<UserInputDom> userInputs = new ArrayList<UserInputDom>();
 
 	public WebFormUserInputsCollector(Document domDoc)
@@ -86,20 +89,37 @@ public class WebFormUserInputsCollector extends WebFormElementsCollector {
 
 	private void fillOutNonLabeledFieldLabelDomPointer(
 			UserInputDom valueHolder, Node searchStartingNode,
-			Node searchUpEndingNode, boolean endingNodeInclusive) {
+			Node searchUpEndingNode, boolean endingNodeInclusive,
+			boolean leftLabeled) {
 		Node tempParent2 = searchStartingNode;
 
-		while (tempParent2.getPreviousSibling() == null
-				&& tempParent2 != searchUpEndingNode) {
-			tempParent2 = tempParent2.getParentNode();
+		if (leftLabeled) {
+
+			while (tempParent2.getPreviousSibling() == null
+					&& tempParent2 != searchUpEndingNode) {
+				tempParent2 = tempParent2.getParentNode();
+			}
+			// if tempParent2 is form node, we will use the form's
+			// previous sibling as the label node;
+			// Or we will use the nearest input sibling node as the
+			// label node;
+			if (tempParent2 == searchUpEndingNode && !endingNodeInclusive)
+				return;
+			valueHolder.setLabelDomPointer(tempParent2.getPreviousSibling());
+		} else {
+			while (tempParent2.getNextSibling() == null
+					&& tempParent2 != searchUpEndingNode) {
+				tempParent2 = tempParent2.getParentNode();
+			}
+			// if tempParent2 is form node, we will use the form's
+			// previous sibling as the label node;
+			// Or we will use the nearest input sibling node as the
+			// label node;
+			if (tempParent2 == searchUpEndingNode && !endingNodeInclusive)
+				return;
+		
+			valueHolder.setLabelDomPointer(tempParent2.getNextSibling());
 		}
-		// if tempParent2 is form node, we will use the form's
-		// previous sibling as the label node;
-		// Or we will use the nearest input sibling node as the
-		// label node;
-		if (tempParent2 == searchUpEndingNode && !endingNodeInclusive)
-			return;
-		valueHolder.setLabelDomPointer(tempParent2.getPreviousSibling());
 
 	}
 
@@ -168,7 +188,15 @@ public class WebFormUserInputsCollector extends WebFormElementsCollector {
 			Node inputNode, Node form) {
 		// NodeList allInputNodes, Node inputNodeParentForm) {
 		UserInputDom retVal = new UserInputDom(inputNode);
-
+		Node inputType = inputNode.getAttributes().getNamedItem("type");
+		
+		boolean leftLabeled = false;
+		if (null != inputType ){ 
+			leftLabeled = Arrays.asList(LEFTLABELEDINPUTTYPES).contains(
+				inputType.getNodeValue());
+		} else if (inputNode.getNodeName().equalsIgnoreCase("textarea")) {
+			leftLabeled = true;
+		}
 		retVal.setParentFormPointer(form);
 		Node tempParent = inputNode.getParentNode();
 		boolean singleFieldForm = false;
@@ -200,10 +228,11 @@ public class WebFormUserInputsCollector extends WebFormElementsCollector {
 
 				retVal.setLabelDomPointer(tempParent2.getPreviousSibling());
 
-				List<Node> temp = new ArrayList<Node>();
-				temp.add(tempParent2.getNextSibling());
-				retVal.setAdditionalInfoNodes(temp);
-
+				if (leftLabeled) {
+					List<Node> temp = new ArrayList<Node>();
+					temp.add(tempParent2.getNextSibling());
+					retVal.setAdditionalInfoNodes(temp);
+				}
 				retVal.setPreviousUserViewableHtmlSibling(tempParent2
 						.getPreviousSibling());
 				retVal.setNextUserViewableHtmlSibling(tempParent2
@@ -229,7 +258,7 @@ public class WebFormUserInputsCollector extends WebFormElementsCollector {
 
 				fillOutNonLabeledFieldLabelDomPointer(retVal,
 						maxInputParentNoOtherChild, leastInputsCommonParent,
-						false);
+						false, leftLabeled);
 				// tempParent2 = maxInputParentNoOtherChild;
 				//
 				// while (tempParent2.getPreviousSibling() == null
@@ -246,8 +275,9 @@ public class WebFormUserInputsCollector extends WebFormElementsCollector {
 			}
 
 			// fill out addtional info nodes
-			fillOutAddtionalInfoNode(retVal, maxInputParentNoOtherChild,
-					leastInputsCommonParent, false, false);
+			if (leftLabeled)
+				fillOutAddtionalInfoNode(retVal, maxInputParentNoOtherChild,
+						leastInputsCommonParent, false, false);
 			// tempParent2 = maxInputParentNoOtherChild;
 			// List<Node> additionalInfoNodes = new ArrayList<Node>();
 			// while (tempParent2.getNextSibling() == null
@@ -299,8 +329,10 @@ public class WebFormUserInputsCollector extends WebFormElementsCollector {
 				retVal.setMachineLearningDomHtmlPointer(tempList);
 
 				retVal.setLabelDomPointer(labels.get(0));
-				fillOutAddtionalInfoNode(retVal, maxInputParentNoOtherChild,
-						leastNonInputSiblingsParent, false, false);
+				if (leftLabeled)
+					fillOutAddtionalInfoNode(retVal,
+							maxInputParentNoOtherChild,
+							leastNonInputSiblingsParent, false, false);
 				fillOutUserViewablePreviousSibling(retVal,
 						maxInputParentNoOtherChild,
 						leastNonInputSiblingsParent, false);
@@ -308,20 +340,37 @@ public class WebFormUserInputsCollector extends WebFormElementsCollector {
 						maxInputParentNoOtherChild,
 						leastNonInputSiblingsParent, false);
 			} else {
-				if (($(maxInputParentNoOtherInput.getPreviousSibling()).find(
-						"input").isEmpty() && $(
+				if (((leftLabeled && $(maxInputParentNoOtherInput.getPreviousSibling()).find(
+						"input").isEmpty() || !leftLabeled && $(maxInputParentNoOtherInput.getNextSibling()).find(
+								"input").isEmpty()) && (leftLabeled && $(
 						maxInputParentNoOtherInput.getPreviousSibling()).find(
-						"textarea").isEmpty())
-						&& $(maxInputParentNoOtherInput.getPreviousSibling())
-								.find("label").isNotEmpty()) {
-					List<Element> labels2 = $(
+						"textarea").isEmpty() || !leftLabeled && $(
+								maxInputParentNoOtherInput.getNextSibling()).find(
+										"textarea").isEmpty()))
+						&& (leftLabeled && $(maxInputParentNoOtherInput.getPreviousSibling())
+								.find("label").isNotEmpty() || !leftLabeled && $(maxInputParentNoOtherInput.getNextSibling())
+								.find("label").isNotEmpty())) {
+					List<Element> labels2;
+					if (leftLabeled) {
+						labels2 = $(
 							maxInputParentNoOtherInput.getPreviousSibling())
 							.find("label").get();
+					} else {
+						labels2 = $(
+								maxInputParentNoOtherInput.getNextSibling())
+								.find("label").get();
+					}
 
 					List<Node> tempList = new ArrayList<Node>();
+					if (leftLabeled) {
 					tempList.add(maxInputParentNoOtherInput
 							.getPreviousSibling());
 					tempList.add(maxInputParentNoOtherInput);
+					} else {
+						tempList.add(maxInputParentNoOtherInput);
+						tempList.add(maxInputParentNoOtherInput
+								.getNextSibling());
+					}
 					retVal.setMachineLearningDomHtmlPointer(tempList);
 
 					retVal.setLabelDomPointer(labels2.get(0));
@@ -333,10 +382,11 @@ public class WebFormUserInputsCollector extends WebFormElementsCollector {
 									maxInputParentNoOtherInput.getNextSibling()
 											.getNextSibling()).find("textarea")
 									.isEmpty()) {
-						fillOutAddtionalInfoNode(retVal,
-								maxInputParentNoOtherInput,
-								maxInputParentNoOtherInput.getParentNode(),
-								false, true);
+						if (leftLabeled)
+							fillOutAddtionalInfoNode(retVal,
+									maxInputParentNoOtherInput,
+									maxInputParentNoOtherInput.getParentNode(),
+									false, true);
 					}
 					fillOutUserViewablePreviousSibling(retVal,
 							maxInputParentNoOtherInput,
@@ -360,10 +410,11 @@ public class WebFormUserInputsCollector extends WebFormElementsCollector {
 
 					fillOutNonLabeledFieldLabelDomPointer(retVal,
 							maxInputParentNoOtherChild,
-							maxInputParentNoOtherInput, false);
-					fillOutAddtionalInfoNode(retVal,
-							maxInputParentNoOtherChild,
-							maxInputParentNoOtherInput, false, false);
+							maxInputParentNoOtherInput, false, leftLabeled);
+					if (leftLabeled)
+						fillOutAddtionalInfoNode(retVal,
+								maxInputParentNoOtherChild,
+								maxInputParentNoOtherInput, false, false);
 					fillOutUserViewablePreviousSibling(retVal,
 							maxInputParentNoOtherChild,
 							maxInputParentNoOtherInput, false);
@@ -384,13 +435,23 @@ public class WebFormUserInputsCollector extends WebFormElementsCollector {
 					// most likely field information is out of
 					// maxInputParentNoOtherInput
 					List<Node> tempList = new ArrayList<Node>();
+					if (leftLabeled) {
 					tempList.add(maxInputParentNoOtherInput
 							.getPreviousSibling());
 					tempList.add(maxInputParentNoOtherInput);
+					} else {
+						tempList.add(maxInputParentNoOtherInput);
+						tempList.add(maxInputParentNoOtherInput
+								.getNextSibling());
+					}
 					retVal.setMachineLearningDomHtmlPointer(tempList);
 
-					retVal.setLabelDomPointer(maxInputParentNoOtherInput
+					if (leftLabeled)
+						retVal.setLabelDomPointer(maxInputParentNoOtherInput
 							.getPreviousSibling());
+					else
+						retVal.setLabelDomPointer(maxInputParentNoOtherInput
+								.getNextSibling());
 
 					if ($(
 							maxInputParentNoOtherInput.getNextSibling()
@@ -399,10 +460,11 @@ public class WebFormUserInputsCollector extends WebFormElementsCollector {
 									maxInputParentNoOtherInput.getNextSibling()
 											.getNextSibling()).find("textarea")
 									.isEmpty()) {
-						fillOutAddtionalInfoNode(retVal,
-								maxInputParentNoOtherInput,
-								maxInputParentNoOtherInput.getParentNode(),
-								false, true);
+						if (leftLabeled)
+							fillOutAddtionalInfoNode(retVal,
+									maxInputParentNoOtherInput,
+									maxInputParentNoOtherInput.getParentNode(),
+									false, true);
 					}
 					fillOutUserViewablePreviousSibling(retVal,
 							maxInputParentNoOtherInput,
