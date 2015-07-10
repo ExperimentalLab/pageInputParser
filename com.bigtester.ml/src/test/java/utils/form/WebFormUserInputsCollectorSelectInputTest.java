@@ -31,50 +31,76 @@ import org.xml.sax.InputSource;
 import org.xml.sax.SAXException;
 
 public class WebFormUserInputsCollectorSelectInputTest {
+	public final static String[] TEST_HTML_FILES = {
+
+			"/src/test/resource/utils/form/Red Ventures Careers - Principal QA Engineer.html",
+			"/src/test/resource/utils/form/Marketo Careers - Apply.html" };
+	public final static String[] FORM_NAMES = { "", "jobviteframe" };
+
 	@Test
 	public void f() throws SAXException, IOException,
 			ParserConfigurationException, TransformerException {
-		WebDriver firefox = new FirefoxDriver();
-		firefox.get("file:///" + System.getProperty("user.dir")+"/src/test/resource/utils/form/Marketo Careers - Apply.html");
-		 List<WebElement> iframes = firefox.findElements(By.id("jobviteframe"));
-		 
-		 firefox.switchTo().frame(iframes.get(0));
-		String source = firefox.getPageSource();
+		for (int j = 0; j < TEST_HTML_FILES.length; j++) {
+			WebDriver firefox = new FirefoxDriver();
+			firefox.get("file:///" + System.getProperty("user.dir")
+					+ TEST_HTML_FILES[j]);
+			if (FORM_NAMES[j].length() > 0) {
+				List<WebElement> iframes = firefox.findElements(By
+						.id(FORM_NAMES[j]));
 
-		 TolerantSaxDocumentBuilder tolerantSaxDocumentBuilder = new TolerantSaxDocumentBuilder(XMLUnit.newTestParser());
-         HTMLDocumentBuilder db = new HTMLDocumentBuilder(tolerantSaxDocumentBuilder);
-//		DocumentBuilder db = DocumentBuilderFactory.newInstance()
-//				.newDocumentBuilder();
-//		InputSource is = new InputSource();
-//		is.setCharacterStream(new StringReader(source));
+				firefox.switchTo().frame(iframes.get(0));
+			}
+			String source = firefox.getPageSource();
 
-		Document doc = db.parse(new StringReader(source));
-		WebFormUserInputsCollector col = new WebFormUserInputsCollector(doc);
-		System.out.println("\n*******************\n");
-		System.out.println("\n*******************\n");
-		for (UserInputDom dom : col.getUserInputs()) {
-			
-			printDocument(dom.getDomNodePointer(), System.out);
-			System.out.println("\n--above Node print----\n");
-			
-			List<Node> nodes = dom.getMachineLearningDomHtmlPointers();
-			if (nodes != null)
-				for (Node node : nodes)
-					printDocument(node, System.out);
-			System.out.println("\n------above node ML code---------\n");
-			printDocument(dom.getLabelDomPointer(), System.out);
-			System.out.println("\n------above node lable code-----------------------\n");
-			
-			List<Node> nodes2 = dom.getAdditionalInfoNodes();
-			if (nodes2 != null)
-				for (Node node2 : nodes2)
-					printDocument(node2, System.out);
-			System.out.println("\n=======above node additional info code=========\n");
+			DocumentBuilder db = DocumentBuilderFactory.newInstance()
+					.newDocumentBuilder();
+			InputSource is = new InputSource();
+			is.setCharacterStream(new StringReader(source));
+			Document doc;
+			WebFormUserInputsCollector col;
+			try {
+				doc = db.parse(is);
+				col = new WebFormUserInputsCollector(doc);
+			} catch (SAXException e) {
+				TolerantSaxDocumentBuilder tolerantSaxDocumentBuilder = new TolerantSaxDocumentBuilder(
+						XMLUnit.newTestParser());
+				HTMLDocumentBuilder db1 = new HTMLDocumentBuilder(
+						tolerantSaxDocumentBuilder);
+				doc = db1.parse(new StringReader(source));
+				 col = new WebFormUserInputsCollector(doc);
+			}
 
+			// System.out.println(source);
+
+			System.out.println("\n*******************\n");
+			System.out.println("\n*******************\n");
+			for (UserInputDom dom : col.getUserInputs()) {
+
+				printDocument(dom.getDomNodePointer(), System.out);
+				System.out.println("\n--above Node print----\n");
+
+				List<Node> nodes = dom.getMachineLearningDomHtmlPointers();
+				if (nodes != null)
+					for (Node node : nodes)
+						printDocument(node, System.out);
+				System.out.println("\n------above node ML code---------\n");
+				printDocument(dom.getLabelDomPointer(), System.out);
+				System.out
+						.println("\n------above node lable code-----------------------\n");
+
+				List<Node> nodes2 = dom.getAdditionalInfoNodes();
+				if (nodes2 != null)
+					for (Node node2 : nodes2)
+						printDocument(node2, System.out);
+				System.out
+						.println("\n=======above node additional info code=========\n");
+
+			}
+
+			firefox.quit();
+			System.out.println("\n=======****FILE PARSING IS DONE for: "
+					+ TEST_HTML_FILES[j] + "****=========\n");
 		}
-
-		// }
-		firefox.quit();
 	}
 
 	public static void printDocument(Node doc, OutputStream out)

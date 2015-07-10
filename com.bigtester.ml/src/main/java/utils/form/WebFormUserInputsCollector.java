@@ -98,33 +98,6 @@ public class WebFormUserInputsCollector extends WebFormElementsCollector {
 				}
 			}
 		}
-
-//		NodeList htmlTextAreas = domDoc.getElementsByTagName("textarea");
-//		for (int i = 0; i < htmlTextAreas.getLength(); i++) {
-//			Node coreNode = htmlTextAreas.item(i);
-//			if ($(coreNode).parentsUntil("form").isNotEmpty()) {
-//				List<Element> parents = $(coreNode).parentsUntil("form")
-//						.parent().get();
-//				userInputs.add(initUserInputDomInsideOfForm(domDoc, coreNode,
-//						parents.get(parents.size() - 1)));
-//			} else {
-//				// TODO collect input out of form element
-//			}
-//		}
-//		
-//		NodeList htmlSelects = domDoc.getElementsByTagName("select");
-//		for (int i = 0; i < htmlSelects.getLength(); i++) {
-//			Node coreNode = htmlSelects.item(i);
-//			if ($(coreNode).parentsUntil("form").isNotEmpty()) {
-//				List<Element> parents = $(coreNode).parentsUntil("form")
-//						.parent().get();
-//				userInputs.add(initUserInputDomInsideOfForm(domDoc, coreNode,
-//						parents.get(parents.size() - 1)));
-//			} else {
-//				// TODO collect input out of form element
-//			}
-//		}
-
 	}
 
 	private void fillOutNonLabeledFieldLabelDomPointer(
