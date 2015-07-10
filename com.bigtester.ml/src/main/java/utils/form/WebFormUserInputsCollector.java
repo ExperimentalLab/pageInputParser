@@ -63,35 +63,67 @@ public class WebFormUserInputsCollector extends WebFormElementsCollector {
 		collectUserInputs(super.getCleanedDoc());
 	}
 
+	private boolean isUserChangableInputType(Node node) {
+		boolean retVal = true;
+		String nodeTag = node.getNodeName();
+		if (nodeTag.equalsIgnoreCase("input")) {
+			for (int i=0; i<USER_NOT_CHANGABLE_INPUT_TYPES.length; i++) {
+				if ($(node).attr("type").equalsIgnoreCase(USER_NOT_CHANGABLE_INPUT_TYPES[i])) {
+					retVal = false;
+					break;
+				}
+			}
+		} else {
+			retVal = true;
+		}
+		return retVal;
+	}
+	
 	private void collectUserInputs(Document domDoc) {
-		NodeList htmlInputs = domDoc.getElementsByTagName("input");
-		for (int i = 0; i < htmlInputs.getLength(); i++) {
-			Node coreNode = htmlInputs.item(i);
-			if ($(coreNode).parentsUntil("form").isNotEmpty()
-					&& !$(coreNode).attr("type").equalsIgnoreCase("hidden")) {
+		for (int j = 0; j < USER_CHANGABLE_INPUT_TAGS.length; j++) {
+			NodeList htmlInputs = domDoc
+					.getElementsByTagName(USER_CHANGABLE_INPUT_TAGS[j]);
+			for (int i = 0; i < htmlInputs.getLength(); i++) {
+				Node coreNode = htmlInputs.item(i);
+				if ($(coreNode).parentsUntil("form").isNotEmpty()
+						&& isUserChangableInputType(coreNode)) {
 
-				List<Element> parents = $(coreNode).parentsUntil("form")
-						.parent().get();
-				userInputs.add(initUserInputDomInsideOfForm(domDoc, coreNode,
-						parents.get(parents.size() - 1)));
+					List<Element> parents = $(coreNode).parentsUntil("form")
+							.parent().get();
+					userInputs.add(initUserInputDomInsideOfForm(domDoc,
+							coreNode, parents.get(parents.size() - 1)));
 
-			} else {
-				// TODO collect input out of form element
+				} else {
+					// TODO collect input out of form element
+				}
 			}
 		}
 
-		NodeList htmlTextAreas = domDoc.getElementsByTagName("textarea");
-		for (int i = 0; i < htmlTextAreas.getLength(); i++) {
-			Node coreNode = htmlTextAreas.item(i);
-			if ($(coreNode).parentsUntil("form").isNotEmpty()) {
-				List<Element> parents = $(coreNode).parentsUntil("form")
-						.parent().get();
-				userInputs.add(initUserInputDomInsideOfForm(domDoc, coreNode,
-						parents.get(parents.size() - 1)));
-			} else {
-				// TODO collect input out of form element
-			}
-		}
+//		NodeList htmlTextAreas = domDoc.getElementsByTagName("textarea");
+//		for (int i = 0; i < htmlTextAreas.getLength(); i++) {
+//			Node coreNode = htmlTextAreas.item(i);
+//			if ($(coreNode).parentsUntil("form").isNotEmpty()) {
+//				List<Element> parents = $(coreNode).parentsUntil("form")
+//						.parent().get();
+//				userInputs.add(initUserInputDomInsideOfForm(domDoc, coreNode,
+//						parents.get(parents.size() - 1)));
+//			} else {
+//				// TODO collect input out of form element
+//			}
+//		}
+//		
+//		NodeList htmlSelects = domDoc.getElementsByTagName("select");
+//		for (int i = 0; i < htmlSelects.getLength(); i++) {
+//			Node coreNode = htmlSelects.item(i);
+//			if ($(coreNode).parentsUntil("form").isNotEmpty()) {
+//				List<Element> parents = $(coreNode).parentsUntil("form")
+//						.parent().get();
+//				userInputs.add(initUserInputDomInsideOfForm(domDoc, coreNode,
+//						parents.get(parents.size() - 1)));
+//			} else {
+//				// TODO collect input out of form element
+//			}
+//		}
 
 	}
 
