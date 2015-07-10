@@ -1,9 +1,11 @@
 package utils.form;
 
+import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.OutputStream;
 import java.io.OutputStreamWriter;
 import java.io.StringReader;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.xml.parsers.DocumentBuilder;
@@ -16,6 +18,7 @@ import javax.xml.transform.TransformerFactory;
 import javax.xml.transform.dom.DOMSource;
 import javax.xml.transform.stream.StreamResult;
 
+import org.apache.commons.lang3.StringUtils;
 import org.custommonkey.xmlunit.HTMLDocumentBuilder;
 import org.custommonkey.xmlunit.TolerantSaxDocumentBuilder;
 import org.custommonkey.xmlunit.XMLUnit;
@@ -30,15 +33,18 @@ import org.w3c.dom.Node;
 import org.xml.sax.InputSource;
 import org.xml.sax.SAXException;
 
+import trainer.userinput.TestCSV;
+import trainer.userinput.UserInputsTrainer;
+
 public class WebFormUserInputsCollectorSelectInputTest {
 	public final static String[] TEST_HTML_FILES = {
-			"/src/test/resources/utils/form/Red Ventures Careers - Principal QA Engineer.html",
-			"/src/test/resources/utils/form/Marketo Careers - Apply.html" };
+			"/src/test/resources/utils/form/Red Ventures Careers - Principal QA Engineer.html"};
+			//"/src/test/resources/utils/form/Marketo Careers - Apply.html" };
 	public final static String[] FORM_NAMES = { "", "jobviteframe" };
 
 	@Test
 	public void f() throws SAXException, IOException,
-			ParserConfigurationException, TransformerException {
+			ParserConfigurationException, TransformerException, ClassNotFoundException {
 		for (int j = 0; j < TEST_HTML_FILES.length; j++) {
 			WebDriver firefox = new FirefoxDriver();
 			firefox.get("file:///" + System.getProperty("user.dir")
@@ -74,9 +80,18 @@ public class WebFormUserInputsCollectorSelectInputTest {
 
 			System.out.println("\n*******************\n");
 			System.out.println("\n*******************\n");
+			List<String> csvStrings = new ArrayList<String>();
 			for (UserInputDom dom : col.getUserInputs()) {
-
-				printDocument(dom.getDomNodePointer(), System.out);
+				String temp="";
+				for (Node node : dom.getMachineLearningDomHtmlPointers()) {
+					ByteArrayOutputStream stringOutput = new ByteArrayOutputStream();
+					printDocument(node, stringOutput);
+					stringOutput.toString();
+					temp = temp + stringOutput.toString();
+				}
+				if (StringUtils.isNotEmpty(temp))
+					csvStrings.add(temp);
+				
 				System.out.println("\n--above Node print----\n");
 
 				List<Node> nodes = dom.getMachineLearningDomHtmlPointers();
@@ -100,7 +115,11 @@ public class WebFormUserInputsCollectorSelectInputTest {
 			firefox.quit();
 			System.out.println("\n=======****FILE PARSING IS DONE for: "
 					+ TEST_HTML_FILES[j] + "****=========\n");
+			
+			TestCSV.writeCsvFile(csvStrings);
 		}
+		UserInputsTrainer trainer = new UserInputsTrainer();
+		trainer.train();
 	}
 
 	public static void printDocument(Node doc, OutputStream out)

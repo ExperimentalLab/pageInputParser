@@ -18,16 +18,16 @@ import edu.stanford.nlp.objectbank.ObjectBank;
 import edu.stanford.nlp.util.ErasureUtils;
 
 public class UserInputsTrainer {
-	private static String propertyFile = "/src/test/resources/trainer/userinput/fieldtest.prop";
-	private static String trainingFile = "/src/test/resources/trainer/userinput/train.txt";
-	private static String testFile = "/src/test/resources/trainer/userinput/test.txt";
-	
+	public static String PROPERTYFILE = System.getProperty("user.dir") + "/src/test/resources/trainer/userinput/fieldtest.prop";
+	public static String TRAININGFILE = System.getProperty("user.dir") + "/src/test/resources/trainer/userinput/train.txt";
+	public static String TESTFILE = System.getProperty("user.dir") + "/src/test/resources/trainer/userinput/test.txt";
+	@Test
 	public void train() throws ClassNotFoundException, IOException {
 		ColumnDataClassifier cdc = new ColumnDataClassifier(
-				System.getProperty("user.dir") + propertyFile);
+				 PROPERTYFILE);
 		Classifier<String, String> cl = cdc.makeClassifier(cdc
-				.readTrainingExamples(System.getProperty("user.dir") + trainingFile));
-		for (String line : ObjectBank.getLineIterator(System.getProperty("user.dir") + testFile, "utf-8")) {
+				.readTrainingExamples( TRAININGFILE));
+		for (String line : ObjectBank.getLineIterator( TESTFILE, "utf-8")) {
 			// instead of the method in the line below, if you have the
 			// individual elements
 			// already you can use cdc.makeDatumFromStrings(String[])
@@ -43,12 +43,12 @@ public class UserInputsTrainer {
 		System.out
 				.println("Demonstrating working with a serialized classifier");
 		ColumnDataClassifier cdc = new ColumnDataClassifier(
-				"C:/Documents and Settings/Administrator/My Documents/Downloads/standford_example/fieldtest.prop");
+				 PROPERTYFILE);
 		Classifier<String, String> cl = cdc.makeClassifier(cdc
-				.readTrainingExamples("C:/Documents and Settings/Administrator/My Documents/Downloads/standford_example/train.txt"));
+				.readTrainingExamples( TRAININGFILE));
 		
 		Classifier<String, String> cl2 = cdc.makeClassifier(cdc
-				.readTrainingExamples("C:/Documents and Settings/Administrator/My Documents/Downloads/standford_example/test.txt"));
+				.readTrainingExamples( TESTFILE));
 		
 		
 		// Exhibit serialization and deserialization working. Serialized to
@@ -66,14 +66,14 @@ public class UserInputsTrainer {
 				.readObject());
 		ois.close();
 		ColumnDataClassifier cdc2 = new ColumnDataClassifier(
-				"C:/Documents and Settings/Administrator/My Documents/Downloads/standford_example/fieldtest.prop");
+				 PROPERTYFILE);
 
 		// We compare the output of the deserialized classifier lc versus the
 		// original one cl
 		// For both we use a ColumnDataClassifier to convert text lines to
 		// examples
 		for (String line : ObjectBank.getLineIterator(
-				"C:/Documents and Settings/Administrator/My Documents/Downloads/standford_example/test.txt", "utf-8")) {
+				 TESTFILE, "utf-8")) {
 			Datum<String, String> d = cdc.makeDatumFromLine(line);
 			Datum<String, String> d2 = cdc2.makeDatumFromLine(line);
 			System.out.println(cl.classOf(d) + "  =origi=>  " + line );
