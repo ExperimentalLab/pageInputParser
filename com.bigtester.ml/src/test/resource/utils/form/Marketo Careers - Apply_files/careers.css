@@ -1,0 +1,7 @@
+@media only screen and (max-width: 40em) {
+  #jvform input[type="text"] {
+    width: 170px !important; }
+  #jvform #hiddenCoverLetter {
+    margin-left: 0 !important; }
+    #jvform #hiddenCoverLetter #jvcoverletter {
+      max-width: 95% !important; } }

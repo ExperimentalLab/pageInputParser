@@ -1,0 +1,108 @@
+﻿.jvdlgtext
+    	{
+			font-family: Trebuchet MS, Trebuchet, Verdana, Arial, Helvetica, sans-serif;
+			font-size: 12px;
+    	}
+		.jvdlgborder1
+		{
+			border: solid 2px White;
+			background-color: White;
+		}
+		.jvdlgborder2
+		{
+			border: solid 2px #8c8c8c;
+		}
+		.jvdlgtitle
+		{
+			padding: 3px 3px 3px 3px;
+			background-color: #8c8c8c;
+			font-family: Trebuchet MS, Trebuchet, Verdana, Arial, Helvetica, sans-serif;
+			font-size: 20px;
+			color: White;
+			text-align: center;
+		}
+		.jvdlgborder3
+		{
+			padding: 5px 5px 5px 5px;
+		}
+		.jvpopupcss
+		{
+			position: absolute;
+			z-index: 20;
+		}
+   		.jverror
+		{
+			background-color: #ffd8d9;
+		}
+		.jvheader
+		{
+			font-size: 16px;
+			font-weight: bold;
+			padding-bottom: 20px;
+		}
+		.jvjobtitle
+		{
+			font-weight: bold;
+		}
+		.jvrowspace
+		{
+			height: 8px;
+		}
+		.jvcol1
+		{
+			width: 120px;
+			font-weight: bold;
+		}
+		.jvcol2
+		{
+			width: 80%;
+		}
+		.jvsectionheader
+		{
+			font-weight: bold;
+			padding-bottom: 5px;
+		}
+		.jvtextwidth
+		{
+			width: 95%;
+		}
+		.jvtext {
+			font-family: Arial, Helvetica, sans-serif;
+			font-size: 12px;
+		}
+		.jvtextarea {
+			font-family: Arial, Helvetica, sans-serif;
+			font-size: 12px;
+		}
+		.jvrecipient {
+			padding-top: 5px;
+		}
+		.jvseparator{
+			font-size: 8px;
+			background-image: url(<jvbaseurl />images2/lpix.gif); background-position: right center; background-repeat:repeat-x;
+			padding-top:5px;
+			padding-bottom:5px;
+		}
+		.jvspace
+		{
+			line-height: 0px;
+		}
+		.jvname
+		{
+			width: 100px;
+		}
+		.jvemail
+		{
+			width: 120px;
+		}
+		.jvwatermarkclass
+		{
+			background-color: InfoBackground;
+			color: #333333;
+		}
+		.jvcategory 
+		{ 
+		    padding-top:20px; padding-bottom: 6px; font: 12px Arial,Verdana,Helvetica,sans-serif; text-transform: uppercase; font-weight: bold; 
+		 }
+		 
+		  
