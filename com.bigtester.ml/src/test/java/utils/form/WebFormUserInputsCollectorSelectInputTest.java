@@ -33,13 +33,14 @@ import org.w3c.dom.Node;
 import org.xml.sax.InputSource;
 import org.xml.sax.SAXException;
 
-import trainer.userinput.TestCSV;
+import trainer.userinput.TrainingFileDB;
+import trainer.userinput.UserInputTrainingRecord;
 import trainer.userinput.UserInputsTrainer;
 
 public class WebFormUserInputsCollectorSelectInputTest {
 	public final static String[] TEST_HTML_FILES = {
 			"/src/test/resources/utils/form/Red Ventures Careers - Principal QA Engineer.html"};
-			//"/src/test/resources/utils/form/Marketo Careers - Apply.html" };
+//			"/src/test/resources/utils/form/Marketo Careers - Apply.html" };
 	public final static String[] FORM_NAMES = { "", "jobviteframe" };
 
 	@Test
@@ -116,10 +117,12 @@ public class WebFormUserInputsCollectorSelectInputTest {
 			System.out.println("\n=======****FILE PARSING IS DONE for: "
 					+ TEST_HTML_FILES[j] + "****=========\n");
 			
-			TestCSV.writeCsvFile(csvStrings);
+			TrainingFileDB.writeTestCsvFile(csvStrings);
 		}
 		UserInputsTrainer trainer = new UserInputsTrainer();
-		trainer.train();
+		List<UserInputTrainingRecord> trainedRecords = trainer.train();
+		TrainingFileDB.writeCacheCsvFile("begin","end",trainedRecords);
+		
 	}
 
 	public static void printDocument(Node doc, OutputStream out)

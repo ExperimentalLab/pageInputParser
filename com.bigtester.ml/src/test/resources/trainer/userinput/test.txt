@@ -1,10 +1,10 @@
-" "	"<fieldset><input aria-required=""true"" class=""input_text"" id=""first_name"" name=""first_name"" placeholder=""First Name*"" required="""" type=""text""/></fieldset>"
-" "	"<fieldset><input aria-required=""true"" class=""input_text"" id=""last_name"" name=""last_name"" placeholder=""Last Name*"" required="""" type=""text""/></fieldset>"
-" "	"<fieldset><input aria-required=""true"" class=""input_text"" id=""email"" name=""email"" placeholder=""Email*"" required="""" type=""email""/></fieldset>"
-" "	"<fieldset><input class=""input_text"" id=""phone"" name=""phone"" placeholder=""Phone"" type=""text""/></fieldset>"
-" "	"<fieldset><input class=""input_text"" id=""location"" name=""location"" placeholder=""Location"" type=""text""/></fieldset>"
-" "	"<fieldset class=""has-border""><label for=""resume"">Resume </label><input class=""input_file"" name=""resume"" placeholder=""Resume"" type=""file""/></fieldset>"
-" "	"<fieldset class=""has-border""><label for=""cover_letter"">Cover Letter </label><input class=""input_file"" name=""cover_letter"" placeholder=""Cover Letter"" type=""file""/></fieldset>"
-" "	"<fieldset><input class=""input_text"" id=""question_415536"" name=""question_415536"" placeholder=""LinkedIn Profile"" type=""url""/></fieldset>"
-" "	"<fieldset><input class=""input_text"" id=""question_415537"" name=""question_415537"" placeholder=""Website"" type=""url""/></fieldset>"
-" "	"<fieldset><input class=""input_text"" id=""question_415538"" name=""question_415538"" placeholder=""How did you hear about this job?"" type=""text""/></fieldset>"
+ 	<fieldset><input aria-required="true" class="input_text" id="first_name" name="first_name" placeholder="First Name*" required="" type="text"/></fieldset>
+ 	<fieldset><input aria-required="true" class="input_text" id="last_name" name="last_name" placeholder="Last Name*" required="" type="text"/></fieldset>
+ 	<fieldset><input aria-required="true" class="input_text" id="email" name="email" placeholder="Email*" required="" type="email"/></fieldset>
+ 	<fieldset><input class="input_text" id="phone" name="phone" placeholder="Phone" type="text"/></fieldset>
+ 	<fieldset><input class="input_text" id="location" name="location" placeholder="Location" type="text"/></fieldset>
+ 	<fieldset class="has-border"><label for="resume">Resume </label><input class="input_file" name="resume" placeholder="Resume" type="file"/></fieldset>
+ 	<fieldset class="has-border"><label for="cover_letter">Cover Letter </label><input class="input_file" name="cover_letter" placeholder="Cover Letter" type="file"/></fieldset>
+ 	<fieldset><input class="input_text" id="question_415536" name="question_415536" placeholder="LinkedIn Profile" type="url"/></fieldset>
+ 	<fieldset><input class="input_text" id="question_415537" name="question_415537" placeholder="Website" type="url"/></fieldset>
+ 	<fieldset><input class="input_text" id="question_415538" name="question_415538" placeholder="How did you hear about this job?" type="text"/></fieldset>

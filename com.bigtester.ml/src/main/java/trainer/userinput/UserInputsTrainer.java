@@ -7,8 +7,13 @@ import java.io.ByteArrayOutputStream;
 import java.io.ObjectOutputStream;
 import java.io.ObjectInputStream;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
+import org.apache.commons.csv.CSVParser;
 import org.testng.annotations.Test;
+
+import com.google.common.collect.Iterables;
 
 import edu.stanford.nlp.classify.Classifier;
 import edu.stanford.nlp.classify.ColumnDataClassifier;
@@ -21,8 +26,10 @@ public class UserInputsTrainer {
 	public static String PROPERTYFILE = System.getProperty("user.dir") + "/src/test/resources/trainer/userinput/fieldtest.prop";
 	public static String TRAININGFILE = System.getProperty("user.dir") + "/src/test/resources/trainer/userinput/train.txt";
 	public static String TESTFILE = System.getProperty("user.dir") + "/src/test/resources/trainer/userinput/test.txt";
-	@Test
-	public void train() throws ClassNotFoundException, IOException {
+	public static String CACHEFILE = System.getProperty("user.dir") + "/src/test/resources/trainer/userinput/cache.txt";
+	
+	
+	public List<UserInputTrainingRecord> train() throws ClassNotFoundException, IOException {
 		ColumnDataClassifier cdc = new ColumnDataClassifier(
 				 PROPERTYFILE);
 		Classifier<String, String> cl = cdc.makeClassifier(cdc
@@ -35,10 +42,10 @@ public class UserInputsTrainer {
 			System.out.println(line + "  ==>  " + cl.classOf(d));
 		}
 
-		demonstrateSerialization();
+		return demonstrateSerialization();
 	}
 
-	public static void demonstrateSerialization() throws IOException,
+	public List<UserInputTrainingRecord> demonstrateSerialization() throws IOException,
 			ClassNotFoundException {
 		System.out
 				.println("Demonstrating working with a serialized classifier");
@@ -72,10 +79,14 @@ public class UserInputsTrainer {
 		// original one cl
 		// For both we use a ColumnDataClassifier to convert text lines to
 		// examples
+		List<UserInputTrainingRecord> retVal = new ArrayList<UserInputTrainingRecord>();
 		for (String line : ObjectBank.getLineIterator(
 				 TESTFILE, "utf-8")) {
 			Datum<String, String> d = cdc.makeDatumFromLine(line);
 			Datum<String, String> d2 = cdc2.makeDatumFromLine(line);
+			if (TrainingFileDB.parseLine(line) != null)
+				retVal.add(new UserInputTrainingRecord(cl.classOf(d),TrainingFileDB.parseLine(line).getInputMLHtmlCode()));
+			
 			System.out.println(cl.classOf(d) + "  =origi=>  " + line );
 			System.out.println(cl2.classOf(d)+ "  =test origi=> " + line);
 			System.out.println("score against email: " + lc.scoreOf(d2, "email") + "  =deser=>  " +  line );
@@ -86,6 +97,7 @@ public class UserInputsTrainer {
 			System.out.println("score against "+ cl.classOf(d) + ": " + lc.scoreOf(d2, cl.classOf(d)) + "  =deser=>  " +  line );
 			System.out.println("==========================");
 		}
+		return retVal;
 	}
 
 }
