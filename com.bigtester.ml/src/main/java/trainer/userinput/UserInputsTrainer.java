@@ -1,12 +1,14 @@
-package stanford;
+package trainer.userinput;
 
-import org.testng.annotations.Test;
+
 
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.ObjectOutputStream;
 import java.io.ObjectInputStream;
 import java.io.IOException;
+
+import org.testng.annotations.Test;
 
 import edu.stanford.nlp.classify.Classifier;
 import edu.stanford.nlp.classify.ColumnDataClassifier;
@@ -15,14 +17,17 @@ import edu.stanford.nlp.ling.Datum;
 import edu.stanford.nlp.objectbank.ObjectBank;
 import edu.stanford.nlp.util.ErasureUtils;
 
-public class FieldTest {
-	@Test
-	public void f() throws ClassNotFoundException, IOException {
+public class UserInputsTrainer {
+	private static String propertyFile = "/src/test/resources/trainer/userinput/fieldtest.prop";
+	private static String trainingFile = "/src/test/resources/trainer/userinput/train.txt";
+	private static String testFile = "/src/test/resources/trainer/userinput/test.txt";
+	
+	public void train() throws ClassNotFoundException, IOException {
 		ColumnDataClassifier cdc = new ColumnDataClassifier(
-				"C:/Documents and Settings/Administrator/My Documents/Downloads/standford_example/fieldtest.prop");
+				System.getProperty("user.dir") + propertyFile);
 		Classifier<String, String> cl = cdc.makeClassifier(cdc
-				.readTrainingExamples("C:/Documents and Settings/Administrator/My Documents/Downloads/standford_example/train.txt"));
-		for (String line : ObjectBank.getLineIterator("C:/Documents and Settings/Administrator/My Documents/Downloads/standford_example/test.txt", "utf-8")) {
+				.readTrainingExamples(System.getProperty("user.dir") + trainingFile));
+		for (String line : ObjectBank.getLineIterator(System.getProperty("user.dir") + testFile, "utf-8")) {
 			// instead of the method in the line below, if you have the
 			// individual elements
 			// already you can use cdc.makeDatumFromStrings(String[])

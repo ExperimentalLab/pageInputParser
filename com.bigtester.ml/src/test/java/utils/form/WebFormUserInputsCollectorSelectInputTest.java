@@ -33,8 +33,8 @@ import org.xml.sax.SAXException;
 public class WebFormUserInputsCollectorSelectInputTest {
 	public final static String[] TEST_HTML_FILES = {
 
-			"/src/test/resource/utils/form/Red Ventures Careers - Principal QA Engineer.html",
-			"/src/test/resource/utils/form/Marketo Careers - Apply.html" };
+			"/src/test/resources/utils/form/Red Ventures Careers - Principal QA Engineer.html",
+			"/src/test/resources/utils/form/Marketo Careers - Apply.html" };
 	public final static String[] FORM_NAMES = { "", "jobviteframe" };
 
 	@Test
