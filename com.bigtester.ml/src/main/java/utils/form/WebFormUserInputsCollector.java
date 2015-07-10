@@ -56,9 +56,16 @@ public class WebFormUserInputsCollector extends WebFormElementsCollector {
 
 	final private List<UserInputDom> userInputs = new ArrayList<UserInputDom>();
 
-	public WebFormUserInputsCollector(Document domDoc)
+	/**
+	 * Instantiates a new web form user inputs collector.
+	 *
+	 * @param domDoc the dom doc
+	 * @param parentFrame the parent frame nullable
+	 * @throws ParserConfigurationException the parser configuration exception
+	 */
+	public WebFormUserInputsCollector(Document domDoc, String xpathOfParentFrame)
 			throws ParserConfigurationException {
-		super(domDoc);
+		super(domDoc, xpathOfParentFrame);
 
 		collectUserInputs(super.getCleanedDoc());
 	}
@@ -293,6 +300,7 @@ public class WebFormUserInputsCollector extends WebFormElementsCollector {
 		
 		boolean leftLabeled = isLeftLabeled(inputNode);
 		
+		retVal.setxPath($(inputNode).xpath());
 		retVal.setParentFormPointer(form);
 	
 		Node maxInputParentNoOtherInput = getMaxInputParentNoOtherInput(inputNode, true);
