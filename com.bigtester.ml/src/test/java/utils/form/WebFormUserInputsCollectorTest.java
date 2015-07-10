@@ -32,7 +32,7 @@ public class WebFormUserInputsCollectorTest {
 	public void f() throws SAXException, IOException,
 			ParserConfigurationException, TransformerException {
 		WebDriver firefox = new FirefoxDriver();
-		firefox.get("file:///c:/test.html");
+		firefox.get("file:///" + System.getProperty("user.dir")+"/src/test/resource/utils/form/Red Ventures Careers - Principal QA Engineer.html");
 		// List<WebElement> iframes =
 		// firefox.findElements(By.id("jobviteframe"));
 		// for (WebElement frame : iframes) {
