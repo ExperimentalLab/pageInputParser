@@ -36,10 +36,24 @@ import org.w3c.dom.NodeList;
  *
  */
 abstract public class WebFormElementsCollector {
+	
+	/** The dom doc. */
 	final private Document domDoc;
+	
+	/** The cleaned doc. */
 	final private Document cleanedDoc;
+	
+	/** The parent frame. */
+	private String xpathOfParentFrame;
 
-	public WebFormElementsCollector(Document domDoc)
+	/**
+	 * Instantiates a new web form elements collector.
+	 *
+	 * @param domDoc the dom doc
+	 * @param parentFrame the parent frame, Nullable
+	 * @throws ParserConfigurationException the parser configuration exception
+	 */
+	public WebFormElementsCollector(Document domDoc, String xpathOfParentFrame)
 			throws ParserConfigurationException {
 		this.domDoc = domDoc;
 		DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
@@ -50,24 +64,14 @@ abstract public class WebFormElementsCollector {
 		Node root = cleanedDoc.importNode(domDoc.getDocumentElement(), true);
 		cleanedDoc.appendChild(root);
 		fnCleanNode(cleanedDoc.getDocumentElement());
-//		NodeList allNodes = domDoc.getChildNodes();
-//		for (int i = 0; i < allNodes.getLength(); i++) {
-//			Node t = allNodes.item(i);
-//			switch (t.getNodeType()) {
-//			case Node.ELEMENT_NODE: // Element Node
-//				fnCleanNode(t);
-//				break;
-//			case Node.TEXT_NODE: // Text Node
-//				if (!t.getNodeValue().trim().equals(""))
-//					break;
-//			case 8: // Comment Node (and Text Node without non-whitespace
-//					// content)
-//				domDoc.removeChild(t);
-//				i--;
-//			}
-//		}
+		this.xpathOfParentFrame = xpathOfParentFrame;
 	}
 
+	/**
+	 * Fn clean node.
+	 *
+	 * @param node the node
+	 */
 	private void fnCleanNode(Node node) {
 		int i = 0;
 		NodeList cNodes = node.getChildNodes();
@@ -99,6 +103,8 @@ abstract public class WebFormElementsCollector {
 	}
 
 	/**
+	 * Gets the dom doc.
+	 *
 	 * @return the webDriver
 	 */
 	public Document getDomDoc() {
@@ -106,6 +112,8 @@ abstract public class WebFormElementsCollector {
 	}
 
 	/**
+	 * Gets the cleaned doc.
+	 *
 	 * @return the cleanedDoc
 	 */
 	public final Document getCleanedDoc() {

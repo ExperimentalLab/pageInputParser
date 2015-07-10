@@ -24,6 +24,7 @@ import javax.xml.parsers.ParserConfigurationException;
 
 import org.openqa.selenium.WebDriver;
 import org.w3c.dom.Document;
+import org.w3c.dom.Node;
 
 // TODO: Auto-generated Javadoc
 /**
@@ -37,8 +38,8 @@ public class ConfirmButtonCandidatesCollector extends WebFormElementsCollector{
 	 * @param webD
 	 * @throws ParserConfigurationException 
 	 */
-	public ConfirmButtonCandidatesCollector(Document doc) throws ParserConfigurationException {
-		super(doc);
+	public ConfirmButtonCandidatesCollector(Document doc, String xpathOfParentFrame) throws ParserConfigurationException {
+		super(doc, xpathOfParentFrame);
 	}
 
 }

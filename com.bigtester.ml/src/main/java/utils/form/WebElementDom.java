@@ -31,9 +31,8 @@ import org.w3c.dom.Node;
 public class WebElementDom {
 	private Node domNodePointer; //Selenium Dom node;
 	private String xPath;
-//	private WebElementDom parent;
-//	private WebElementDom previousSibling;//Nullable
-//	private WebElementDom nextSibling;//Nullable
+	
+
 	WebElementDom(Node domPointer) {
 		setDomNodePointer(domPointer);
 	}
@@ -48,5 +47,17 @@ public class WebElementDom {
 	 */
 	public void setDomNodePointer(Node domNodePointer) {
 		this.domNodePointer = domNodePointer;
+	}
+	/**
+	 * @return the xPath
+	 */
+	public String getxPath() {
+		return xPath;
+	}
+	/**
+	 * @param xPath the xPath to set
+	 */
+	public void setxPath(String xPath) {
+		this.xPath = xPath;
 	}
 }
