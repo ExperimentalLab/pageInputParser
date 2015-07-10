@@ -1,0 +1,486 @@
+/*Universal Styles*/
+/* drop down menus */
+#primary-nav a {
+    display: block;
+    /*width: 10em;*/
+}
+
+#primary-nav li {
+    float: left;
+    /*width: 10em;*/
+}
+
+#primary-nav li ul {
+    position: absolute;
+    width: 220px;
+    left: -999em;
+    border: 1px solid rgb(255, 255, 255);
+    border: 1px solid rgba(255, 255, 255, 0.7);
+    z-index: 10;
+    background-color: rgb(50, 98, 149);
+    background-color: rgba(50, 98, 149, 0.7);
+}
+
+#primary-nav li:hover ul, #primary-nav li.sfhover ul {
+    left: auto;
+    margin: 45px 0 4px 0;
+}
+
+ul#primary-nav ul li {
+    width: 100%;
+}
+
+ul#primary-nav ul li a {
+    width: 100%;
+    display: block;
+    float: left;
+    text-align: left;
+    padding: 4px 16px;
+}
+.nav-bar .utility-nav li {
+	  font-size: 14px; }
+.nav-bar .utility-nav li a:hover, .nav-bar .utility-nav li a:active {
+      background: none; }
+
+body ul li {
+    font-family: 'Source Sans Pro', sans-serif;
+    font-style: normal;
+    font-weight: 300;
+    font-size: 18px;
+    line-height: 1.5; }
+	
+@media only screen and (max-width: 767px) {
+    /* line 6, module.scss */
+    .module-marquee-text h1 {
+      font-size: 34px;
+	  font-weight:300;
+      line-height: 32px; } }
+
+/* for hyperlinks on a colored background */
+
+a.theme-link-white:hover {
+ color: #019ef9;
+ font-weight:375; }
+ 
+ a.theme-link-white:visited {
+ color: #019ef9;
+ font-weight:375; }
+  
+a.theme-link-white {
+ color: #ffffff;
+ font-weight:375; }
+  
+  /*use this class for white text on blue background with image*/
+		
+.style-text-onblue {
+  font-weight: 375;
+  color: #ffffff;
+		 }	
+		 
+/* use this for a blue transparent background on video bars*/
+.theme-bkg-trans-blue {
+ background: url(../img/bkg/dot-trans-blue-80.png) 
+ repeat; }	 
+
+/*Login*/
+
+body section.login-bg{background-image:url(../img/bkg/prod-login.jpg)}
+@media only screen and (max-width: 767px) {
+	body section.login-bg{background-image:url(../img/bkg/prod-loginsmall.jpg)}
+}
+@media only screen and (max-width: 767px) {
+	.center-content-login{text-align: center;}
+}
+@media only screen and (max-width: 767px) {
+	.row .small-offset-login {position: relative; margin-left: 16.66667%; }
+}
+body section.loginsmall-bg{background-image:url(../img/bkg/prod-loginsmall.jpg)}
+
+.form-inputtextsize{
+	font-size:16px;
+}
+
+/*STAR Enterprise product page*/
+
+body section.stare-marquee{background-image:url(../img/bkg/prod-stare.jpg)}
+
+body section.stare-learnprog{background-image:url(../img/bkg/stare_bluebg_learnprog.jpg)}
+
+.module-video.starevid1{background-image:url(../img/bkg/stare-videobg1.jpg);-ms-filter:"progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../img/bkg/stare-videobg1.jpg',sizingMethod='scale')"}
+
+.module-video.starevid2{background-image:url(../img/bkg/stare-videobg2.jpg);-ms-filter:"progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../img/bkg/stare-videobg2.jpg',sizingMethod='scale')"}
+
+.style-bg-lightgrey{background:#ebebeb;}
+
+	/* Success Stories */
+	body section.star-success-stories-bg {
+	background-image: url(../img/bkg/star-success-stories-bg.jpg)}
+
+/*Reports page*/
+a.font-icon-link:hover, a.font-icon-link:active {
+    text-decoration: none; }
+
+a.font-icon-link:hover span, a.font-icon-link:active span {
+      color: #31b3ff; }
+	  
+a.font-icon-link p, a.font-icon-link p {
+      color: #ffffff; }
+	  
+a.font-icon-link:hover p, a.font-icon-link:active p {
+      color: #31b3ff; }
+
+/*STAR Early Literacy*/
+
+body section.starearlyliteracy-marquee{background-image:url(../img/bkg/prod-starearlyliteracy.jpg)}
+
+.module-video.starearlyliteracyvid1{background-image:url(../img/bkg/starearlyliteracy-videobg1.jpg);-ms-filter:"progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../img/bkg/starearlyliteracy-videobg1.jpg',sizingMethod='scale')"}
+.module-video.starearlyliteracyvid2{background-image:url(../img/bkg/starearlyliteracy-videobg2.jpg);-ms-filter:"progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../img/bkg/starearlyliteracy-videobg2.jpg',sizingMethod='scale')"}
+
+/*STAR Reading Enterprise*/
+
+body section.starreading-marquee{background-image:url(../img/bkg/prod-starreading.jpg)}
+
+.module-video.starreadingvid1{background-image:url(../img/bkg/starreading-videobg1.jpg);-ms-filter:"progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../img/bkg/starreading-videobg1.jpg',sizingMethod='scale')"}
+.module-video.starreadingvid2{background-image:url(../img/bkg/starreading-videobg2.jpg);-ms-filter:"progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../img/bkg/starreading-videobg2.jpg',sizingMethod='scale')"}
+
+/*STAR Reading Spanish*/
+
+body section.starspanish-marquee{background-image:url(../img/bkg/prod-starspanish.jpg)}
+body section.starspanish-lightbluebg{background-image:url(../img/bkg/starspanish_lightbluebg.jpg)}
+
+/*STAR Math Enterprise*/
+
+body section.starmath-marquee{background-image:url(../img/bkg/prod-starmath.jpg)}
+body section.computeradaptive-bluebg{background-image:url(../img/bkg/computeradaptive_bluebg.jpg)}
+
+.module-video.starmathvid1{background-image:url(../img/bkg/starmath-videobg1.jpg);-ms-filter:"progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../img/bkg/starmath-videobg1.jpg',sizingMethod='scale')"}
+.module-video.starmathvid2{background-image:url(../img/bkg/starmath-videobg2.jpg);-ms-filter:"progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../img/bkg/starmath-videobg2.jpg',sizingMethod='scale')"}
+
+/*Successful Reader*/
+
+body section.successfulreader-marquee{background-image:url(../img/bkg/prod-successfulreader.jpg)}
+body section.teacherstudent-lightbluebg{background-image:url(../img/bkg/successfulreader-lightbluebg.jpg)}
+
+.module-video.successfulreadervid1{background-image:url(../img/bkg/successfulreader-videobg1.jpg);-ms-filter:"progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../img/bkg/successfulreader-videobg1.jpg',sizingMethod='scale')"}
+.module-video.successfulreadervid2{background-image:url(../img/bkg/successfulreader-videobg2.jpg);-ms-filter:"progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../img/bkg/successfulreader-videobg2.jpg',sizingMethod='scale')"}
+
+	/* SFR Success Stories */
+	body section.successfulreader-success-stories-bg {
+	background-image: url(../img/bkg/successfulreader-success-stories-bg.jpg)}
+
+/*Sample Quizzes subpage*/
+
+body section.grey-marquee{background-color:#ebebeb;}
+
+.breadcrumb-bottom-line{border-bottom:1px solid #ebebeb;}
+
+@media only screen and (max-width:680px){.layout-tiny-padding-top-4{padding-top:3em !important;padding-top:3rem !important}}
+
+.theme-text-align-left{text-align:left;}
+
+.module-quiz-counter p {
+  font-family: 'Source Sans Pro', sans-serif;
+  font-style: normal;
+  font-weight: 300;
+  font-size: 5em;
+  margin-top: 5px;
+  line-height: 1; }
+
+/*ATOS subpage*/
+
+body section.atos-blastout{background-image:url(../img/bkg/atos_blastoutbg.jpg)}
+
+
+
+/*More Product Pages*/
+
+body section.darkblue-marquee{background-color:#326295;}
+.morelearn-ami{background-image:url(../img/bkg/prod-ami.jpg)}
+.morelearn-eiaf{background-image:url(../img/bkg/prod-eiaf.jpg)}
+.morelearn-arbookguide{background-image:url(../img/bkg/prod-arbookguide.jpg)}
+.morelearn-arbookfinder{background-image:url(../img/bkg/prod-arbookfinder.jpg)}
+.morelearn-renaissanceplace{background-image:url(../img/bkg/prod-renaissance-place.jpg)}
+.morelearn-PD{background-image:url(../img/bkg/prod-pd.jpg)}
+.morelearn-Renaissance-U{background-image:url(../img/bkg/prod-Renaissance-U.jpg)}
+
+	/*MORE NAV*/
+	.style-text-smaller {
+		font-size:17px; }
+	.style-text-smaller a {
+		color: #555555; }
+	.style-text-smaller a:hover {
+		color: #31b3ff;
+		text-decoration:none; }
+		
+
+	@media only screen and (max-width: 480px) {
+	.row .tiny-12 {
+    	position: relative;
+    	width: 100%; } }
+
+	@media only screen and (min-width: 767px) {
+		.layout-margin-top-neg-10 {
+		margin-top:-10px; } }
+	/*end of MORE NAV*/
+
+@media only screen and (min-width: 767px) and (max-width: 958px) {
+.layout-medium-margin-left-2 {
+    margin-left: 15px !important; } }
+
+/*About Us pages*/
+
+.aboutus-default{background-image:url(../img/bkg/prod-aboutus.jpg)}
+.aboutus-bluewindow{background-image:url(../img/bkg/aboutus-blue.jpg)}
+
+/*Business Alliances page*/
+body section.aboutus-businessalliances{background-image:url(../img/bkg/blue-teachers-assess.jpg)}
+
+/*Contact Us page*/
+body section.contacttus-default{background-image:url(../img/bkg/contactus-header.jpg)}
+body section.contactus-bluewindow{background-image:url(../img/bkg/contactus-blue.jpg)}
+body section.contactus-orangewindow{background-image:url(../img/bkg/contactus-orange.jpg)}
+
+@media only screen and (max-width: 767px) {
+    /* line 6, module.scss */
+    .title-left  {
+		text-align:left;
+    } }
+@media only screen and (max-width: 767px) {
+    /* line 6, module.scss */
+    .button-left  {
+		text-align:left;
+    } }
+	
+/*Core Progress Learning Progressions page*/
+
+body section.learningprogressions-marquee{background-image:url(../img/bkg/prod-learningprogressions.jpg)}
+body section.learningprogressions-key{background-image:url(../img/bkg/learningprogressions_bluebg_key.jpg)}
+body section.learningprogressions-research{background-image:url(../img/bkg/learningprogressions_lightbluebg_research.jpg)}
+
+/*Funding pages*/
+
+.module-video.fundvid1{background-image:url(../img/bkg/fundinghome-videowindowroberta.jpg);-ms-filter:"progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../img/bkg/fundinghome-videowindowroberta.jpg',sizingMethod='scale')"}
+
+.fundinghome-orangewindow{background-image:url(../img/bkg/fundinghome-orange.jpg)}
+.fundinghome-ltbluewindow{background-image:url(../img/bkg/fundinghome-ltblue.jpg)}
+.fundingpublic-bluewindow{background-image:url(../img/bkg/fundingpublic-bluewindow.jpg)}
+.fundingpublic-whitewindow{background-image:url(../img/bkg/fundingpublic-whitewindow.jpg)}
+
+/*Accelerated Math pages*/
+
+.acceleratedmath-default{background-image:url(../img/bkg/AM-home-header.jpg)}
+.acceleratedmath-default-bluewindow{background-image:url(../img/bkg/AM-home-bluewindow.jpg)}
+
+.module-video.amhomevid1{background-image:url(../img/bkg/amhome-videowindow.jpg);-ms-filter:"progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../img/bkg/amhome-videowindow.jpg',sizingMethod='scale')"}
+
+.module-video.amvidpage1{background-image:url(../img/bkg/am-vidpage1.jpg);-ms-filter:"progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../img/bkg/am-vidpage1.jpg',sizingMethod='scale')"}
+
+.module-video.amvidpage2{background-image:url(../img/bkg/am-vidpage2.jpg);-ms-filter:"progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../img/bkg/am-vidpage2.jpg',sizingMethod='scale')"}
+
+
+
+/*AR Home Connect*/
+body section.home-connect-banner{background-image:url(../img/bkg/home-connect-banner-bg.jpg)}
+/*End of AR Home Connect*/
+
+/*AR Reports*/
+body section.ar_reports-orange-bg{background-image:url(../img/bkg/ar_reports-orange-bg.jpg)}
+/*End of AR Reports*/
+
+/*AR ATOS and Text Complexity*/
+body section.ar-atos-and-text-complexity-blue-bg{
+	background-image:url(../img/bkg/ar-atos-and-text-complexity-blue-bg.jpg)}
+body section.ar-atos-and-text-complexity-orange-bg{
+	background-image:url(../img/bkg/ar-atos-and-text-complexity-orange-bg.jpg)}
+/*End of AR ATOS and Text Complexity*/
+
+/*AR Learn More*/
+body section.ar-learn-more-orange-bg{background-image:url(../img/bkg/ar-learn-more-orange-bg.jpg)}
+/*End of AR Learn More*/
+
+/*AR Success Stories*/
+body section.ar-success-stories-blue-bg{background-image:url(../img/bkg/ar-success-stories-blue-bg.jpg)}
+/*End of AR Success Stories*/
+
+
+/***********************************  AM Background Images  *****************************************/
+/*AM Success Stories*/
+body section.am-success-stories-blue-bg{background-image:url(../img/bkg/am-success-stories-blue-bg.jpg)}
+/*End of AM Success Stories*/
+
+/***********************************  AMI Background Images  *****************************************/
+/*AMI Main Marquee*/
+body section.ami-marquee{background-image:url(../img/bkg/prod-ami-bg.jpg)}
+/*End of AMI Main Marquee*/
+
+/************************** MathFacts iN A Flash Background Images ************************/
+/*MathFacts in a Flash*/
+body section.mf-header-bg{background-image:url(../img/bkg/mf-header-bg.jpg)}
+body section.mf-blue-bg{background-image:url(../img/bkg/mf-blue-bg.jpg)}
+body section.mf-orange-bg{background-image:url(../img/bkg/mf-orange-bg.jpg)} 
+/*End of MathFacts in a Flash*/ 
+ 
+ 
+ /***********************  RTI Background Images  *********************************/
+/*RTI*/
+body section.rti-orange-bg{background-image:url(../img/bkg/rti-orange-bg.jpg)}
+
+.module-video.rtivid1{background-image:url(../img/bkg/rti-video1-bg.jpg);-ms-filter:"progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../img/bkg/rti-video1-bg.jpg',sizingMethod='scale')"}
+
+.module-video.rtivid2{background-image:url(../img/bkg/rti-video2-bg.jpg);-ms-filter:"progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../img/bkg/rti-video2-bg.jpg',sizingMethod='scale')"}
+
+.module-video.rtivid3{background-image:url(../img/bkg/rti-video3-bg.jpg);-ms-filter:"progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../img/bkg/rti-video3-bg.jpg',sizingMethod='scale')"}
+/*End of RTI*/
+
+/************************** 2Know! Background Images ************************/
+body section.two-know-header-bg {
+  background-image: url(../img/bkg/2know-header-bg.jpg) }
+/*End of 2Know!*/  
+
+/************************** Research Background Images ************************/
+body section.research-orange-bg {
+  background-image: url(../img/bkg/research-orange-bg.jpg) }
+/*End of research*/  
+
+
+/************************** English in a Flash Background Images ************************/
+/* Success Stories */
+body section.eiaf-success-stories-bg {
+  background-image: url(../img/bkg/eiaf-success-stories-bg.jpg) }
+/* End of English in a Flash */
+
+
+
+/*THE CLASSES BELOW ARE FOR THE ACCORDION FUNCTION*/
+
+.ac-container{
+	width: 80%;
+	margin: 10px auto 30px auto;
+	text-align: left;
+}
+.ac-container label{
+	font-family: 'Source Sans Pro', sans-serif;
+	padding: 5px 20px;
+	position: relative;
+	z-index: 20;
+	display: block;
+
+	cursor: pointer;
+	color: #ff8100;
+	text-shadow: 1px 1px 1px rgba(255,255,255,0.8);
+	line-height: 33px;
+	font-size: 22px;
+	background: #ffffff;
+	
+	box-shadow: 
+		0px 0px 0px 1px rgba(155,155,155,0.3), 
+		1px 0px 0px 0px rgba(255,255,255,0.9) inset, 
+		0px 2px 2px rgba(0,0,0,0.1);
+}
+.ac-container label:hover{
+	background: #ebebeb;
+}
+.ac-container input:checked + label,
+.ac-container input:checked + label:hover{
+	background: #d5dfea;
+	color: #326295;
+	text-shadow: 0px 1px 1px rgba(255,255,255, 0.6);
+	box-shadow: 
+		0px 0px 0px 1px rgba(155,155,155,0.3), 
+		0px 2px 2px rgba(0,0,0,0.1);
+}
+.ac-container label:hover:after,
+.ac-container input:checked + label:hover:after{
+	content: '';
+	position: absolute;
+	width: 24px;
+	height: 20px;
+	right: 13px;
+	top: 7px;
+	background: url('../img/prod/arrow_down.png') no-repeat center;	
+}
+.ac-container input:checked + label:hover:after{
+	background-image: url('../img/prod/arrow_up.png');
+}
+.ac-container input{
+	display: none;
+}
+.ac-container article{
+	background: rgba(255, 255, 255, 0.5);
+	margin-top: -1px;
+	overflow: hidden;
+	height: 0px;
+	position: relative;
+	z-index: 10;
+	-webkit-transition: height 0.3s ease-in-out, box-shadow 0.6s linear;
+	-moz-transition: height 0.3s ease-in-out, box-shadow 0.6s linear;
+	-o-transition: height 0.3s ease-in-out, box-shadow 0.6s linear;
+	-ms-transition: height 0.3s ease-in-out, box-shadow 0.6s linear;
+	transition: height 0.3s ease-in-out, box-shadow 0.6s linear;
+}
+.ac-container article p{
+	font-style: regular;
+	color: #555555;
+	line-height: 30px;
+	font-size: 18px;
+	padding: 20px;
+	text-shadow: 1px 1px 1px rgba(255,255,255,0.8);
+}
+
+.ac-container input:checked ~ article{
+	-webkit-transition: height 0.5s ease-in-out, box-shadow 0.1s linear;
+	-moz-transition: height 0.5s ease-in-out, box-shadow 0.1s linear;
+	-o-transition: height 0.5s ease-in-out, box-shadow 0.1s linear;
+	-ms-transition: height 0.5s ease-in-out, box-shadow 0.1s linear;
+	transition: height 0.5s ease-in-out, box-shadow 0.1s linear;
+	box-shadow: 0px 0px 0px 1px rgba(155,155,155,0.3);
+}
+.ac-container input:checked ~ article.ac-small{
+	height: auto; /*Was 140px*/
+}
+.ac-container input:checked ~ article.ac-medium{
+	height: auto; /*Was 180px*/
+}
+.ac-container input:checked ~ article.ac-large{
+	height: auto; /*Was 230px*/
+}
+
+/* CLASSES FOR SECOND ACCORDION (REVIEWS PAGE) */
+
+a {
+	text-decoration: none;
+}
+
+.active {
+	/*color: #31B3FF;  can't seem to add this font color, but it's fine*/
+	background-color: #eee; 
+	
+}
+.orange {
+	text-decoration:none; 
+	font-size: 26px; 
+	color: #FF8100; 
+	display:block; 
+}
+
+.orange:hover {
+	text-decoration:none; 
+	background-color: #eee; 
+}
+
+.box{
+	display:none; 
+	border: 1px solid #ccc; 
+	border-top: none; 
+    padding-top: 0px; 
+	margin-top: 0px;
+}
+
+.boxBg{
+	padding:20px;
+	 margin-top: 0px;
+}
+
+ul {list-style-type: none;}
+
+/* END OF CLASSES FOR SECOND ACCORDION (REVIEWS PAGE) */

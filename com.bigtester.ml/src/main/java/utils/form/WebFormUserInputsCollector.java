@@ -34,6 +34,8 @@ import org.w3c.dom.Element;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 
+import com.google.common.collect.Iterables;
+
 import static org.joox.JOOX.*;
 
 // TODO: Auto-generated Javadoc
@@ -59,9 +61,12 @@ public class WebFormUserInputsCollector extends WebFormElementsCollector {
 	/**
 	 * Instantiates a new web form user inputs collector.
 	 *
-	 * @param domDoc the dom doc
-	 * @param parentFrame the parent frame nullable
-	 * @throws ParserConfigurationException the parser configuration exception
+	 * @param domDoc
+	 *            the dom doc
+	 * @param parentFrame
+	 *            the parent frame nullable
+	 * @throws ParserConfigurationException
+	 *             the parser configuration exception
 	 */
 	public WebFormUserInputsCollector(Document domDoc, String xpathOfParentFrame)
 			throws ParserConfigurationException {
@@ -74,8 +79,9 @@ public class WebFormUserInputsCollector extends WebFormElementsCollector {
 		boolean retVal = true;
 		String nodeTag = node.getNodeName();
 		if (nodeTag.equalsIgnoreCase("input")) {
-			for (int i=0; i<USER_NOT_CHANGABLE_INPUT_TYPES.length; i++) {
-				if ($(node).attr("type").equalsIgnoreCase(USER_NOT_CHANGABLE_INPUT_TYPES[i])) {
+			for (int i = 0; i < USER_NOT_CHANGABLE_INPUT_TYPES.length; i++) {
+				if ($(node).attr("type").equalsIgnoreCase(
+						USER_NOT_CHANGABLE_INPUT_TYPES[i])) {
 					retVal = false;
 					break;
 				}
@@ -85,21 +91,28 @@ public class WebFormUserInputsCollector extends WebFormElementsCollector {
 		}
 		return retVal;
 	}
-	
+
 	private void collectUserInputs(Document domDoc) {
 		for (int j = 0; j < USER_CHANGABLE_INPUT_TAGS.length; j++) {
 			NodeList htmlInputs = domDoc
 					.getElementsByTagName(USER_CHANGABLE_INPUT_TAGS[j]);
 			for (int i = 0; i < htmlInputs.getLength(); i++) {
 				Node coreNode = htmlInputs.item(i);
-				if ($(coreNode).parentsUntil("form").isNotEmpty()
+				List<Element> parentsUntilForm = $(coreNode).parentsUntil(
+						"form").get();
+				if ((parentsUntilForm.isEmpty() || !Iterables
+						.get(parentsUntilForm, parentsUntilForm.size() - 1)
+						.getNodeName().equalsIgnoreCase("html"))
 						&& isUserChangableInputType(coreNode)) {
-
-					List<Element> parents = $(coreNode).parentsUntil("form")
-							.parent().get();
-					userInputs.add(initUserInputDomInsideOfForm(domDoc,
-							coreNode, parents.get(parents.size() - 1)));
-
+					if (parentsUntilForm.isEmpty()) {
+						userInputs.add(initUserInputDomInsideOfForm(domDoc,
+								coreNode, coreNode.getParentNode()));
+					} else {
+						List<Element> parents = $(coreNode)
+								.parentsUntil("form").parent().get();
+						userInputs.add(initUserInputDomInsideOfForm(domDoc,
+								coreNode, parents.get(parents.size() - 1)));
+					}
 				} else {
 					// TODO collect input out of form element
 				}
@@ -216,16 +229,18 @@ public class WebFormUserInputsCollector extends WebFormElementsCollector {
 
 	private int getNumberOfUserChangableInputsInNode(Node node) {
 		int retVal = 0;
-		for (int i=0; i < USER_CHANGABLE_INPUT_TAGS.length; i++) {
-			retVal = $(node).find(USER_CHANGABLE_INPUT_TAGS[i]).get().size() + retVal;
+		for (int i = 0; i < USER_CHANGABLE_INPUT_TAGS.length; i++) {
+			retVal = $(node).find(USER_CHANGABLE_INPUT_TAGS[i]).get().size()
+					+ retVal;
 		}
 		return retVal;
 	}
+
 	private Node getMaxInputParentNoOtherInput(Node inputNode,
 			boolean inputInForm) {
 		Node tempParent = inputNode.getParentNode();
-		Node maxInputParentNoOtherInput = tempParent;
-		while (getNumberOfUserChangableInputsInNode(tempParent)<= 1) {
+		Node maxInputParentNoOtherInput = inputNode;
+		while (getNumberOfUserChangableInputsInNode(tempParent) <= 1) {
 			maxInputParentNoOtherInput = tempParent;
 			if (inputInForm
 					&& tempParent.getNodeName().equalsIgnoreCase("form")) {
@@ -235,6 +250,7 @@ public class WebFormUserInputsCollector extends WebFormElementsCollector {
 		}
 		return maxInputParentNoOtherInput;
 	}
+
 	private boolean isLeftLabeled(Node inputNode) {
 		Node inputType = inputNode.getAttributes().getNamedItem("type");
 		boolean retVal = true;
@@ -252,111 +268,156 @@ public class WebFormUserInputsCollector extends WebFormElementsCollector {
 	private boolean siblingHasInput(Node node) {
 		boolean retVal = false;
 		for (int i = 0; i < USER_CHANGABLE_INPUT_TAGS.length; i++) {
-			retVal = retVal
-					|| $(node.getPreviousSibling()).find(USER_CHANGABLE_INPUT_TAGS[i]).isNotEmpty()
-					|| $(node.getNextSibling()).find(USER_CHANGABLE_INPUT_TAGS[i]).isNotEmpty();
+			boolean nextSiblingIsInput = false;
+			if (node.getNextSibling() != null) {
+				nextSiblingIsInput = Arrays.asList(USER_CHANGABLE_INPUT_TAGS).contains($(node.getNextSibling()).tag().toLowerCase())
+				|| $(node.getNextSibling()).find(
+						USER_CHANGABLE_INPUT_TAGS[i]).isNotEmpty();
+			}
+			boolean previousSiblingIsInput = false;
+			
+			if (node.getPreviousSibling() != null) {
+				previousSiblingIsInput = Arrays.asList(USER_CHANGABLE_INPUT_TAGS).contains($(node.getPreviousSibling()).tag().toLowerCase())
+						|| $(node.getPreviousSibling()).find(
+								USER_CHANGABLE_INPUT_TAGS[i]).isNotEmpty();
+			}
+			retVal = nextSiblingIsInput 
+					|| previousSiblingIsInput;
+			if (retVal) break;
 		}
 		return retVal;
 	}
-	
-	
-	private boolean leftRightDirectedSiblingHasNoInput(Node node, boolean leftLabeled) {
+
+	private boolean leftRightDirectedSiblingHasNoInput(Node node,
+			boolean leftLabeled) {
 		boolean retVal = true;
-		for (int i=0; i< USER_CHANGABLE_INPUT_TAGS.length; i++) {
+		for (int i = 0; i < USER_CHANGABLE_INPUT_TAGS.length; i++) {
+			
 			if (leftLabeled) {
-				retVal = retVal && $(node.getPreviousSibling())
-						.find(USER_CHANGABLE_INPUT_TAGS[i]).isEmpty();
+				if (node.getPreviousSibling() == null) {
+					retVal = true;
+				} else if (Arrays.asList(USER_CHANGABLE_INPUT_TAGS).contains(node.getPreviousSibling().getNodeName().toLowerCase())) 
+					retVal = false;
+				else
+					retVal = retVal
+						&& $(node.getPreviousSibling()).find(
+								USER_CHANGABLE_INPUT_TAGS[i]).isEmpty();
 			}
 			if (!leftLabeled) {
-				retVal = retVal && $(node.getNextSibling())
-						.find(USER_CHANGABLE_INPUT_TAGS[i]).isEmpty();
+				if (node.getNextSibling() == null) {
+					retVal = true;
+				} else if (Arrays.asList(USER_CHANGABLE_INPUT_TAGS).contains(node.getNextSibling().getNodeName().toLowerCase())) 
+					retVal = false;
+				else
+					retVal = retVal
+						&& $(node.getNextSibling()).find(
+								USER_CHANGABLE_INPUT_TAGS[i]).isEmpty();
 			}
 		}
 		return retVal;
 	}
-	
-	private boolean leftRightDirectedSiblingWithLabel(Node node, boolean leftLabeled) {
-		return (leftLabeled
-				&& $(node.getPreviousSibling()).find("label").isNotEmpty() || !leftLabeled
-				&& $(node.getNextSibling()).find("label").isNotEmpty());
-	}
-	
-	private List<Element> getLeftRightDirectedSiblingLabelInNode(Node node, boolean leftLabeled) {
-		List<Element> labels2;
+
+	private boolean leftRightDirectedSiblingWithLabel(Node node,
+			boolean leftLabeled) {
+		boolean retVal = false;
 		if (leftLabeled) {
-			labels2 = $(
-					node.getPreviousSibling())
-					.find("label").get();
+			if (node.getPreviousSibling() !=null) {
+				retVal = $(node.getPreviousSibling()).find("label").isNotEmpty() || node.getPreviousSibling().getNodeName().equalsIgnoreCase("label"); 
+			}
 		} else {
-			labels2 = $(node.getNextSibling())
-					.find("label").get();
+			if (node.getNextSibling() != null) {
+				retVal = $(node.getNextSibling()).find("label").isNotEmpty() || node.getNextSibling().getNodeName().equalsIgnoreCase("label"); 
+			}
+		}
+		return retVal;
+	}
+
+	private List<Element> getLeftRightDirectedSiblingLabelInNode(Node node,
+			boolean leftLabeled) {
+		List<Element> labels2 = new ArrayList<Element>();
+		
+		if (leftLabeled) {
+			if (node.getPreviousSibling().getNodeName().equalsIgnoreCase("label"))
+				labels2.add((Element) node.getPreviousSibling());
+			else
+				labels2 = $(node.getPreviousSibling()).find("label").get();
+		} else {
+			if (node.getNextSibling().getNodeName().equalsIgnoreCase("label"))
+				labels2.add((Element) node.getPreviousSibling());
+			else
+				labels2 = $(node.getNextSibling()).find("label").get();
 		}
 		return labels2;
 	}
+
 	private UserInputDom initUserInputDomInsideOfForm(Document domDoc,
 			Node inputNode, Node form) {
 		// NodeList allInputNodes, Node inputNodeParentForm) {
 		UserInputDom retVal = new UserInputDom(inputNode);
-		
+
 		boolean leftLabeled = isLeftLabeled(inputNode);
-		
+
 		retVal.setxPath($(inputNode).xpath());
 		retVal.setParentFormPointer(form);
-	
-		Node maxInputParentNoOtherInput = getMaxInputParentNoOtherInput(inputNode, true);
-		
-		//Node tempParent = inputNode.getParentNode();
+
+		Node maxInputParentNoOtherInput = getMaxInputParentNoOtherInput(
+				inputNode, true);
+
+		// Node tempParent = inputNode.getParentNode();
 		boolean singleInputFieldForm = false;
-		
-//		Node maxInputParentNoOtherInput = tempParent;
-//		while (($(tempParent).find("input").get().size() + $(tempParent)
-//				.find("textarea").get().size()) <= 1) {
-//			maxInputParentNoOtherInput = tempParent;
-//			if (tempParent.getNodeName().equalsIgnoreCase("form")) {
-//				singleFieldForm = true;
-//				break;
-//			}
-//			tempParent = tempParent.getParentNode();
-//		}
+
+		// Node maxInputParentNoOtherInput = tempParent;
+		// while (($(tempParent).find("input").get().size() + $(tempParent)
+		// .find("textarea").get().size()) <= 1) {
+		// maxInputParentNoOtherInput = tempParent;
+		// if (tempParent.getNodeName().equalsIgnoreCase("form")) {
+		// singleFieldForm = true;
+		// break;
+		// }
+		// tempParent = tempParent.getParentNode();
+		// }
 		// if signlefieldform leastInputsCommonParent is the form node
-		Node leastInputsCommonParent; 
-		if (maxInputParentNoOtherInput.getNodeName().equalsIgnoreCase("form")){
+		Node leastInputsCommonParent;
+		if (maxInputParentNoOtherInput.getNodeName().equalsIgnoreCase("form")) {
 			leastInputsCommonParent = maxInputParentNoOtherInput;
 			singleInputFieldForm = true;
-		}
-		else
-			leastInputsCommonParent = maxInputParentNoOtherInput.getParentNode();
-		
+		} else
+			leastInputsCommonParent = maxInputParentNoOtherInput
+					.getParentNode();
+
 		boolean singleFieldFormInputHasNoSibling = false;
 		Node maxInputParentNoOtherChild = getMaxInputParentNoOtherChild(inputNode);
-//		Node tempParent2 = inputNode.getParentNode();
-//		Node maxInputParentNoOtherChild = inputNode;
-//		while ($(tempParent2).children().get().size() <= 1) {
-//			maxInputParentNoOtherChild = tempParent2;
-			if (maxInputParentNoOtherChild.getNodeName().equalsIgnoreCase("form")) {
-				singleFieldFormInputHasNoSibling = true;
-				// new a return result in a single input and no input
-				// sibling form
-				List<Node> temp1 = new ArrayList<Node>();
-				temp1.add(maxInputParentNoOtherChild.getChildNodes().item(0));
-				retVal.setMachineLearningDomHtmlPointer(temp1);
+		// Node tempParent2 = inputNode.getParentNode();
+		// Node maxInputParentNoOtherChild = inputNode;
+		// while ($(tempParent2).children().get().size() <= 1) {
+		// maxInputParentNoOtherChild = tempParent2;
+		if (maxInputParentNoOtherChild.getNodeName().equalsIgnoreCase("form")) {
+			singleFieldFormInputHasNoSibling = true;
+			// new a return result in a single input and no input
+			// sibling form
+			List<Node> temp1 = new ArrayList<Node>();
+			temp1.add(maxInputParentNoOtherChild.getChildNodes().item(0));
+			retVal.setMachineLearningDomHtmlPointer(temp1);
 
-				retVal.setLabelDomPointer(maxInputParentNoOtherChild.getPreviousSibling());
+			retVal.setLabelDomPointer(maxInputParentNoOtherChild
+					.getPreviousSibling());
 
-				if (leftLabeled) {
-					List<Node> temp = new ArrayList<Node>();
-					temp.add(maxInputParentNoOtherChild.getNextSibling());
-					retVal.setAdditionalInfoNodes(temp);
-				}
-				retVal.setPreviousUserViewableHtmlSibling(maxInputParentNoOtherChild
-						.getPreviousSibling());
-				retVal.setNextUserViewableHtmlSibling(maxInputParentNoOtherChild
-						.getNextSibling());
-//				break;
+			if (leftLabeled) {
+				List<Node> temp = new ArrayList<Node>();
+				temp.add(maxInputParentNoOtherChild.getNextSibling());
+				retVal.setAdditionalInfoNodes(temp);
 			}
-//			tempParent2 = tempParent2.getParentNode();
-//		}
-		Node leastNonInputSiblingsParent = maxInputParentNoOtherChild.getParentNode();
+			retVal.setPreviousUserViewableHtmlSibling(maxInputParentNoOtherChild
+					.getPreviousSibling());
+			retVal.setNextUserViewableHtmlSibling(maxInputParentNoOtherChild
+					.getNextSibling());
+			// break;
+		}
+		// tempParent2 = tempParent2.getParentNode();
+		// }
+		//TODO the parent of maxInputParentNoOtherChild might have input fields, might not have input fields
+		Node leastNonInputSiblingsParent = maxInputParentNoOtherChild
+				.getParentNode();
 		if (singleInputFieldForm && !singleFieldFormInputHasNoSibling) {
 			List<Node> temp = new ArrayList<Node>();
 			for (int i = 0; i < leastInputsCommonParent.getChildNodes()
@@ -455,10 +516,13 @@ public class WebFormUserInputsCollector extends WebFormElementsCollector {
 						maxInputParentNoOtherChild,
 						leastNonInputSiblingsParent, false);
 			} else {
-				if (leftRightDirectedSiblingHasNoInput(maxInputParentNoOtherInput, leftLabeled)
-						&& leftRightDirectedSiblingWithLabel(maxInputParentNoOtherInput,leftLabeled)) {
-					List<Element> labels2 = getLeftRightDirectedSiblingLabelInNode(maxInputParentNoOtherInput, leftLabeled);
-					
+				if (leftRightDirectedSiblingHasNoInput(
+						maxInputParentNoOtherInput, leftLabeled)
+						&& leftRightDirectedSiblingWithLabel(
+								maxInputParentNoOtherInput, leftLabeled)) {
+					List<Element> labels2 = getLeftRightDirectedSiblingLabelInNode(
+							maxInputParentNoOtherInput, leftLabeled);
+
 					List<Node> tempList = new ArrayList<Node>();
 					if (leftLabeled) {
 						tempList.add(maxInputParentNoOtherInput
@@ -487,7 +551,8 @@ public class WebFormUserInputsCollector extends WebFormElementsCollector {
 							maxInputParentNoOtherInput,
 							maxInputParentNoOtherInput.getParentNode(), false);
 				} else if (this.siblingHasInput(maxInputParentNoOtherInput)) {
-					// most likely field (label equivelant information has been inside Node
+					// most likely field (label equivelant information has been
+					// inside Node
 					// maxInputParentNoOtherInput
 					List<Node> tempList = new ArrayList<Node>();
 					tempList.add(maxInputParentNoOtherInput);
@@ -507,9 +572,11 @@ public class WebFormUserInputsCollector extends WebFormElementsCollector {
 							maxInputParentNoOtherChild,
 							maxInputParentNoOtherInput, false);
 
-				} else if (leftRightDirectedSiblingHasNoInput(maxInputParentNoOtherInput, leftLabeled)) {
+				} else if (leftRightDirectedSiblingHasNoInput(
+						maxInputParentNoOtherInput, leftLabeled)) {
 					// most likely field information is out of
-					// maxInputParentNoOtherInput in its siblings with no label tag
+					// maxInputParentNoOtherInput in its siblings with no label
+					// tag
 					List<Node> tempList = new ArrayList<Node>();
 					if (leftLabeled) {
 						tempList.add(maxInputParentNoOtherInput

@@ -4,6 +4,7 @@ package trainer.userinput;
 
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
+import java.io.File;
 import java.io.ObjectOutputStream;
 import java.io.ObjectInputStream;
 import java.io.IOException;
@@ -11,6 +12,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.apache.commons.csv.CSVParser;
+import org.apache.commons.io.FilenameUtils;
 import org.testng.annotations.Test;
 
 import com.google.common.collect.Iterables;
@@ -26,7 +28,34 @@ public class UserInputsTrainer {
 	public static String PROPERTYFILE = System.getProperty("user.dir") + "/src/test/resources/trainer/userinput/fieldtest.prop";
 	public static String TRAININGFILE = System.getProperty("user.dir") + "/src/test/resources/trainer/userinput/train.txt";
 	public static String TESTFILE = System.getProperty("user.dir") + "/src/test/resources/trainer/userinput/test.txt";
-	public static String CACHEFILE = System.getProperty("user.dir") + "/src/test/resources/trainer/userinput/cache.txt";
+	public static String CACHEPATH = System.getProperty("user.dir") + "/src/test/resources/trainer/userinput/cache/";
+	public static String SOURCEFILESPATH = System.getProperty("user.dir")+ "/src/test/resources/utils/form/";
+	public static String[] getAllFilesNeedToTrain() {
+		String directory = UserInputsTrainer.SOURCEFILESPATH;
+		File[] files = new File(directory).listFiles();
+		List<String> filenames = new ArrayList<String>();
+		
+		for (File file : files) {
+			if (file.isFile()) {
+				if(!getAllFileBasenamesInCache().contains(FilenameUtils.getBaseName(file.getAbsolutePath())))
+					filenames.add(file.getAbsolutePath());
+			}
+		}
+		return (String[]) filenames.toArray(new String[filenames.size()]);
+	}
+	
+	public static List<String> getAllFileBasenamesInCache() {
+		String directory = UserInputsTrainer.CACHEPATH;
+		File[] files = new File(directory).listFiles();
+		List<String> filenames = new ArrayList<String>();
+		
+		for (File file : files) {
+			if (file.isFile()) {
+				filenames.add(FilenameUtils.getBaseName(file.getAbsolutePath()));
+			}
+		}
+		return filenames;
+	}
 	
 	
 	public List<UserInputTrainingRecord> train() throws ClassNotFoundException, IOException {

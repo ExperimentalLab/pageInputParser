@@ -1,10 +1,13 @@
 package utils.form;
 
 import java.io.ByteArrayOutputStream;
+import java.io.File;
 import java.io.IOException;
 import java.io.OutputStream;
 import java.io.OutputStreamWriter;
 import java.io.StringReader;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -18,6 +21,7 @@ import javax.xml.transform.TransformerFactory;
 import javax.xml.transform.dom.DOMSource;
 import javax.xml.transform.stream.StreamResult;
 
+import org.apache.commons.io.FilenameUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.custommonkey.xmlunit.HTMLDocumentBuilder;
 import org.custommonkey.xmlunit.TolerantSaxDocumentBuilder;
@@ -38,19 +42,20 @@ import trainer.userinput.UserInputTrainingRecord;
 import trainer.userinput.UserInputsTrainer;
 
 public class WebFormUserInputsCollectorSelectInputTest {
-	public final static String[] TEST_HTML_FILES = {
-			"/src/test/resources/utils/form/Red Ventures Careers - Principal QA Engineer.html"};
-//			"/src/test/resources/utils/form/Marketo Careers - Apply.html" };
+	public final static String[] TEST_HTML_FILES = UserInputsTrainer.getAllFilesNeedToTrain();
 	public final static String[] FORM_NAMES = { "", "jobviteframe" };
+
+	
 
 	@Test
 	public void f() throws SAXException, IOException,
-			ParserConfigurationException, TransformerException, ClassNotFoundException {
+			ParserConfigurationException, TransformerException,
+			ClassNotFoundException {
 		for (int j = 0; j < TEST_HTML_FILES.length; j++) {
 			WebDriver firefox = new FirefoxDriver();
-			firefox.get("file:///" + System.getProperty("user.dir")
-					+ TEST_HTML_FILES[j]);
+			firefox.get("file:///" + TEST_HTML_FILES[j]);
 			String xpathOfFrame = null;
+			//Need to traverse frames in page.
 			if (FORM_NAMES[j].length() > 0) {
 				List<WebElement> iframes = firefox.findElements(By
 						.id(FORM_NAMES[j]));
@@ -83,7 +88,7 @@ public class WebFormUserInputsCollectorSelectInputTest {
 			System.out.println("\n*******************\n");
 			List<String> csvStrings = new ArrayList<String>();
 			for (UserInputDom dom : col.getUserInputs()) {
-				String temp="";
+				String temp = "";
 				for (Node node : dom.getMachineLearningDomHtmlPointers()) {
 					ByteArrayOutputStream stringOutput = new ByteArrayOutputStream();
 					printDocument(node, stringOutput);
@@ -92,7 +97,7 @@ public class WebFormUserInputsCollectorSelectInputTest {
 				}
 				if (StringUtils.isNotEmpty(temp))
 					csvStrings.add(temp);
-				
+
 				System.out.println("\n--above Node print----\n");
 
 				List<Node> nodes = dom.getMachineLearningDomHtmlPointers();
@@ -116,13 +121,17 @@ public class WebFormUserInputsCollectorSelectInputTest {
 			firefox.quit();
 			System.out.println("\n=======****FILE PARSING IS DONE for: "
 					+ TEST_HTML_FILES[j] + "****=========\n");
-			
+
 			TrainingFileDB.writeTestCsvFile(csvStrings);
+			UserInputsTrainer trainer = new UserInputsTrainer();
+			List<UserInputTrainingRecord> trainedRecords = trainer.train();
+
+			TrainingFileDB.writeCacheCsvFile(UserInputsTrainer.CACHEPATH
+					+ FilenameUtils.getBaseName(TEST_HTML_FILES[j]) + ".txt",
+					"begin", "end", trainedRecords);
+
 		}
-		UserInputsTrainer trainer = new UserInputsTrainer();
-		List<UserInputTrainingRecord> trainedRecords = trainer.train();
-		TrainingFileDB.writeCacheCsvFile("begin","end",trainedRecords);
-		
+
 	}
 
 	public static void printDocument(Node doc, OutputStream out)

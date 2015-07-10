@@ -47,24 +47,27 @@ public class TrainingFileDB {
 	// Delimiter used in CSV file
 	private static final String NEW_LINE_SEPARATOR = "\n";
 
-	public static UserInputTrainingRecord parseLine(String line) throws IOException {
-        CSVParser lineParser = CSVParser.parse(line, TrainingFileDB.getCSVFormat());
-        List<CSVRecord> csvRecords = lineParser.getRecords();
-        UserInputTrainingRecord retVal = null;
-    	for (CSVRecord record : csvRecords) {
-    		retVal = new UserInputTrainingRecord(record.get(0), record.get(1));
-    	}
-    	return retVal;
+	public static UserInputTrainingRecord parseLine(String line)
+			throws IOException {
+		CSVParser lineParser = CSVParser.parse(line,
+				TrainingFileDB.getCSVFormat());
+		List<CSVRecord> csvRecords = lineParser.getRecords();
+		UserInputTrainingRecord retVal = null;
+		for (CSVRecord record : csvRecords) {
+			retVal = new UserInputTrainingRecord(record.get(0), record.get(1));
+		}
+		return retVal;
 	}
-	
+
 	public static CSVFormat getCSVFormat() {
 		// Create the CSVFormat object with "\n" as a record delimiter
-				CSVFormat csvFileFormat = CSVFormat.TDF
-						.withRecordSeparator(NEW_LINE_SEPARATOR);
-				csvFileFormat = csvFileFormat.withEscape('^');
-				csvFileFormat = csvFileFormat.withQuoteMode(QuoteMode.NONE);
-				return csvFileFormat;
+		CSVFormat csvFileFormat = CSVFormat.TDF
+				.withRecordSeparator(NEW_LINE_SEPARATOR);
+		csvFileFormat = csvFileFormat.withEscape('^');
+		csvFileFormat = csvFileFormat.withQuoteMode(QuoteMode.NONE);
+		return csvFileFormat;
 	}
+
 	public static void writeTestCsvFile(List<String> mlInputs) {
 
 		if (mlInputs.size() == 0)
@@ -82,10 +85,7 @@ public class TrainingFileDB {
 		CSVPrinter csvFilePrinter = null;
 
 		// Create the CSVFormat object with "\n" as a record delimiter
-		CSVFormat csvFileFormat = CSVFormat.TDF
-				.withRecordSeparator(NEW_LINE_SEPARATOR);
-		csvFileFormat = csvFileFormat.withEscape('^');
-		csvFileFormat = csvFileFormat.withQuoteMode(QuoteMode.NONE);
+		CSVFormat csvFileFormat = getCSVFormat();
 		try {
 
 			// initialize FileWriter object
@@ -120,8 +120,9 @@ public class TrainingFileDB {
 		}
 	}
 
-	public static void writeCacheCsvFile(String beginningComments,
-			String endingComments, List<UserInputTrainingRecord> trainedRecords) {
+	public static void writeCacheCsvFile(String absoluteCacheFilePath,
+			String beginningComments, String endingComments,
+			List<UserInputTrainingRecord> trainedRecords) {
 		// Create new students objects
 
 		FileWriter fileWriter = null;
@@ -129,13 +130,10 @@ public class TrainingFileDB {
 		CSVPrinter csvFilePrinter = null;
 
 		// Create the CSVFormat object with "\n" as a record delimiter
-		CSVFormat csvFileFormat = CSVFormat.TDF
-				.withRecordSeparator(NEW_LINE_SEPARATOR);
-		csvFileFormat = csvFileFormat.withEscape('^');
-		csvFileFormat = csvFileFormat.withQuoteMode(QuoteMode.NONE);
+		CSVFormat csvFileFormat = getCSVFormat();
 		try {
 			if (trainedRecords.size() == 0) {
-				fileWriter = new FileWriter(UserInputsTrainer.CACHEFILE);
+				fileWriter = new FileWriter(absoluteCacheFilePath);
 
 				// initialize CSVPrinter object
 				csvFilePrinter = new CSVPrinter(fileWriter, csvFileFormat);
@@ -151,7 +149,7 @@ public class TrainingFileDB {
 			}
 
 			// initialize FileWriter object
-			fileWriter = new FileWriter(UserInputsTrainer.CACHEFILE);
+			fileWriter = new FileWriter(absoluteCacheFilePath);
 
 			// initialize CSVPrinter object
 			csvFilePrinter = new CSVPrinter(fileWriter, csvFileFormat);

@@ -28,5 +28,5 @@ tolerance=1e-4
 #
 # Training input
 #
-trainFile=./examples/cheeseDisease.train
+trainFile=./cheeseDisease.train
 testFile=./examples/cheeseDisease.test
