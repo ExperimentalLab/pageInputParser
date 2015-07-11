@@ -42,93 +42,189 @@ import trainer.userinput.UserInputTrainingRecord;
 import trainer.userinput.UserInputsTrainer;
 
 public class WebFormUserInputsCollectorSelectInputTest {
-	public final static String[] TEST_HTML_FILES = UserInputsTrainer.getAllFilesNeedToTrain();
+	public final static String[] TEST_HTML_FILES = UserInputsTrainer
+			.getAllFilesNeedToTrain();
 	public final static String[] FORM_NAMES = { "", "jobviteframe" };
 
-	
+	private void traverseFrameTraining(WebDriver webD, String xpathOfFrame)
+			throws IOException, TransformerException,
+			ParserConfigurationException, SAXException {
+
+		String source = webD.getPageSource();
+
+		DocumentBuilder db = DocumentBuilderFactory.newInstance()
+				.newDocumentBuilder();
+		InputSource is = new InputSource();
+		is.setCharacterStream(new StringReader(source));
+		Document doc;
+		WebFormUserInputsCollector col;
+		try {
+			doc = db.parse(is);
+			col = new WebFormUserInputsCollector(webD, doc, xpathOfFrame);
+		} catch (SAXException e) {
+			TolerantSaxDocumentBuilder tolerantSaxDocumentBuilder = new TolerantSaxDocumentBuilder(
+					XMLUnit.newTestParser());
+			HTMLDocumentBuilder db1 = new HTMLDocumentBuilder(
+					tolerantSaxDocumentBuilder);
+			doc = db1.parse(new StringReader(source));
+			col = new WebFormUserInputsCollector(doc, xpathOfFrame);
+		}
+
+		// System.out.println(source);
+
+		System.out.println("\n*******************\n");
+		System.out.println("\n*******************\n");
+		List<String> csvStrings = new ArrayList<String>();
+		for (UserInputDom dom : col.getUserInputs()) {
+			String temp = "";
+			for (Node node : dom.getMachineLearningDomHtmlPointers()) {
+				ByteArrayOutputStream stringOutput = new ByteArrayOutputStream();
+				printDocument(node, stringOutput);
+				stringOutput.toString();
+				temp = temp + stringOutput.toString();
+			}
+			if (StringUtils.isNotEmpty(temp))
+				csvStrings.add(temp);
+
+			System.out.println("\n--above Node print----\n");
+
+			List<Node> nodes = dom.getMachineLearningDomHtmlPointers();
+			if (nodes != null)
+				for (Node node : nodes)
+					printDocument(node, System.out);
+			System.out.println("\n------above node ML code---------\n");
+			printDocument(dom.getLabelDomPointer(), System.out);
+			System.out
+					.println("\n------above node lable code-----------------------\n");
+
+			List<Node> nodes2 = dom.getAdditionalInfoNodes();
+			if (nodes2 != null)
+				for (Node node2 : nodes2)
+					printDocument(node2, System.out);
+			System.out
+					.println("\n=======above node additional info code=========\n");
+
+		}
+		TrainingFileDB.writeTestCsvFile(csvStrings, true);
+
+		List<WebElement> iframes = webD.findElements(By.tagName("iframe"));
+		List<WebElement> frames = webD.findElements(By.tagName("frame"));
+		iframes.addAll(frames);
+		for (WebElement frame : iframes) {
+			String xpathOfChildFrame = getAbsoluteXPath(frame, webD);
+			webD.switchTo().frame(frame);
+			traverseFrameTraining(webD, xpathOfChildFrame);
+		}
+		webD.switchTo().parentFrame();
+	}
+
+//	public void f() throws SAXException, IOException,
+//			ParserConfigurationException, TransformerException,
+//			ClassNotFoundException {
+//		for (int j = 0; j < TEST_HTML_FILES.length; j++) {
+//			WebDriver firefox = new FirefoxDriver();
+//			firefox.get("file:///" + TEST_HTML_FILES[j]);
+//			String xpathOfFrame = null;
+//			// Need to traverse frames in page.
+//			if (FORM_NAMES[j].length() > 0) {
+//				List<WebElement> iframes = firefox.findElements(By
+//						.id(FORM_NAMES[j]));
+//				xpathOfFrame = getAbsoluteXPath(iframes.get(0), firefox);
+//				firefox.switchTo().frame(iframes.get(0));
+//			}
+//			String source = firefox.getPageSource();
+//
+//			DocumentBuilder db = DocumentBuilderFactory.newInstance()
+//					.newDocumentBuilder();
+//			InputSource is = new InputSource();
+//			is.setCharacterStream(new StringReader(source));
+//			Document doc;
+//			WebFormUserInputsCollector col;
+//			try {
+//				doc = db.parse(is);
+//				col = new WebFormUserInputsCollector(doc, xpathOfFrame);
+//			} catch (SAXException e) {
+//				TolerantSaxDocumentBuilder tolerantSaxDocumentBuilder = new TolerantSaxDocumentBuilder(
+//						XMLUnit.newTestParser());
+//				HTMLDocumentBuilder db1 = new HTMLDocumentBuilder(
+//						tolerantSaxDocumentBuilder);
+//				doc = db1.parse(new StringReader(source));
+//				col = new WebFormUserInputsCollector(doc, xpathOfFrame);
+//			}
+//
+//			// System.out.println(source);
+//
+//			System.out.println("\n*******************\n");
+//			System.out.println("\n*******************\n");
+//			List<String> csvStrings = new ArrayList<String>();
+//			for (UserInputDom dom : col.getUserInputs()) {
+//				String temp = "";
+//				for (Node node : dom.getMachineLearningDomHtmlPointers()) {
+//					ByteArrayOutputStream stringOutput = new ByteArrayOutputStream();
+//					printDocument(node, stringOutput);
+//					stringOutput.toString();
+//					temp = temp + stringOutput.toString();
+//				}
+//				if (StringUtils.isNotEmpty(temp))
+//					csvStrings.add(temp);
+//
+//				System.out.println("\n--above Node print----\n");
+//
+//				List<Node> nodes = dom.getMachineLearningDomHtmlPointers();
+//				if (nodes != null)
+//					for (Node node : nodes)
+//						printDocument(node, System.out);
+//				System.out.println("\n------above node ML code---------\n");
+//				printDocument(dom.getLabelDomPointer(), System.out);
+//				System.out
+//						.println("\n------above node lable code-----------------------\n");
+//
+//				List<Node> nodes2 = dom.getAdditionalInfoNodes();
+//				if (nodes2 != null)
+//					for (Node node2 : nodes2)
+//						printDocument(node2, System.out);
+//				System.out
+//						.println("\n=======above node additional info code=========\n");
+//
+//			}
+//
+//			firefox.quit();
+//			System.out.println("\n=======****FILE PARSING IS DONE for: "
+//					+ TEST_HTML_FILES[j] + "****=========\n");
+//
+//			TrainingFileDB.writeTestCsvFile(csvStrings, false);
+//			UserInputsTrainer trainer = new UserInputsTrainer();
+//			List<UserInputTrainingRecord> trainedRecords = trainer.train();
+//
+//			TrainingFileDB.writeCacheCsvFile(UserInputsTrainer.CACHEPATH
+//					+ FilenameUtils.getBaseName(TEST_HTML_FILES[j]) + ".txt",
+//					"begin", "end", trainedRecords, true);
+//
+//		}
+//
+//	}
 
 	@Test
-	public void f() throws SAXException, IOException,
+	public void f1() throws SAXException, IOException,
 			ParserConfigurationException, TransformerException,
 			ClassNotFoundException {
 		for (int j = 0; j < TEST_HTML_FILES.length; j++) {
 			WebDriver firefox = new FirefoxDriver();
 			firefox.get("file:///" + TEST_HTML_FILES[j]);
-			String xpathOfFrame = null;
-			//Need to traverse frames in page.
-			if (FORM_NAMES[j].length() > 0) {
-				List<WebElement> iframes = firefox.findElements(By
-						.id(FORM_NAMES[j]));
-				xpathOfFrame = getAbsoluteXPath(iframes.get(0), firefox);
-				firefox.switchTo().frame(iframes.get(0));
-			}
-			String source = firefox.getPageSource();
-
-			DocumentBuilder db = DocumentBuilderFactory.newInstance()
-					.newDocumentBuilder();
-			InputSource is = new InputSource();
-			is.setCharacterStream(new StringReader(source));
-			Document doc;
-			WebFormUserInputsCollector col;
-			try {
-				doc = db.parse(is);
-				col = new WebFormUserInputsCollector(doc, xpathOfFrame);
-			} catch (SAXException e) {
-				TolerantSaxDocumentBuilder tolerantSaxDocumentBuilder = new TolerantSaxDocumentBuilder(
-						XMLUnit.newTestParser());
-				HTMLDocumentBuilder db1 = new HTMLDocumentBuilder(
-						tolerantSaxDocumentBuilder);
-				doc = db1.parse(new StringReader(source));
-				col = new WebFormUserInputsCollector(doc, xpathOfFrame);
-			}
-
-			// System.out.println(source);
-
-			System.out.println("\n*******************\n");
-			System.out.println("\n*******************\n");
-			List<String> csvStrings = new ArrayList<String>();
-			for (UserInputDom dom : col.getUserInputs()) {
-				String temp = "";
-				for (Node node : dom.getMachineLearningDomHtmlPointers()) {
-					ByteArrayOutputStream stringOutput = new ByteArrayOutputStream();
-					printDocument(node, stringOutput);
-					stringOutput.toString();
-					temp = temp + stringOutput.toString();
-				}
-				if (StringUtils.isNotEmpty(temp))
-					csvStrings.add(temp);
-
-				System.out.println("\n--above Node print----\n");
-
-				List<Node> nodes = dom.getMachineLearningDomHtmlPointers();
-				if (nodes != null)
-					for (Node node : nodes)
-						printDocument(node, System.out);
-				System.out.println("\n------above node ML code---------\n");
-				printDocument(dom.getLabelDomPointer(), System.out);
-				System.out
-						.println("\n------above node lable code-----------------------\n");
-
-				List<Node> nodes2 = dom.getAdditionalInfoNodes();
-				if (nodes2 != null)
-					for (Node node2 : nodes2)
-						printDocument(node2, System.out);
-				System.out
-						.println("\n=======above node additional info code=========\n");
-
-			}
-
+			
+			// Need to traverse frames in page.
+			TrainingFileDB.cleanTestCsvFile();
+			traverseFrameTraining(firefox, null);
 			firefox.quit();
 			System.out.println("\n=======****FILE PARSING IS DONE for: "
 					+ TEST_HTML_FILES[j] + "****=========\n");
 
-			TrainingFileDB.writeTestCsvFile(csvStrings);
 			UserInputsTrainer trainer = new UserInputsTrainer();
 			List<UserInputTrainingRecord> trainedRecords = trainer.train();
 
 			TrainingFileDB.writeCacheCsvFile(UserInputsTrainer.CACHEPATH
 					+ FilenameUtils.getBaseName(TEST_HTML_FILES[j]) + ".txt",
-					"begin", "end", trainedRecords);
+					"begin", "end", trainedRecords, true);
 
 		}
 

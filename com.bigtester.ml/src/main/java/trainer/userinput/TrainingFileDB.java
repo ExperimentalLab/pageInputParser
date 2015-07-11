@@ -68,7 +68,14 @@ public class TrainingFileDB {
 		return csvFileFormat;
 	}
 
-	public static void writeTestCsvFile(List<String> mlInputs) {
+	public static void cleanTestCsvFile() throws IOException {
+		// initialize FileWriter object
+		FileWriter fileWriter = new FileWriter(UserInputsTrainer.TESTFILE);
+		fileWriter.write("");
+		fileWriter.close();
+	}
+	
+	public static void writeTestCsvFile(List<String> mlInputs, boolean append) {
 
 		if (mlInputs.size() == 0)
 			return;
@@ -89,8 +96,8 @@ public class TrainingFileDB {
 		try {
 
 			// initialize FileWriter object
-			fileWriter = new FileWriter(UserInputsTrainer.TESTFILE);
-
+			fileWriter = new FileWriter(UserInputsTrainer.TESTFILE, append);
+			
 			// initialize CSVPrinter object
 			csvFilePrinter = new CSVPrinter(fileWriter, csvFileFormat);
 
@@ -122,7 +129,7 @@ public class TrainingFileDB {
 
 	public static void writeCacheCsvFile(String absoluteCacheFilePath,
 			String beginningComments, String endingComments,
-			List<UserInputTrainingRecord> trainedRecords) {
+			List<UserInputTrainingRecord> trainedRecords, boolean append) {
 		// Create new students objects
 
 		FileWriter fileWriter = null;
@@ -133,7 +140,7 @@ public class TrainingFileDB {
 		CSVFormat csvFileFormat = getCSVFormat();
 		try {
 			if (trainedRecords.size() == 0) {
-				fileWriter = new FileWriter(absoluteCacheFilePath);
+				fileWriter = new FileWriter(absoluteCacheFilePath, append);
 
 				// initialize CSVPrinter object
 				csvFilePrinter = new CSVPrinter(fileWriter, csvFileFormat);
@@ -149,7 +156,7 @@ public class TrainingFileDB {
 			}
 
 			// initialize FileWriter object
-			fileWriter = new FileWriter(absoluteCacheFilePath);
+			fileWriter = new FileWriter(absoluteCacheFilePath, append);
 
 			// initialize CSVPrinter object
 			csvFilePrinter = new CSVPrinter(fileWriter, csvFileFormat);

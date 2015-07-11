@@ -28,6 +28,7 @@ import java.util.concurrent.ConcurrentHashMap;
 
 import javax.xml.parsers.ParserConfigurationException;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
@@ -35,6 +36,7 @@ import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 
 import com.google.common.collect.Iterables;
+import com.steadystate.css.parser.CSSOMParser;
 
 import static org.joox.JOOX.*;
 
@@ -58,6 +60,7 @@ public class WebFormUserInputsCollector extends WebFormElementsCollector {
 
 	final private List<UserInputDom> userInputs = new ArrayList<UserInputDom>();
 
+	final private WebDriver webDriver;
 	/**
 	 * Instantiates a new web form user inputs collector.
 	 *
@@ -68,10 +71,10 @@ public class WebFormUserInputsCollector extends WebFormElementsCollector {
 	 * @throws ParserConfigurationException
 	 *             the parser configuration exception
 	 */
-	public WebFormUserInputsCollector(Document domDoc, String xpathOfParentFrame)
+	public WebFormUserInputsCollector(WebDriver webDriver, Document domDoc, String xpathOfParentFrame)
 			throws ParserConfigurationException {
 		super(domDoc, xpathOfParentFrame);
-
+		this.webDriver = webDriver;
 		collectUserInputs(super.getCleanedDoc());
 	}
 
@@ -98,6 +101,9 @@ public class WebFormUserInputsCollector extends WebFormElementsCollector {
 					.getElementsByTagName(USER_CHANGABLE_INPUT_TAGS[j]);
 			for (int i = 0; i < htmlInputs.getLength(); i++) {
 				Node coreNode = htmlInputs.item(i);
+				CSSOMParser cssParser = new CSSOMParser();
+				cssParser.par
+				webDriver.findElement(By.xpath($(coreNode).xpath())).getAttribute("style");
 				List<Element> parentsUntilForm = $(coreNode).parentsUntil(
 						"form").get();
 				if ((parentsUntilForm.isEmpty() || !Iterables
