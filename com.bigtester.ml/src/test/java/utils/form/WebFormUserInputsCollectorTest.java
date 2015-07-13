@@ -46,7 +46,7 @@ public class WebFormUserInputsCollectorTest {
 		is.setCharacterStream(new StringReader(source));
 
 		Document doc = db.parse(is);
-		WebFormUserInputsCollector col = new WebFormUserInputsCollector(doc, null);
+		WebFormUserInputsCollector col = new WebFormUserInputsCollector(firefox, doc, null);
 		System.out.println("\n*******************\n");
 		System.out.println("\n*******************\n");
 		for (UserInputDom dom : col.getUserInputs()) {

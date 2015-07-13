@@ -26,6 +26,10 @@ import org.apache.commons.lang3.StringUtils;
 import org.custommonkey.xmlunit.HTMLDocumentBuilder;
 import org.custommonkey.xmlunit.TolerantSaxDocumentBuilder;
 import org.custommonkey.xmlunit.XMLUnit;
+import org.htmlcleaner.CleanerProperties;
+import org.htmlcleaner.DomSerializer;
+import org.htmlcleaner.HtmlCleaner;
+import org.htmlcleaner.TagNode;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
@@ -51,6 +55,7 @@ public class WebFormUserInputsCollectorSelectInputTest {
 			ParserConfigurationException, SAXException {
 
 		String source = webD.getPageSource();
+		//System.out.println(source);
 
 		DocumentBuilder db = DocumentBuilderFactory.newInstance()
 				.newDocumentBuilder();
@@ -60,18 +65,29 @@ public class WebFormUserInputsCollectorSelectInputTest {
 		WebFormUserInputsCollector col;
 		try {
 			doc = db.parse(is);
+			printDocument(doc.getDocumentElement(), System.out);
 			col = new WebFormUserInputsCollector(webD, doc, xpathOfFrame);
 		} catch (SAXException e) {
-			TolerantSaxDocumentBuilder tolerantSaxDocumentBuilder = new TolerantSaxDocumentBuilder(
-					XMLUnit.newTestParser());
-			HTMLDocumentBuilder db1 = new HTMLDocumentBuilder(
-					tolerantSaxDocumentBuilder);
-			doc = db1.parse(new StringReader(source));
-			col = new WebFormUserInputsCollector(doc, xpathOfFrame);
+			// create an instance of HtmlCleaner
+			HtmlCleaner cleaner = new HtmlCleaner();
+			 
+			// take default cleaner properties
+			CleanerProperties props = cleaner.getProperties();
+			 
+			TagNode node = cleaner.clean(source);
+			 
+			doc = new DomSerializer(props, true).createDOM(node);
+
+		//	TolerantSaxDocumentBuilder tolerantSaxDocumentBuilder = new TolerantSaxDocumentBuilder(
+//					XMLUnit.newTestParser());
+//			HTMLDocumentBuilder db1 = new HTMLDocumentBuilder(
+//					tolerantSaxDocumentBuilder);
+//			doc = db1.parse(new StringReader(source));
+			printDocument(doc.getDocumentElement(), System.out);
+			col = new WebFormUserInputsCollector(webD, doc, xpathOfFrame);
 		}
 
-		// System.out.println(source);
-
+		 
 		System.out.println("\n*******************\n");
 		System.out.println("\n*******************\n");
 		List<String> csvStrings = new ArrayList<String>();

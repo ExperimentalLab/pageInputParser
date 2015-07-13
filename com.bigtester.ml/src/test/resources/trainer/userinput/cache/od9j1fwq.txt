@@ -1,0 +1,14 @@
+gender	<li><label class="form-text">Gender:</label><select id="jvfld-x-yV9Vfwh" name="jvfld-x-yV9Vfwh"><option value=""> - Select - </option><option value="1">Male</option><option value="2">Female</option><option value="3">Decline To Self Identify</option></select></li>
+race	<li><label class="form-text">Race:</label><select id="jvfld-x-zV9Vfwi" name="jvfld-x-zV9Vfwi" style=""><option value=""> - Select - </option><option value="1">American Indian or Alaskan Native</option><option value="2">Asian</option><option value="4">Black or African American</option><option value="16">White</option><option value="32">Native Hawaiian or Other Pacific Islander</option><option value="64">Two or more races</option><option value="128">Decline To Self Identify</option></select></li>
+firstname	<li class="name-text first"><label class="form-text">First Name  <span class="required-field">*</span></label><input id="jvfirstname" name="jvfirstname" type="text" value=""/></li>
+lastname	<li class="name-text"><label class="form-text">Last Name <span class="required-field">*</span></label><input id="jvlastname" name="jvlastname" type="text" value=""/></li>
+email	<li class="name-text first"><label class="form-text">Email Address <span class="required-field">*</span></label><input id="jvemail" name="jvemail" type="text"/></li>
+phone	<li class="name-text"><label class="form-text">Phone <span class="required-field">*</span></label><input id="jvfld-x-wV9Vfwf" name="jvfld-x-wV9Vfwf" type="text"/></li>
+city	<li class="name-text first"><label class="form-text">City <span class="required-field">*</span></label><input id="jvfld-x-sV9Vfwb" name="jvfld-x-sV9Vfwb" type="text"/></li>
+Country	<li class="name-text"><label class="form-text">Country <span class="required-field">*</span></label><input id="jvfld-x-uV9Vfwd" name="jvfld-x-uV9Vfwd" type="text"/></li>
+Personalwebsiteorblog	<li><label class="form-text blog-label">Personal website or blog (optional) </label><input id="jvfld-xGirVfw4" name="jvfld-xGirVfw4" type="text"/></li>
+attachCoverletter	<label><input checked="checked" name="covernote" type="radio" value="attach"/> Attach</label>
+writeCoverletter	<label><input name="covernote" type="radio" value="writenow"/> Write now</label>
+ethnicity	<li><label class="form-text">Ethnicity:</label><input id="jvhispanicorlatino" name="jvhispanicorlatino" type="checkbox"/><label for="jvhispanicorlatino">Hispanic or Latino - A person of Cuban, Mexican, Puerto Rican, South or Central American, or other Spanish culture or origin, regardless of race.</label></li>
+uploadCoverletterButton	<a id="ImportCL" name="ImportCL" href="https://hire.jobvite.com/#" onclick="jvAddAttachment2('jvcoverletter', 'qWWaVfwH');return false;" class="lu">Upload Cover Note</a>
+resumesubmitbutton	<a name="ImportResume" href="https://hire.jobvite.com/#" onclick="jvAddAttachment('jvresume', 'qWWaVfwH'); return false;" class="lu">Upload Resume</a>

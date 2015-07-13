@@ -20,6 +20,9 @@
  *******************************************************************************/
 package utils.form;
 
+import java.io.IOException;
+import java.io.Reader;
+import java.io.StringReader;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -28,15 +31,23 @@ import java.util.concurrent.ConcurrentHashMap;
 
 import javax.xml.parsers.ParserConfigurationException;
 
+import org.apache.commons.lang3.StringEscapeUtils;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
+import org.w3c.css.sac.InputSource;
+import org.w3c.dom.css.CSSRule;
+import org.w3c.dom.css.CSSRuleList;
+import org.w3c.dom.css.CSSStyleDeclaration;
+import org.w3c.dom.css.CSSStyleRule;
+import org.w3c.dom.css.CSSStyleSheet;
 
 import com.google.common.collect.Iterables;
 import com.steadystate.css.parser.CSSOMParser;
+import com.steadystate.css.parser.CssCharStream;
 
 import static org.joox.JOOX.*;
 
@@ -61,6 +72,7 @@ public class WebFormUserInputsCollector extends WebFormElementsCollector {
 	final private List<UserInputDom> userInputs = new ArrayList<UserInputDom>();
 
 	final private WebDriver webDriver;
+
 	/**
 	 * Instantiates a new web form user inputs collector.
 	 *
@@ -70,12 +82,13 @@ public class WebFormUserInputsCollector extends WebFormElementsCollector {
 	 *            the parent frame nullable
 	 * @throws ParserConfigurationException
 	 *             the parser configuration exception
+	 * @throws IOException 
 	 */
-	public WebFormUserInputsCollector(WebDriver webDriver, Document domDoc, String xpathOfParentFrame)
-			throws ParserConfigurationException {
+	public WebFormUserInputsCollector(WebDriver webDriver, Document domDoc,
+			String xpathOfParentFrame) throws ParserConfigurationException, IOException {
 		super(domDoc, xpathOfParentFrame);
 		this.webDriver = webDriver;
-		collectUserInputs(super.getCleanedDoc());
+		collectUserInputs(super.getCleanedDoc(), super.getDomDoc());
 	}
 
 	private boolean isUserChangableInputType(Node node) {
@@ -95,28 +108,26 @@ public class WebFormUserInputsCollector extends WebFormElementsCollector {
 		return retVal;
 	}
 
-	private void collectUserInputs(Document domDoc) {
+	
+	private void collectUserInputs(Document cleanedDoc, Document originalDoc) throws IOException {
 		for (int j = 0; j < USER_CHANGABLE_INPUT_TAGS.length; j++) {
-			NodeList htmlInputs = domDoc
+			NodeList htmlInputs = cleanedDoc
 					.getElementsByTagName(USER_CHANGABLE_INPUT_TAGS[j]);
 			for (int i = 0; i < htmlInputs.getLength(); i++) {
 				Node coreNode = htmlInputs.item(i);
-				CSSOMParser cssParser = new CSSOMParser();
-				cssParser.par
-				webDriver.findElement(By.xpath($(coreNode).xpath())).getAttribute("style");
 				List<Element> parentsUntilForm = $(coreNode).parentsUntil(
 						"form").get();
 				if ((parentsUntilForm.isEmpty() || !Iterables
 						.get(parentsUntilForm, parentsUntilForm.size() - 1)
 						.getNodeName().equalsIgnoreCase("html"))
-						&& isUserChangableInputType(coreNode)) {
+						&& isUserChangableInputType(coreNode) && webDriver.findElement(By.xpath($(coreNode ).xpath())).isDisplayed()) {
 					if (parentsUntilForm.isEmpty()) {
-						userInputs.add(initUserInputDomInsideOfForm(domDoc,
+						userInputs.add(initUserInputDomInsideOfForm(cleanedDoc,
 								coreNode, coreNode.getParentNode()));
 					} else {
 						List<Element> parents = $(coreNode)
 								.parentsUntil("form").parent().get();
-						userInputs.add(initUserInputDomInsideOfForm(domDoc,
+						userInputs.add(initUserInputDomInsideOfForm(cleanedDoc,
 								coreNode, parents.get(parents.size() - 1)));
 					}
 				} else {
@@ -276,20 +287,23 @@ public class WebFormUserInputsCollector extends WebFormElementsCollector {
 		for (int i = 0; i < USER_CHANGABLE_INPUT_TAGS.length; i++) {
 			boolean nextSiblingIsInput = false;
 			if (node.getNextSibling() != null) {
-				nextSiblingIsInput = Arrays.asList(USER_CHANGABLE_INPUT_TAGS).contains($(node.getNextSibling()).tag().toLowerCase())
-				|| $(node.getNextSibling()).find(
-						USER_CHANGABLE_INPUT_TAGS[i]).isNotEmpty();
+				nextSiblingIsInput = Arrays.asList(USER_CHANGABLE_INPUT_TAGS)
+						.contains($(node.getNextSibling()).tag().toLowerCase())
+						|| $(node.getNextSibling()).find(
+								USER_CHANGABLE_INPUT_TAGS[i]).isNotEmpty();
 			}
 			boolean previousSiblingIsInput = false;
-			
+
 			if (node.getPreviousSibling() != null) {
-				previousSiblingIsInput = Arrays.asList(USER_CHANGABLE_INPUT_TAGS).contains($(node.getPreviousSibling()).tag().toLowerCase())
+				previousSiblingIsInput = Arrays.asList(
+						USER_CHANGABLE_INPUT_TAGS).contains(
+						$(node.getPreviousSibling()).tag().toLowerCase())
 						|| $(node.getPreviousSibling()).find(
 								USER_CHANGABLE_INPUT_TAGS[i]).isNotEmpty();
 			}
-			retVal = nextSiblingIsInput 
-					|| previousSiblingIsInput;
-			if (retVal) break;
+			retVal = nextSiblingIsInput || previousSiblingIsInput;
+			if (retVal)
+				break;
 		}
 		return retVal;
 	}
@@ -298,26 +312,28 @@ public class WebFormUserInputsCollector extends WebFormElementsCollector {
 			boolean leftLabeled) {
 		boolean retVal = true;
 		for (int i = 0; i < USER_CHANGABLE_INPUT_TAGS.length; i++) {
-			
+
 			if (leftLabeled) {
 				if (node.getPreviousSibling() == null) {
 					retVal = true;
-				} else if (Arrays.asList(USER_CHANGABLE_INPUT_TAGS).contains(node.getPreviousSibling().getNodeName().toLowerCase())) 
+				} else if (Arrays.asList(USER_CHANGABLE_INPUT_TAGS).contains(
+						node.getPreviousSibling().getNodeName().toLowerCase()))
 					retVal = false;
 				else
 					retVal = retVal
-						&& $(node.getPreviousSibling()).find(
-								USER_CHANGABLE_INPUT_TAGS[i]).isEmpty();
+							&& $(node.getPreviousSibling()).find(
+									USER_CHANGABLE_INPUT_TAGS[i]).isEmpty();
 			}
 			if (!leftLabeled) {
 				if (node.getNextSibling() == null) {
 					retVal = true;
-				} else if (Arrays.asList(USER_CHANGABLE_INPUT_TAGS).contains(node.getNextSibling().getNodeName().toLowerCase())) 
+				} else if (Arrays.asList(USER_CHANGABLE_INPUT_TAGS).contains(
+						node.getNextSibling().getNodeName().toLowerCase()))
 					retVal = false;
 				else
 					retVal = retVal
-						&& $(node.getNextSibling()).find(
-								USER_CHANGABLE_INPUT_TAGS[i]).isEmpty();
+							&& $(node.getNextSibling()).find(
+									USER_CHANGABLE_INPUT_TAGS[i]).isEmpty();
 			}
 		}
 		return retVal;
@@ -327,12 +343,17 @@ public class WebFormUserInputsCollector extends WebFormElementsCollector {
 			boolean leftLabeled) {
 		boolean retVal = false;
 		if (leftLabeled) {
-			if (node.getPreviousSibling() !=null) {
-				retVal = $(node.getPreviousSibling()).find("label").isNotEmpty() || node.getPreviousSibling().getNodeName().equalsIgnoreCase("label"); 
+			if (node.getPreviousSibling() != null) {
+				retVal = $(node.getPreviousSibling()).find("label")
+						.isNotEmpty()
+						|| node.getPreviousSibling().getNodeName()
+								.equalsIgnoreCase("label");
 			}
 		} else {
 			if (node.getNextSibling() != null) {
-				retVal = $(node.getNextSibling()).find("label").isNotEmpty() || node.getNextSibling().getNodeName().equalsIgnoreCase("label"); 
+				retVal = $(node.getNextSibling()).find("label").isNotEmpty()
+						|| node.getNextSibling().getNodeName()
+								.equalsIgnoreCase("label");
 			}
 		}
 		return retVal;
@@ -341,9 +362,10 @@ public class WebFormUserInputsCollector extends WebFormElementsCollector {
 	private List<Element> getLeftRightDirectedSiblingLabelInNode(Node node,
 			boolean leftLabeled) {
 		List<Element> labels2 = new ArrayList<Element>();
-		
+
 		if (leftLabeled) {
-			if (node.getPreviousSibling().getNodeName().equalsIgnoreCase("label"))
+			if (node.getPreviousSibling().getNodeName()
+					.equalsIgnoreCase("label"))
 				labels2.add((Element) node.getPreviousSibling());
 			else
 				labels2 = $(node.getPreviousSibling()).find("label").get();
@@ -421,7 +443,8 @@ public class WebFormUserInputsCollector extends WebFormElementsCollector {
 		}
 		// tempParent2 = tempParent2.getParentNode();
 		// }
-		//TODO the parent of maxInputParentNoOtherChild might have input fields, might not have input fields
+		// TODO the parent of maxInputParentNoOtherChild might have input
+		// fields, might not have input fields
 		Node leastNonInputSiblingsParent = maxInputParentNoOtherChild
 				.getParentNode();
 		if (singleInputFieldForm && !singleFieldFormInputHasNoSibling) {

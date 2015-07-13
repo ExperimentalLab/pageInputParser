@@ -1,0 +1,2 @@
+newProfileButton	<input class="ui-form-field-button" id="newResumeButton" onclick="document.getElementById('applyJob').submit();" type="button" value="New Resume/CV"/>
+existingProfileButton	<input class="ui-form-field-button" id="existingResumeButton" onclick="window.location='submit.cfm?fuseaction=app.presubmission&amp;gotofuse=app.res_login&amp;id=23&amp;jobid=469&amp;company_id=17060&amp;version=1&amp;jobowner=&amp;aid=0&amp;fid=0&amp;bystate=0&amp;bylocation=NULL&amp;bycountry=0&amp;bycat=NULL&amp;keywords='" type="button" value="Existing Resume/CV"/>
