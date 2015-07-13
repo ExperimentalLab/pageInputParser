@@ -1,0 +1,214 @@
+ul, ol, ul li, ol li { margin:0; padding:0; list-style-type:none;}
+h1,h2,h3,h4,h5,h6 { display:block; font-family:sans-serif;}
+
+textarea { resize:none; overflow:auto; font-size:13px;}
+select, input { margin:0; margin-right:5px;} 
+input[type="text"], input[type="password"], textarea, select { border: 1px solid #d9d9d9;}
+
+hr { color:#d9d9d9; height:1px; border-color:#d9d9d9; border-style:solid; border-width: 1px 0 0; margin-bottom:8px;}
+
+.button { padding: 0px; border: 0px;}
+.atsMaster, .atsForm { padding: 0px; margin: 0px;}
+.atsSelect {}
+
+.errorMsg, .atsFormTdError, .atsFormTdError td, .atsError, .atsError td, .atsRequired, 
+.atsErrorPageMessage, .atsErrorPageMessage td, #atsForgotPasswordError { color:#D74C3B !important;}
+.errorMsg { font-size:11px; line-height:1; margin-top:2px; margin-left:1px;}
+.atsError { /*padding-bottom:10px; display:inline-block*/}
+.atsError .atsError { padding-bottom:0}
+.atsFormTdError, .atsFormTdError td, .atsError, .atsError td { padding-left:0}
+.atsFormTdError table.atsError { padding-bottom:0; margin-bottom:0}
+.atsEmailTable table.atsError { margin-bottom:10px}
+.atsRequired { margin-left:1px; margin:0\0/;}
+
+.atsSelectedJobTitle { font-weight: bold;}
+.atsSelectedJobText { border: 1px solid #d9d9d9; padding: 2px;}
+
+.atsNavBox { padding: 10px 20px;}
+.atsNavHello { float: left;}
+.atsNavLinks { float: right;}
+
+#atsSearchBox { padding-bottom: 20px;}
+#atsSearchTitle { font-size:180%; font-weight: bold; margin-bottom: 0.8em;}
+
+#atsNoJobsMessage { margin-top:10px}
+#atsNoResultsMessage {}
+
+.atsSearchTable { width: 100%; }
+.atsSearchTable input[type="text"] { width:84px; //padding:2px 4px;}
+:root .atsSearchTable input[type="text"] { top:0px\0/IE9;}
+
+.atsSearchTdLeft { padding: 4px 4px 4px 0; text-align: left; white-space: nowrap; vertical-align:middle; width:20%}
+.atsSearchTdRight { padding: 4px; vertical-align:middle;}
+.atsSearchTdRight input, .atsSearchTdRight select { margin-right:5px;}
+
+#atsSearchResultsBox { margin-bottom: 15px;}
+#atsSearchResultsText { margin-left:2px;}
+#atsSearchResultsTitle { font-size:128%; font-weight: bold; padding-bottom: 4px;}
+.atsSearchResultsTable { width: 100%; margin:0 0 20px;}
+div + table.atsSearchResultsTable { margin-top:15px}
+.atsSearchResultsHead { font-weight: bold; padding: 0 4px 4px 5px;}
+.atsSearchResultsHead th img { display:none}
+.atsSearchResultsData { padding: 8px 5px; border-top: 1px solid #d9d9d9; vertical-align:middle;}
+
+.ats_pagination_block a { margin:0 2px}
+.ats_pagination_block a.ats_pagination-btn_active { font-weight:bold}
+
+#atsJobDetailsBox { padding-bottom: 20px;}
+#atsJobDetailsHeader { margin-bottom: 10px;}
+#atsJobDetailsFooter { margin-top: 10px;}
+.atsJobDetailsTable { padding-bottom: 10px; width:100%;}
+.atsJobDetailsTable p { line-height:1.6em;}
+.atsJobDetailsTable ol { margin: 1em 0 1em 20px; padding:0 0 0 20px; list-style-type:decimal; //margin-left:24px} 
+.atsJobDetailsTable ul { margin: 1em 0 1em 15px; padding:0 0 0 20px; //margin-left:18px}
+.atsJobDetailsTable ol li { line-height:1.6em; list-style-type:decimal; padding: 0 0 5px 0;} 
+.atsJobDetailsTable ul li { line-height:1.6em; list-style-type:disc; padding: 0 0 5px 5px; //padding-left:6px;}
+
+.atsJobDetailsTdLeft { font-weight: bold; padding:5px 15px 5px 0; width:20%;}
+.atsJobDetailsTdRight { padding:5px 0; width:80%;}
+.atsJobDetailsTdTwoColumn { font-weight: normal;}
+#atsJobDetailsLoginBox { margin-top: 20px;}
+.atsJobDetailsAlreadyLogin { font-weight: bold;}
+#atsJobDetailsLoginTitle { font-weight: bold; padding-bottom: 2px;}
+
+.atsLoginTable { border: 1px solid #d9d9d9; padding:4px;}
+.atsLoginAlreadyRegisteredTd { border-right: 1px solid #d9d9d9; padding:4px; width:48%;}
+.atsLoginNotRegisteredTd { padding:4px; width:52%;}
+
+#atsAlreadyRegisteredTitle { font-weight: bold;}
+#atsAlreadyRegisteredText { padding-bottom:8px;}
+.atsAlreadyRegisteredTable { width: 100%;}
+.atsAlreadyRegisteredTdLeft { padding-right:4px; padding-bottom:8px;}
+.atsAlreadyRegisteredTdRight { padding-bottom:8px;}
+
+#atsNotRegisteredTitle { font-weight: bold;}
+#atsNotRegisteredText {}
+
+#atsSecurePasswordMessage {}
+#atsForgotPasswordBox { padding:10px 0 20px;}
+#atsForgotPasswordTitle { font-weight: bold;}
+#atsForgotPasswordText {}
+#atsForgotPasswordError { font-weight: bold; margin: 10px 0}
+.atsForgotPasswordTable { padding-top:8px;}
+.atsForgotPasswordTdLeft, .atsForgotPasswordTdCenter, .atsForgotPasswordTdRight { padding-right:4px;}
+
+#atsSentPasswordBox { padding:10px 0 20px;}
+#atsSentPasswordTitle { font-weight: bold;}
+#atsSentPasswordText {}
+#atsSentPasswordReturnToJobDetail { margin-top: 10px;}
+
+#atsFormBox { padding:10px 0 20px;}
+#atsFormText {}
+
+.atsFormTable { width: 100%; margin-bottom:20px}
+.atsFormTable input[type="text"], .atsFormTable input[type="password"] { width:200px;}
+.atsFormTable input[type="file"] { width:auto; margin-right:10px; vertical-align:baseline}
+.atsFormTable textarea { width:200px; height:80px;}
+
+#atsFormTdRequiredText { text-align: right;}
+.atsFormTdError { text-align: left;}
+.atsFormTdTitle { font-size:128%; font-weight: bold; padding: 10px 0 6px; border-bottom: 1px solid #d9d9d9;}
+.atsFormTdTitle + span { display:inline-block; padding-top:8px;}
+.atsFormTdTitle label, .atsFormTdTitle { font-weight: bold;}
+.atsFormTdLeft { padding: 8px 8px 0 0; line-height:26px; text-align:right; max-width:280px; vertical-align:top; //white-space:nowrap;}
+.atsFormTdRight { padding: 8px 0 0 0; line-height:26px; text-align:left;}
+
+.atsFormTdTwoColumnLeft { padding-top: 4px; text-align:left; vertical-align:middle }
+.atsFormTdTwoColumnUpload { padding-top: 8px; text-align:left; float:left;}
+.atsFormTdTwoColumnUpload input { width: auto!important;}
+.atsFormTdTwoColumnUpload input[type="radio"] { vertical-align:middle; margin-bottom:7px; padding:0; //margin-bottom:0;}
+.atsFormTdTwoColumnUpload label { position:relative; top:-1px;//top:0; top:-2px\0/}
+.atsFormTdTwoColumnUpload textarea, .atsFormTdTwoColumnLeft textarea { width:98.3%; height: 80px; //width:98%;}
+.atsFormTdTwoColumnCenter { padding-top: 8px; text-align: center;}
+
+#atsDisplayBox { padding:10px 0 20px;}
+.atsDisplayTdSavedMsg { font-weight: bold;}
+.atsDisplayTdError { text-align: left;}
+.atsDisplayTable { width: 100%;}
+.atsDisplayTdTitle { font-size:128%; font-weight: bold; padding:8px 0 6px; border-bottom: 1px solid #d9d9d9;}
+.atsDisplayTdLeft { padding-top: 10px; text-align: left;}
+.atsDisplayTdRight { padding-top: 10px; text-align: right;}
+.atsDisplayTdCenter { padding-top: 10px; text-align: center;}
+
+#atsApplicationSubmittedBox { margin-bottom: 20px;}
+#atsApplicationSubmittedMain { font-weight: bold;}
+#atsApplicationSubmittedMain, #atsApplicationSubmittedHomepage,
+#atsApplicationSubmittedJobSearch, #atsApplicationSubmittedConfirmationText,
+#atsApplicationSubmittedSub, #atsRegisterConfirmationHomepage,
+#atsRegisterConfirmationLogin, #atsRegisterConfirmationJobSearch { margin-bottom:10px;}
+#atsApplicationSubmittedJobSearch a { margin-right:15px;}
+
+.dateFormat { font-size:11px; position:relative; //top:-3px;}
+
+#atsErrorPageBox { padding:10px 0 20px;}
+
+.atsMailJob { margin:5px 0 12px;}
+.atsMailJobLink { position:relative; top:-2px;}
+.atsMailJobImage { vertical-align:baseline}
+.atsMailJob a:link, .atsMailJob a:visited, .atsMailJob a:active { text-decoration:none;}
+.atsMailJob a:hover { text-decoration:underline;}
+
+.atsEmailTable, .atsPreScreen { width: 100%; margin-bottom:20px;}
+.atsPreScreen { margin-top:8px}
+.atsPreScreen td { line-height:26px;}
+.atsFormTable #q .atsPreScreen { margin-top:0px}
+.atsEmailTdLeft { padding: 8px 8px 0 0; line-height:26px; text-align: left; white-space: nowrap; width:100px; vertical-align:top;}
+.atsEmailTdRight { padding: 8px 0 0 8px; line-height:26px; vertical-align:top;}
+.atsEmailTable textarea { width: 200px; height: 80px;}
+.atsEmailTable input[type="text"], .atsPreScreen input[type="text"] { width: 200px;}
+
+.topPanelContainer, .topPanel table { width:400px; text-align:left} 
+.topPanelContainer .title { font-size:128%; margin-bottom:15px; font-weight:bold; display:inline-block;}
+.topPanelContainer td { padding:4px; vertical-align:middle} 
+.topPanelContainer td label { float:right}
+.topPanel table input[type="text"],
+.topPanel table input[type="password"] { font-size:13px; width: 200px;}
+
+.topPanel table input[name="forgotPassword:j_id0:theForm:username"] { width:98%; //width:200px;}
+.topPanel table form[name="forgotPassword:j_id0:theForm"] table { //width:356px}
+.topPanel table img { display:none}
+.topPanelContainer img.poweredByImage { margin-left:10px;}
+
+.topPanelContainer .message { margin: 0 auto}
+.topPanelContainer .message .messageText { margin: 0 0 5px}
+
+table[bgcolor="white"], table[bgcolor="white"] td { border:0 none; background:none}
+center table, 
+center table td { //border:0 none; //background:none}
+
+.messageCell .messageText, .messageCell h4 { color: #D74C3B;}
+.messageCell h4 { font-size:13px; font-weight: bold; display: inline-block; margin:0 5px 0 0; //display:inline;}
+
+input[type="checkbox"] { width:auto!important}
+input.atsButton, input[type="submit"] { margin-right:5px; font-size:93%; padding:4px 10px; overflow:visible; // padding:3px 10px}
+
+.infoIcon { vertical-align:baseline; left:-4px; top:4px; //top:2px!important}
+.mouseOverInfo { padding:5px; line-height:1.5em}
+
+/* messages */
+.confirmationaccept, .confirmationerror, .confirmationwarning, 
+.confirmationquestion { line-height: 1.22em; padding:10px; margin-bottom:20px; width:566px; border-radius:3px; -moz-border-radius:3px; -webkit-border-radius:3px;} 
+.confirmationaccept { color:#283304; background:#F1FFBF; border:1px solid #A6D50F;}
+.confirmationerror { color:#33130E; background:#FECDC6; border:1px solid #F45D43;}
+.confirmationwarning { color:#332508;  background:#FFECB0; border:1px solid #FFBC2A;}
+.confirmationquestion { color:#152433; background:#D4E7F5; border:1px solid #589AD7;}
+.atsRedAlert { color:#33130E!important; line-height: 1.22em; padding:10px; background:#FECDC6; border:1px solid #F45D43; width:566px; display:inline-block; border-radius:3px; -moz-border-radius:3px; -webkit-border-radius:3px;}
+
+/* site fix */
+body,td { font: 13px/1.22 sans-serif;}
+#js-menu { //zoom:1}
+#js-menu li a { color: #1A1A1A;}
+#js-menu-search {}
+#js-loggedin-legend { margin:0 0 20px; list-style:none; padding:10px 15px; background:#f2f2f2; border:1px solid #D9D9D9; font-size:93%; color:#333333; border-radius:3px; -moz-border-radius:3px; -webkit-border-radius:3px;}
+.careers-link { //height:38px;}
+
+#atsSearchTitle, #atsSearchResultsTitle, .atsFormTdTitle, .topPanelContainer .title, .atsDisplayTdTitle {color:#191919}
+.datePicker select { padding:0}
+.addthis_toolbox {//margin-top:15px}
+
+@media screen and (-webkit-min-device-pixel-ratio:0){
+   .atsJobDetailsTable ul { margin-left:18px}
+   .atsJobDetailsTable ul li { padding-left:2px;}
+   .atsSearchTable input[type="text"] { height:12px;}
+   .atsSearchTable select { padding:1px}
+}

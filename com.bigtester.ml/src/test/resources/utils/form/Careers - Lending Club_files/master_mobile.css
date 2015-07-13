@@ -1,0 +1,871 @@
+/*
+*
+*
+*MOBILE
+*
+*
+*
+*/
+
+/********************************************/
+/********common css for both size************/
+/********************************************/
+@media only screen and (max-width: 720px) {
+
+    body.mobile{
+        overflow-x: hidden;
+    }
+
+    /* global img max size */
+        body.mobile img {
+            max-width:100%;
+        }
+
+    /* display only on mobile */
+    body.mobile .master_mobile_only {
+        display:block;
+    }
+    body.mobile .master_non_mobile_only {
+        display:none;
+    }
+
+    /* global background color */
+    html, html body.mobile {
+        background:none;
+        background-color: #dfe0e3;
+    }
+    /* global invest hyper link color*/
+    body.master_invest.mobile a{
+        color: #1f6cd6;
+    }
+
+    /* error messages at the top*/
+    body.mobile .master_message-wrapper {
+        padding:0px;
+        width: 92%;
+        margin-left: 4%;
+        margin-right: 4%;
+    }
+
+    body.mobile #master_message-list ul {
+        margin: 0;
+    }
+
+    /*
+    Top Area
+    */
+    body.mobile #master_banner {
+        padding-left: 4%;
+        padding-right: 4%;
+    }
+
+    /*
+    main logo
+    */
+    body.mobile #master_banner span a {
+        left: 0;
+        pointer-events: none;
+    }
+
+    /* hiding master tagline */
+    body.mobile #master_section-tagline {
+        display:none;
+    }
+    /* hiding right-side-bar -- deprecated now always showing */
+    /*
+    For full width left area width
+    */
+    body.mobile.master_full-width #master_content-left,
+    body.mobile.master_left-nav #master_content-left {
+        border-right: none;
+        float: none;
+        width: 100%;
+        background: #fff;
+    }
+
+    /* removing min height and setting width and BASIC BORDERS*/
+    body.mobile.master_full-width #master_content-full .master_content-outer-container,
+    body.mobile.master_full-width #master_content-left .master_content-outer-container,
+    body.mobile.master_left-nav #master_content-full .master_content-outer-container,
+    body.mobile.master_left-nav #master_content-left .master_content-outer-container{
+        min-height: 1px;
+        width: 92%;
+        margin-left: 4%;
+        margin-right: 4%;
+        padding: 0;
+        border: 0;
+    }
+    /* size of main label, page title */
+    body.mobile #master_content-header h1 {
+        font-size: 124%;
+        font-weight: bold;
+        float: none;
+        padding-left: 0;
+    }
+
+    /*
+    The top header, setting the width
+    */
+    body.mobile.master_full-width #master_content-header,
+    body.mobile.master_left-nav #master_content-header {
+        width: 90%;
+        padding: 0px;
+        border:none;
+        margin-left: 4%;
+        float: none;
+    }
+
+    /*
+    Hide the [?] at the top
+    */
+    body.mobile .master_side_message_wrapper{
+        display: none;
+    }
+
+    /* Top Navigation Area */
+
+    /*tertiary navigation container hiding */
+    body.mobile .master_sub-module-menu {
+        display: none;
+    }
+
+    /* hidding the current lists */
+    body.mobile #master_utilities,
+    body.mobile #master_top-nav,
+    body.mobile #master_smenu,
+    body.mobile #master_utilities_menu{
+        display: none;
+    }
+
+    body.mobile #master_mobile_utilities{
+        right: 0px;
+        margin-top: -36px;
+        position: absolute;
+        display: block;
+        outline: 0;
+        text-indent: -9999px;
+    }
+    body.mobile .ACCOUNT #master_mobile_utilities{
+        right: 0;
+    }
+
+    /*toggled utilities and secondary navigation and tertiary links*/
+    body.mobile #master_utilities_menu.toggle{
+        display:block;
+        background-color:#fff;
+        z-index: 1001;
+        font-size:106%;
+        margin:0px;
+        position:absolute;
+        border-radius: 3px;
+    }
+
+    body.mobile #master_utilities_menu.toggle:after, body.mobile #master_utilities_menu.toggle:before{
+        bottom: 100%;
+        border: solid transparent;
+        content:" ";
+        height: 0;
+        width: 0;
+        position: absolute;
+        pointer-events: none;
+    }
+
+    body.mobile #master_utilities_menu.toggle li{
+        line-height: 1;
+        list-style: none;
+    }
+    body.mobile #master_utilities_menu.toggle li.utilities.first{
+        border-top: none;
+    }
+
+    /*giving the links the color removing background that gives the red dot*/
+    body.mobile #master_utilities_menu.toggle li a{
+        display: block;
+        font-weight: bold;
+        text-decoration: none;
+    }
+    body.mobile #master_banner #master_utilities_menu.toggle li.utilities a{
+        color: #0a2945;
+    }
+    body.mobile.master_invest #master_utilities_menu.toggle a {
+        color: #1F6CD6;
+    }
+    body.mobile.master_borrow #master_utilities_menu.toggle a {
+        color: #5a9229;
+    }
+
+    body.mobile #master_utilities_menu.toggle li a.active {
+        color: #dddddd;
+    }
+    body.mobile #master_banner #master_fmenu-wrapper{
+        border: none;
+        background: #fff;
+    }
+
+    /*
+    Entire middle section properties
+    */
+    body.mobile #master_content,
+    body.mobile #master_banner #master_banner-wrapper,
+    body.mobile.master_full-width #master_content-mid,
+	body.mobile.master_full-width #master_tabbed_content-mid,
+    body.mobile.master_left-nav  #master_content-mid,
+    body.mobile.master_left-nav  #master_main-content{
+        background: inherit;
+        min-height: 0px;
+        padding: 0px;
+        width: 100%;
+    }
+    body.mobile #master_content-mid{
+        border: none;
+        margin-top: 0;
+    }
+    body.mobile.master_full-width #master_tabbed_content-mid{
+    	border-top: 0;
+    }
+    /* left nav for left nav version of pages removal */
+    body.mobile.master_left-nav #master_left-nav {
+        display:none;
+    }
+
+
+    /*
+    Setting the wrapper width
+    */
+    body.mobile .master_wrapper {
+        width: 100%;
+        background-color: #fff;
+    }
+
+    /*
+    setting the body.mobile width
+    */
+    body.mobile {
+        min-width: 100%;
+    }
+
+    /* promo block related */
+    body.mobile #master_promo {
+        display:none;
+    }
+
+    /* footer related*/
+    body.mobile #master_footer #master_copyright-bg-span {
+        display:none;
+    }
+
+    body.mobile #master_footer {
+        color: #FFFFFF;
+        padding: 0px;
+        width: 100%;
+        margin:0;
+        background-color: #DFE0E3;
+    }
+
+    body.mobile #master_footer #footerMasterHmenu{
+        width: 92%;
+        top: 50px;
+    }
+    /* footer text color*/
+    body.mobile .footer-footnote,
+    body.mobile div#master_footer,
+    body.mobile #master_footer a {
+        color:#525c69;
+        border-top: none;
+    }
+    #master_footer #master_copyright-bg{
+        padding-top: 35px;
+    }
+    body.mobile #master_footer p {
+        clear: both;
+        text-align:center;
+        margin:0px;
+    }
+
+    /* removing area */
+    body.mobile #master_footer .footer-logo,
+    body.mobile #master_footer #master_follow {
+        display: none;
+    }
+
+    /* formatting of footer links */
+    body.mobile #master_footer-contact,
+    body.mobile #footerMasterHmenu {
+        background: none;
+        clear: both;
+        display: block;
+        float: none;
+        margin: 0px;
+        padding: 0px;
+        width: 100%;
+        text-align:center;
+        font-size:100%;
+    }
+    body.mobile #footerMasterHmenu.master_hmenu li.master_mobile_only{
+        display: inline;
+        border-right: none;
+    }
+    body.mobile #footerMasterHmenu.master_hmenu li.showForMobile{
+        display: inline;
+        border-right: none;
+    }
+
+    /* removing the home about us contact lines in footer*/
+    body.mobile #master_footer-contact ul.master_hmenu {
+        display:none;
+    }
+
+    body.mobile #master_ecoa-span {
+        padding: 0px;
+        margin: 0 auto;
+        display: block;
+        float: none;
+        margin-top: 3px;
+    }
+
+    /* padding for all text inputs
+    body.mobile input.text,
+    body.mobile select,
+    body.mobile textarea {
+        padding: 10px 4% 10px 4%;
+    }
+
+    /* start area for landing pages */
+
+    /* b_ltree_V2.action */
+    body.mobile #wrapper,
+    body.mobile #header,
+    body.mobile #body-content,
+    body.mobile #footer,
+    body.mobile .footer-copyright,
+    body.mobile #head-copy,
+    body.mobile #APR-rate-box,
+    body.mobile #leftside-content,
+    body.mobile #rightside-content,
+    body.mobile #right-content-bottom {
+        width:100%;
+        background:none;
+        height:auto;
+    }
+    /* end area for landing pages */
+
+
+    /*
+        Standard Form styles
+        Also applies for some global id's such as:
+        #join_now
+    */
+    body.mobile #join_now {
+        width:100%;
+        padding:0;
+    }
+
+    /* join now intent area */
+    body.mobile #join_now .intent.row {
+        height: auto;
+    }
+    body.mobile #join_now .intent.row label {
+        display: inline;
+        float: none;
+        width: auto;
+    }
+    body.mobile #join_now .intent.row input {
+        float: none;
+        margin-left: 1em;
+    }
+    body.mobile #join_now .intent.row input + label {
+        font-weight: normal;
+        padding: 0;
+    }
+
+    body.mobile form.standard {
+        width: 90%;
+        margin: 0 0 0 5%;
+    }
+
+    body.mobile form.standard input.text,
+    body.mobile form.standard select,
+    body.mobile form.standard textarea {
+        margin: 0;
+        margin-bottom: 0.3846em; /* (= 5px) */
+        width: 90%
+    }
+
+    /* selects adjustment */
+    body.mobile form.standard select{
+        width: 100%;
+        height:40px;
+    }
+
+    body.mobile form.standard .row label,
+    body.mobile #join_now .row label {
+        margin-bottom: 0.3846em; /* (= 5px) */
+        padding-right: 0;
+        text-align: left;
+        width: 100%;
+    }
+
+    body.mobile form.standard small,
+    body.mobile #join_now form.standard small {
+        margin: 0;
+    }
+
+    body.mobile form.standard .dynamic-agreement .agreement_title {
+        padding-left: 0;
+        margin: 0;
+    }
+
+    /* standard form submit button */
+    /* in order to get button in forms to be center aligned */
+
+    body.mobile form.standard div.toolbar,
+    body.mobile #personal-info .toolbar,
+    body.mobile #toolbar_getPersonalInfo.toolbar,
+    body.mobile #toolbar_getYourRateButton.toolbar,
+    body.mobile #toolbar_getLoanTermsButton.toolbar,
+    body.mobile #toolbar_doneButton.toolbar {
+        float: none;
+        padding: 0px;
+        text-align: center;
+        width: 100%;
+        margin: 5px 0 5px 0;
+    }
+
+    body.mobile form.standard input[type="submit"],
+    body.mobile form.standard .toolbar input[type="submit"]#master_PersonalInfoDoneButton,
+    body.mobile form.standard input[type="submit"]#master_getPersonalInfo,
+    body.mobile form.standard input[type="submit"]#master_getYourRateButton,
+    body.mobile form.standard input[type="submit"]#master_getLoanTermsButton,
+    body.mobile form.standard input[type="submit"]#master_doneButton  {
+        float: none;
+        margin:0;
+    }
+
+    /* standard agreement box */
+    body.mobile #join_now form.standard .agreement-checkbox {
+        margin: 20px 0px 0px 0px;
+        text-align: center;
+    }
+
+    /* extra form text */
+    body.mobile .button-container p {
+        float: left;
+    }
+
+    /* global registration messages */
+    body.mobile .tooltip {
+        position:relative;
+        padding: 3px 1% 3px 1%;
+        text-align: left;
+        width: 98%;
+        font-size: 0.8em;
+    }
+
+    /* LENDER REGISTRATION */
+    /* there is a nav area that we want to hide */
+    body.mobile.lender-reg #master_top-nav {
+        display: none;
+    }
+
+    /* logged in account pages */
+    body.mobile .master_side_message_wrapper {
+        padding-top: 0px;
+    }
+
+    body.mobile img.privacyImgIcon {
+        display: none;
+    }
+
+    /*lightbox loader*/
+    body.mobile .lightbox div.bd{
+        font-size: 100%;
+        padding: 8px;
+    }
+
+    body.mobile div.lightbox h3{
+        padding-bottom: 5px;
+        border-bottom: 1px solid #AFC3CE;
+        font-size: 120%;
+        font-weight: bold;
+    }
+
+    body.mobile div.lightbox h4{
+        font-size: 100%;
+        margin-top: 5px;
+    }
+
+    body.mobile #master_banner #master_utilities_menu.toggle li span.separator {
+        display: none;
+    }
+
+    body.mobile .css_btn_class{
+        color: rgb(113, 112, 112);
+        cursor: auto;
+        display: block;
+        float: left;
+        font-family: helvetica, arial, clean, sans-serif;
+        font-size: 14px;
+        font-style: normal;
+        font-variant: normal;
+        font-weight: normal;
+        height: 14px;
+        line-height: 16px;
+        list-style-image: none;
+        list-style-position: outside;
+        list-style-type: none;
+        padding-bottom: 7px;
+        padding-left: 10px;
+        padding-right: 10px;
+        padding-top: 3px;
+        text-align: left;
+        text-decoration: none;
+        border-radius: none;
+        border: none;
+        background: none;
+        -webkit-box-shadow: none;
+        -moz-box-shadow: none;
+    }
+
+
+      /*-------------------------------------------------------
+ * left navigation
+ *-------------------------------------------------------*/
+   body.nav-expanded #mobile-lc-category-menu {
+    width: 15px;
+ }
+
+ body .lc-category-menu {
+    overflow: scroll;
+    height: 100%;
+    z-index: 100;
+ }
+
+  body.mobile .lc-category-menu li a.active,
+  body.mobile.master_left-nav #master_left-nav li a.active {
+    border:none;
+    color: #d13138;
+    font-weight: bold;
+    padding-left: 16px;
+}
+
+
+	 .mobile #mobile-lc-category-menu {
+	 	background-color: black;
+	    display: block;
+	    height: 100px;
+	    position: fixed;
+	    width: 35%;
+	    top:30%;
+	    z-index:5;
+	 	background: url(/public/images/$TOKEN$/mobile/mobile-btn-sideNav.png) 0 0 no-repeat;
+	 }
+
+
+	 .mobile .lc-category-menu,
+	body.mobile.master_left-nav #master_left-nav {
+ 	    background-color: #fff;
+        width:190px;
+	 	margin-left:-190px;
+	 	-webkit-transition: margin-left 1s; /* For Safari 3.1 to 6.0 */
+	    transition: margin-left 1s;
+	    display:block;
+	    position:fixed;
+	    z-index:1;
+	     height:100%;
+	     top:0%;
+	 }
+	 .mobile .mobile-lc-category-menu-displayed,
+	 html body.mobile.master_left-nav #master_left-nav.mobile-lc-category-menu-displayed{
+	 	display:block;
+	 	position:fixed;
+	 	top:0%;
+	 	z-index:1;
+	 	margin-left:0px;
+	 	-webkit-transition: margin-left 1s; /* For Safari 3.1 to 6.0 */
+	    transition: margin-left 1s;
+	    border:1px solid black;
+	    height:100%;
+        overflow: scroll;
+        z-index: 100;
+	 }
+
+      /*-------------------------------------------------------
+ * global right side bar alignment
+ *-------------------------------------------------------*/
+	 	body.mobile.master_left-nav #master_content-right {
+		    float: right;
+		    width: 100%;
+		}
+
+		body.mobile .right-col {
+			margin:20px auto;
+		}
+
+
+    /**********************
+       Banner: main logo
+    **********************/
+    body.mobile #master_banner{
+        padding-top: 0;
+        padding-bottom: 0;
+        margin-bottom: 0;
+        border-bottom: 2px solid #f1f1f1;
+        height: auto;
+    }
+    body.mobile #master_banner span,body.mobile.backpack #master_banner span{
+        padding-top: 14.5px;
+        padding-bottom: 9.5px;
+        display: block;
+        height: 26px;
+        border-right: 1px solid #f1f1f1;
+        width: 88%;
+        box-sizing: content-box;
+    }
+    body.mobile #master_banner span a{
+        background: url(/public/images/$TOKEN$/mobile/lc-logo.png) 0 0 no-repeat;
+        height: 26px;
+        width: 174px;
+        margin-left: 0;
+        padding-bottom: 0;
+    }
+    body.mobile.backpack #master_banner span a{
+        background: url(/public/images/$TOKEN$/mobile/logo-lc_google.png) 0 0 no-repeat;
+        height: 39px;
+        width: 174px;
+    }
+    body.mobile #master_mobile_utilities {
+        background: url(/public/images/$TOKEN$/mobile/menu-btn.png) 0 0 no-repeat;
+        width: 25px;
+        height: 22px;
+    }
+    /*****************
+      content header
+    *****************/
+    body.mobile.master_full-width #master_content-header, body.mobile.master_left-nav #master_content-header{
+        margin-top: 13px;
+        margin-bottom: 10px;
+    }
+
+    /*******************
+     message alert icon
+    ********************/
+    body.mobile #master_message-list.master_alert,
+    body.mobile .messages.access-non-javascript{
+        background: url("/public/images/$TOKEN$/mobile/alert-icon.png") no-repeat 10px 8px #fdf5d1;
+        padding-left: 40px;
+    }
+
+    /************************
+        Global Navigator
+     ************************/
+    body.mobile #master_utilities_menu.toggle {
+        width: 162px;
+        padding: 20px;
+        top: 47px;
+        right: 6px;
+        border: 2px solid #0A2945;
+        box-shadow: 3px 7px 10px #888;
+    }
+    body.mobile #master_utilities_menu.toggle:after{
+        border-bottom-color: #fff;
+        border-width: 7px;
+        left: 90%;
+        margin-left: -7px;
+    }
+    body.mobile #master_utilities_menu.toggle:before{
+        border-bottom-color: #0a2945;
+        border-width: 10px;
+        left: 90%;
+        margin-left: -10px;
+    }
+    #master_utilities_menu li{
+        height: 35px;
+    }
+    body.mobile #master_utilities_menu.toggle li a{
+        padding: 10px 0 10px 10px;
+    }
+    /***********
+        Footer
+     ***********/
+    body.mobile #master_footer{
+        min-height:225px;
+    }
+    body.mobile #master_footer-contact p{
+        padding-top: 15px;
+        line-height: 1.3;
+    }
+    /*adjustment for lowers links */
+    body.mobile #footerMasterHmenu{
+        margin: 0 auto 13px;
+        line-height: 1.7;
+    }
+    body.mobile #footerMasterHmenu.master_hmenu li{
+        padding-left: 8px;
+        padding-right: 8px;
+        border-left: none;
+        border-right: 1px solid #adadad;
+        background: none;
+    }
+    body.mobile #master_ecoa-span #master_copyright_ecoa_text{
+        float: none;
+    }
+    body.mobile #master_ecoa-span #master_copyright_ecoa{
+        background: url("/public/images/$TOKEN$/mobile/footer-ecoa-icon.png") no-repeat scroll 0 0 transparent;
+        float: none;
+        display: inline-block;
+        height: 15px;
+        width: 20px;
+    }
+    /**************************
+         Datatable css
+    **************************/
+    body.mobile .yui-skin-sam.yui-dt{
+        font-size: 77%;
+        font-weight: bold;
+    }
+    body.mobile div.yui-dt th{
+        border-bottom: none;
+    }
+    body.mobile div.yui-dt table{
+        border-top: none;
+    }
+    body.mobile .yui-dt thead th{
+        border-top: 3px solid #dddddd;
+        border-bottom: 3px solid #dddddd;
+        height: 44px;
+        font-size: 100%;
+    }
+    body.mobile .yui-dt thead .yui-dt-label{
+        margin:0;
+    }
+    body.mobile .yui-dt tbody tr{
+        height: 35px;
+        border-top: 1px solid #dddddd;
+    }
+    body.mobile .yui-dt .yui-dt-liner{
+        padding: 0;
+        text-align: center;
+        float: none;
+    }
+    body.mobile .yui-dt span.AA{background:url(/public/images/$TOKEN$/mobile/portfolioManagementsprite.png) transparent 0px -66px no-repeat;}
+    body.mobile .yui-dt span.A{background:url(/public/images/$TOKEN$/mobile/portfolioManagementsprite.png) transparent -59px -66px no-repeat;}
+    body.mobile .yui-dt span.B{background:url(/public/images/$TOKEN$/mobile/portfolioManagementsprite.png) transparent -116px -66px no-repeat;}
+    body.mobile .yui-dt span.C{background:url(/public/images/$TOKEN$/mobile/portfolioManagementsprite.png) transparent -174px -66px no-repeat;}
+    body.mobile .yui-dt span.D{background:url(/public/images/$TOKEN$/mobile/portfolioManagementsprite.png) transparent -404px -66px no-repeat;}
+    body.mobile .yui-dt span.E{background:url(/public/images/$TOKEN$/mobile/portfolioManagementsprite.png) transparent -231px -66px no-repeat;}
+    body.mobile .yui-dt span.F{background:url(/public/images/$TOKEN$/mobile/portfolioManagementsprite.png) transparent -289px -66px no-repeat;}
+    body.mobile .yui-dt span.G{background:url(/public/images/$TOKEN$/mobile/portfolioManagementsprite.png) transparent -351px -66px no-repeat;}
+
+    /**************************
+         Datatable paginator
+    **************************/
+    body.mobile #paging, body.mobile #paging2{
+        padding-right: 0;
+        margin: 0 0 18px 0;
+    }
+    body.mobile #paging2{
+        margin-top: 10px;
+        margin-bottom: 20px;
+    }
+    body.mobile .pagination .yui-pg-first,
+    body.mobile .pagination .yui-pg-previous,
+    body.mobile .pagination .yui-pg-pages,
+    body.mobile .pagination .yui-pg-page,
+    body.mobile .pagination .yui-pg-next,
+    body.mobile .pagination .yui-pg-last{
+        text-decoration: none;
+    }
+    body.mobile .pagination .yui-pg-previous{
+        margin-left: 3%;
+    }
+    body.mobile .pagination .yui-pg-pages{
+        margin-left: 2%;
+    }
+    body.mobile .pagination .yui-pg-next{
+        margin-left: 2%;
+    }
+    body.mobile .pagination .yui-pg-last{
+        margin-left: 3%;
+    }
+    body.mobile .pagination p{
+        font-weight: bold;
+        width: 294px;
+        float: right;
+    }
+    body.mobile .pagination .yui-pg-current{
+        margin-right: 0;
+        padding-bottom: 2%;
+    }
+    body.mobile .pagination span.yui-pg-current-page{
+        border:none;
+    }
+    body.mobile .pagination .yui-pg-rpp-options{
+        padding: 3px;
+        margin-right: 0;
+        background-color: #f2f2f2;
+        height: 22px;
+        width: 50px;
+        margin-left: 3%;
+    }
+    body.mobile .pagination .yui-pg-page{
+        border:1px solid #b1b1b1;
+        margin-right: 2px;
+    }
+
+    /******************************
+            small loader
+    ******************************/
+    body.mobile #loader{
+        padding-top: 0;
+        position: absolute;
+        width: 100%;
+        top: 15px;
+    }
+    body.mobile .yui-panel-container #loading{
+        width:106px !important;
+    }
+    body.mobile .yui-panel-container #loading .bd{
+        padding: 10px 10px 10px 2px;
+    }
+    body.mobile .yui-panel-container #loading img{
+        margin-left: 10px !important;
+        margin-top: 0px !important;
+        margin-bottom: 0px !important;
+        padding: 0 !important;
+    }
+
+    body.mobile .yui-panel-container #loading .bd .module-ajax-mid{
+        padding: 8px 12px 8px 18px;
+    }
+    /***************************************
+        error message simpleDialog popup
+    ****************************************/
+    body.mobile .yui-panel-container .yui-overlay.yui-panel{
+        border: none;
+        margin: 0 auto;
+        box-shadow: 3px 3px 10px #2e2f32;
+    }
+    body.mobile .yui-panel-container .hd{
+        background-color: #ffffff;
+        color: #2e2f31;
+        border-bottom: 1px solid #ddd;
+        padding: 12px;
+        font-size: 124%;
+    }
+    .mobile .yui-panel .bd{
+        padding: 20px 10px 15px 20px;
+    }
+    body.mobile.master_invest .yui-panel-container .bd ul{
+        margin-bottom: 0;
+    }
+    body.mobile .yui-dialog .ft, bod.mobile .yui-simple-dialog .ft{
+        text-align: center;
+        padding-bottom: 12px;
+    }
+    .yui-panel-container .ft .button-group button{
+        background: url(/public/images/$TOKEN$/mobile/btn-blue-126x38.png) no-repeat 0 0;
+        height: 38px;
+        width: 126px;
+        font-size: 124%;
+    }
+}

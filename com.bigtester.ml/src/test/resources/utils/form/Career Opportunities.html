@@ -1,0 +1,930 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!-- saved from url=(0124)http://chk.tbe.taleo.net/chk01/ats/careers/apply.jsp;jsessionid=909A2162C9414BEB7D72128B19185B71?org=SHARPLABS&cws=1&rid=131 -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><link type="text/css" rel="stylesheet" href="./Career Opportunities_files/ui.core.css">
+<link type="text/css" rel="stylesheet" href="./Career Opportunities_files/ui.theme.css">
+<link type="text/css" rel="stylesheet" href="./Career Opportunities_files/ui.datepicker.css">
+<link type="text/css" rel="stylesheet" href="./Career Opportunities_files/ui.dialog.css">
+
+
+<style type="text/css">
+
+    select:focus, a:focus {
+        outline: #1e90ff solid 2px
+    }
+
+    input[type=submit] {
+        background: #00438C;
+    }
+
+    input[type=button] {
+        background: #00438C;
+    }
+
+    input[type=submit]:hover {
+        background: #1e31ff;
+    }
+
+    input[type=button]:hover {
+        background: #1e31ff;
+    }
+
+    input[type=submit]:focus {
+        background: #1e90ff;
+    }
+
+    input[type=button]:focus {
+        background: #1e90ff
+    }
+
+    .ui-dialog .ui-dialog-buttonpane {
+        text-align: right;
+    }
+
+    .ui-dialog .ui-dialog-buttonpane button {
+        float: none;
+    }
+
+        /*a.ui-dialog-titlebar-close.ui-corner-all.ui-state-focus {*/
+        /*border: 1px solid #000;*/
+        /*}*/
+
+</style>
+
+
+
+<style type="text/css">
+    .alert-error {
+        color: #990000;
+        font-weight: bold;
+    }
+
+    td.top {
+        vertical-align: top !important;
+    }
+
+    td.left {
+        float: none;
+        text-align: left;
+    }
+
+    td.right {
+        float: none;
+        text-align: right;
+    }
+
+    .nowrapFormLabel {
+        white-space: nowrap;
+        text-align: right;
+    }
+
+    h1 {
+        font-size: 120%
+    }
+
+    h2 {
+        font-size: 110%
+    }
+
+    h3 {
+        font-size: 100%
+    }
+
+    .hidden-accessibility-text {
+        position: absolute;
+        left: -2000px;
+        top: 0;
+        width: 1;
+        height: 1;
+        overflow: hidden;
+        font-size: 0.1em;
+    }
+
+    .ofcc305table TD, .ofcc305table TH, .ofcc305table textarea,
+    .ofcc305table textfield, .ofcc305table select,
+    .ofcc305table input, .ofcc305table a {
+        font-size:12px !important;
+        font-family:Arial,sans-serif,Helvetica !important;
+    }
+
+    #cws-search-results th, #cws-job-alerts th {
+        border-top: #CCCCCC 2px solid;
+        border-bottom: #CCCCCC 2px solid;
+    }
+
+    #cws-search-results tr:last-of-type td, #cws-job-alerts tr:last-of-type td {
+        border-bottom: #CCCCCC 2px solid;
+        padding-bottom: 3px;
+    }
+</style>
+
+<title>Career Opportunities</title></head><body>
+<style type="text/css">
+body {
+font-family: Verdana;
+font-size: 11px;
+font-style: normal;
+font-weight: normal;
+}
+TD, TH {
+font-family: Verdana;
+font-size: 11px;
+font-style: normal;
+font-weight: normal;
+}
+textarea {font-family:Verdana; font-size:10px;}
+textfield {font-family:Verdana; font-size:10px;}
+select {font-family:Verdana; font-size:10px;}
+input {font-family:Verdana; font-size:10px;}
+</style>
+
+
+<script type="text/javascript" src="./Career Opportunities_files/encode.js"></script>
+<script type="text/javascript" src="./Career Opportunities_files/CwsDWRFacade.js"></script>
+<script type="text/javascript" src="./Career Opportunities_files/tbe-basic-cws.js"></script>
+<script type="text/javascript"> CwsDWRFacade._path = 'http://chk.tbe.taleo.net/chk01/ats/dwr-cws';
+DWREngine.setRpcType(DWREngine.ScriptTag);
+var DWRFacade = CwsDWRFacade; </script>
+<script type="text/javascript">
+var timer;
+var calendarArray = new Array ();
+function startSessionTimer(){
+	timer=setTimeout("sessionAboutToEnd()", 86100000);
+}
+function sessionAboutToEnd(){
+	var oHead = document.getElementsByTagName('head')[0];
+	loadScript(oHead, 'https://staticchk.tbe.taleo.net/chk01/ats/cacheable/R15-05-12-16-49-25-15.A2_prod/js/UIv8/engine.js',  function() {
+		var answer = confirm("Your session is about to expire. Would you like to continue your session?");
+		if(answer){
+			DWREngine.setErrorHandler( function(errorString, exception) {
+				window.location = "https://chk.tbe.taleo.net/chk01/ats/sessionTimedOut.jsp?locale=enUS"
+			});
+			CwsDWRFacade.refreshSession();
+			clearTimeout(timer);
+			startSessionTimer();
+		} else {
+			window.location = "https://chk.tbe.taleo.net/chk01/ats/sessionTimedOut.jsp?locale=enUS";
+		}
+	});
+}
+startSessionTimer();</script>
+
+<script type="text/javascript" src="./Career Opportunities_files/rollingEntity.js"></script>
+<script type="text/javascript" src="./Career Opportunities_files/asyncHTML.js"></script>
+<script type="text/javascript" src="./Career Opportunities_files/asyncWebForm_cws.js"></script>
+<script src="./Career Opportunities_files/jquery.validate.min.js"></script>
+<script type="text/javascript">
+    function TBE_attachments() {
+        document.TBE_theForm.act.value = "attachmentsCWS1";
+        document.TBE_theForm.action = 'http://chk.tbe.taleo.net/chk01/ats/careers/apply.jsp?org=SHARPLABS&cws=1';
+        document.TBE_theForm.submit();
+        return false;
+    }
+
+    function TBE_resReq(isResReq) {
+        document.TBE_theForm.act.value = "attachmentsCWS1";
+        document.TBE_theForm.action = 'http://chk.tbe.taleo.net/chk01/ats/careers/apply.jsp?org=SHARPLABS&cws=1';
+        var isRR = document.createElement('isRR');
+        isRR.innerHTML = "<input type='hidden' name='isResReq' value='" + isResReq + "'>";
+        document.TBE_theForm.appendChild(isRR);
+        document.TBE_theForm.submit();
+        return false;
+    }
+
+    function TBE_removeAtt(attachmentNo) {
+        document.TBE_theForm.act.value = "removeAttCWS";
+        document.TBE_theForm.attNo.value = attachmentNo;
+        document.TBE_theForm.action = 'http://chk.tbe.taleo.net/chk01/ats/careers/apply.jsp?org=SHARPLABS&cws=1';
+        document.TBE_theForm.submit();
+        return false;
+    }
+
+    function TBE_removeAttByDocNumber(attachmentNo, attachmentDocId, attachmentDocType) {
+        document.TBE_theForm.act.value = "removeAttCWS";
+        document.TBE_theForm.attNo.value = attachmentNo;
+        document.TBE_theForm.attDocId.value = attachmentDocId;
+        document.TBE_theForm.attDocType.value = attachmentDocType;
+        document.TBE_theForm.action = 'http://chk.tbe.taleo.net/chk01/ats/careers/apply.jsp?org=SHARPLABS&cws=1';
+        document.TBE_theForm.submit();
+        return false;
+    }
+
+    var doubleSubmitPreventionTimeout = 5000;//time (in miliseconds) after we will enable another submit of same form
+    var isSubmitted = false;
+
+    function submitForm() {
+        if ($.browser.msie) {
+            $("#spinner").html($("#spinner").html());
+        }
+        //preventing double click submitting form, when user first time submits form, isSubmitted will be set,
+        //and next attempts to submit form will be ignored
+        if (!isSubmitted) {
+            isSubmitted = true;
+            $('#spinner').css('visibility', 'visible');
+            setTimeout("isSubmitted = false", doubleSubmitPreventionTimeout);//reset isSubmitted flag after 5 secs
+            setTimeout("$('#spinner').css('visibility', 'hidden');", doubleSubmitPreventionTimeout);
+            setTimeout("$(':submit').removeAttr('disabled');", doubleSubmitPreventionTimeout);
+            return true;
+        } else {
+            isSubmitted = false;
+            $('#spinner').css('visibility', 'hidden');
+            $(':submit').removeAttr('disabled');
+        }
+        return false;
+    }
+
+    $(document).ready(function () {
+        $(':submit').click(function () {
+            //if cc305 form included then validate cc305 fields
+            if (document.getElementById('cc305Date')) {
+                var form = $("form[name='TBE_theForm']");
+                form.validate({
+                    errorPlacement: function (error, element) {
+                        if (element.attr("id") == "cc305Name") {
+                            $('#cc305Name_error').html(error);
+                        }
+                        if (element.attr("id") == "cc305Date") {
+                            $('#cc305DateDate_error').html(error);
+                        }
+                    }
+                });
+                if (!validateDate())
+                    return false;
+                if (form.valid() == true) {
+                    return submitForm();
+                } else {
+                    return false;
+                }
+            } else {
+                return submitForm();
+            }
+        });
+        $("form[name='TBE_theForm']").bind('submit', function () {
+            $(':submit').attr('disabled', true);
+        });
+        $('#spinner').css('visibility', 'hidden');
+    })
+</script>
+
+<table border="0" cellspacing="0" cellpadding="2" width="100%" role="presentation">
+<tbody><tr>
+<td colspan="5" width="100%"><a tabindex="3" href="http://chk.tbe.taleo.net/chk01/ats/careers/requisition.jsp?org=SHARPLABS&cws=1&rid=131" title="Back">Back</a><br><br></td>
+</tr>
+<tr>
+</tr><tr><td colspan="5" align="left"><b>Position:</b> Sr Java Developer  (93321)</td></tr>
+<tr><td colspan="5" align="left"><b>Location:</b> Santa Ana, CA</td></tr>
+<tr><td colspan="5" align="left"><b>Job Code:</b> 93321<br><br></td></tr>
+
+<tr>
+<td colspan="5" width="100%">To submit your application please complete the form below. Fields marked with a red asterisk <font color="red">*</font> are required. When you have finished click <b>Submit</b> at the bottom of this form.</td>
+</tr>
+<tr>
+<td colspan="5" style="padding: 0px;"><br>
+<form action="http://chk.tbe.taleo.net/chk01/ats/careers/thankYou.jsp?org=SHARPLABS&cws=1" method="post" name="TBE_theForm" enctype="multipart/form-data">
+<input type="hidden" name="org" value="SHARPLABS">
+<input type="hidden" name="act" value="add">
+<input type="hidden" name="removeOldRequisitions" value="false">
+<input type="hidden" name="WebPage" value="APPLY">
+<input type="hidden" name="WebVersion" value="0">
+<input type="hidden" name="attNo" value="">
+<input type="hidden" name="attDocType" value="">
+<input type="hidden" name="attDocId" value="">
+<input type="hidden" name="cws" value="1">
+<input type="hidden" name="requisitions" value="131">
+<input type="hidden" name="rid" value="131">
+<input type="hidden" name="et" value="CAND">
+<input type="hidden" name="extraParameter" value="5492e214101286c70850975794f4261184669630">
+<table border="0" cellspacing="0" cellpadding="2" role="presentation" style="width: 100%">
+<tbody><tr>
+<td colspan="5"><hr width="100%" size="1" color="silver">
+<h1><span class="head1">Personal Information</span></h1></td>
+</tr>
+<tr>
+<td class="width160 right top nowrapFormLabelRequired" discoverableelement="formField" fieldname="firstName" isrequired="true"><label id="label_for_field_firstName" for="firstName"> First name:<span style="color: red"> * </span></label>
+</td>
+<td class="left top" colspan="1" style="width: 40%"><input class="text errorEnabledField " type="text" name="firstName" id="firstName" value="" maxlength="30" tabindex="8" aria-required="true"></td>
+<td class="topRegular nowrap" style="width: 20px">&nbsp;</td>
+<td class="width160 right top nowrapFormLabel" discoverableelement="formField" fieldname="zipCode" isrequired="false"><label id="label_for_field_zipCode" for="zipCode"> ZIP/Postal code:</label>
+</td>
+<td class="left top" colspan="1" style="width: 40%"><input class="text errorEnabledField " type="text" name="zipCode" id="zipCode" value="" maxlength="10" tabindex="15"></td>
+</tr>
+<tr>
+<td class="width160 right top nowrapFormLabelRequired" discoverableelement="formField" fieldname="lastName" isrequired="true"><label id="label_for_field_lastName" for="lastName"> Last name:<span style="color: red"> * </span></label>
+</td>
+<td class="left top" colspan="1" style="width: 40%"><input class="text errorEnabledField " type="text" name="lastName" id="lastName" value="" maxlength="30" tabindex="9" aria-required="true"></td>
+<td class="topRegular nowrap" style="width: 20px">&nbsp;</td>
+<td class="width160 right top nowrapFormLabel" discoverableelement="formField" fieldname="country" isrequired="false"><label id="label_for_field_country" for="country"> Country:</label>
+</td>
+<td class="left top" colspan="1" style="width: 40%"><select class="text errorEnabledField fit minWidth220" name="country" id="country" tabindex="16">
+<option value="-1">Please select</option>
+<option value="189">Afghanistan</option>
+<option value="190">Albania</option>
+<option value="191">Algeria</option>
+<option value="192">American Samoa</option>
+<option value="193">Andorra</option>
+<option value="194">Angola</option>
+<option value="195">Anguilla</option>
+<option value="196">Antarctica</option>
+<option value="197">Antigua</option>
+<option value="198">Argentina</option>
+<option value="199">Armenia</option>
+<option value="200">Aruba</option>
+<option value="201">Australia</option>
+<option value="202">Austria</option>
+<option value="203">Azerbaijan</option>
+<option value="204">Bahamas</option>
+<option value="205">Bahrain</option>
+<option value="206">Bangladesh</option>
+<option value="207">Barbados</option>
+<option value="208">Belarus</option>
+<option value="209">Belgium</option>
+<option value="210">Belize</option>
+<option value="211">Benin</option>
+<option value="212">Bermuda</option>
+<option value="213">Bhutan</option>
+<option value="214">Bolivia</option>
+<option value="215">Bosnia</option>
+<option value="216">Botswana</option>
+<option value="217">Brazil</option>
+<option value="218">Brunei Darussalam</option>
+<option value="219">Bulgaria</option>
+<option value="220">Burkina Faso</option>
+<option value="221">Burundi</option>
+<option value="222">Cambodia</option>
+<option value="223">Cameroon</option>
+<option value="224">Canada</option>
+<option value="225">Cayman Islands</option>
+<option value="226">Chad</option>
+<option value="227">Chile</option>
+<option value="228">China</option>
+<option value="229">Colombia</option>
+<option value="230">Comoros</option>
+<option value="231">Congo</option>
+<option value="232">Costa Rica</option>
+<option value="233">Croatia</option>
+<option value="234">Cuba</option>
+<option value="235">Cyprus</option>
+<option value="236">Czech Republic</option>
+<option value="237">Denmark</option>
+<option value="238">Dominican Republic</option>
+<option value="239">Ecuador</option>
+<option value="240">Egypt</option>
+<option value="241">El Salvador</option>
+<option value="242">Equatorial Guinea</option>
+<option value="243">Eritrea</option>
+<option value="244">Estonia</option>
+<option value="245">Ethiopia</option>
+<option value="246">Fiji</option>
+<option value="247">Finland</option>
+<option value="248">France</option>
+<option value="249">Gabon</option>
+<option value="250">Gambia</option>
+<option value="251">Georgia</option>
+<option value="252">Germany</option>
+<option value="253">Ghana</option>
+<option value="254">Greece</option>
+<option value="255">Greenland</option>
+<option value="256">Grenada</option>
+<option value="257">Guadeloupe</option>
+<option value="258">Guam</option>
+<option value="259">Guatemala</option>
+<option value="260">Guinea</option>
+<option value="261">Guyana</option>
+<option value="262">Haiti</option>
+<option value="263">Honduras</option>
+<option value="264">Hong Kong</option>
+<option value="265">Hungary</option>
+<option value="266">Iceland</option>
+<option value="267">India</option>
+<option value="268">Indonesia</option>
+<option value="269">Iran</option>
+<option value="270">Iraq</option>
+<option value="271">Ireland</option>
+<option value="272">Israel</option>
+<option value="273">Italy</option>
+<option value="274">Jamaica</option>
+<option value="275">Japan</option>
+<option value="276">Jordan</option>
+<option value="277">Kazakhstan</option>
+<option value="278">Korea, North</option>
+<option value="279">Korea, South</option>
+<option value="280">Kuwait</option>
+<option value="281">Kyrgyzstan</option>
+<option value="282">Lao Democratic Republic</option>
+<option value="283">Latvia</option>
+<option value="284">Lebanon</option>
+<option value="285">Liberia</option>
+<option value="286">Libya</option>
+<option value="287">Liechtenstein</option>
+<option value="288">Lithuania</option>
+<option value="289">Luxembourg</option>
+<option value="290">Macao</option>
+<option value="291">Macedonia</option>
+<option value="292">Madagascar</option>
+<option value="293">Malawi</option>
+<option value="294">Malaysia</option>
+<option value="295">Maldives</option>
+<option value="296">Malta</option>
+<option value="297">Mexico</option>
+<option value="298">Micronesia</option>
+<option value="299">Moldova</option>
+<option value="300">Monaco</option>
+<option value="301">Mongolia</option>
+<option value="302">Morocco</option>
+<option value="303">Mozambique</option>
+<option value="304">Myanmar</option>
+<option value="305">Namibia</option>
+<option value="306">Nepal</option>
+<option value="307">Netherlands</option>
+<option value="308">New Zealand</option>
+<option value="309">Nicaragua</option>
+<option value="310">Niger</option>
+<option value="311">Nigeria</option>
+<option value="312">Norway</option>
+<option value="313">Oman</option>
+<option value="314">Pakistan</option>
+<option value="315">Palau</option>
+<option value="316">Palestine</option>
+<option value="317">Panama</option>
+<option value="318">Papua New Guinea</option>
+<option value="319">Paraguay</option>
+<option value="320">Peru</option>
+<option value="321">Philippines</option>
+<option value="322">Poland</option>
+<option value="323">Portugal</option>
+<option value="324">Puerto Rico</option>
+<option value="325">Qatar</option>
+<option value="326">Romania</option>
+<option value="327">Russian Federation</option>
+<option value="328">Rwanda</option>
+<option value="329">Saint Lucia</option>
+<option value="330">Saint Vincent Grenadines</option>
+<option value="331">Samoa</option>
+<option value="332">San Marino</option>
+<option value="333">Sao Tome and Principe</option>
+<option value="334">Saudi Arabia</option>
+<option value="335">Senegal</option>
+<option value="336">Serbia</option>
+<option value="337">Sierra Leone</option>
+<option value="338">Singapore</option>
+<option value="339">Slovakia</option>
+<option value="340">Slovenia</option>
+<option value="341">Somalia</option>
+<option value="342">South Africa</option>
+<option value="343">Spain</option>
+<option value="344">Sri Lanka</option>
+<option value="345">Sudan</option>
+<option value="346">Suriname</option>
+<option value="347">Sweden</option>
+<option value="348">Switzerland</option>
+<option value="349">Syria</option>
+<option value="350">Taiwan</option>
+<option value="351">Tajikistan</option>
+<option value="352">Tanzania</option>
+<option value="353">Thailand</option>
+<option value="354">Togo</option>
+<option value="355">Trinidad and Tobago</option>
+<option value="356">Tunisia</option>
+<option value="357">Turkey</option>
+<option value="358">Turkmenistan</option>
+<option value="359">Tuvalu</option>
+<option value="360">Uganda</option>
+<option value="361">Ukraine</option>
+<option value="362">United Arab Emirates</option>
+<option value="363">United Kingdom</option>
+<option value="364">United States</option>
+<option value="365">Uruguay</option>
+<option value="366">Uzbekistan</option>
+<option value="367">Vatican</option>
+<option value="368">Venezuela</option>
+<option value="369">Vietnam</option>
+<option value="370">Yemen</option>
+<option value="371">Zambia</option>
+<option value="372">Zimbabwe</option>
+</select>
+</td>
+</tr>
+<tr>
+<td class="width160 right top nowrapFormLabel" discoverableelement="formField" fieldname="middleInitial" isrequired="false"><label id="label_for_field_middleInitial" for="middleInitial"> Middle:</label>
+</td>
+<td class="left top" colspan="1" style="width: 40%"><input class="text errorEnabledField " type="text" name="middleInitial" id="middleInitial" value="" maxlength="30" tabindex="10"></td>
+<td class="topRegular nowrap" style="width: 20px">&nbsp;</td>
+<td class="width160 right top nowrapFormLabelRequired" discoverableelement="formField" fieldname="phone" isrequired="true"><label id="label_for_field_phone" for="phone"> Primary Phone:<span style="color: red"> * </span></label>
+</td>
+<td class="left top" colspan="1" style="width: 40%"><input class="text errorEnabledField " type="text" name="phone" id="phone" value="" maxlength="30" tabindex="17" aria-required="true"></td>
+</tr>
+<tr>
+<td class="width160 right top nowrapFormLabel" discoverableelement="formField" fieldname="address" isrequired="false"><label id="label_for_field_address" for="address"> Street address:</label>
+</td>
+<td class="left top" colspan="1" style="width: 40%"><input class="text errorEnabledField " type="text" name="address" id="address" value="" maxlength="100" tabindex="11"></td>
+<td class="topRegular nowrap" style="width: 20px">&nbsp;</td>
+<td class="width160 right top nowrapFormLabel" discoverableelement="formField" fieldname="cellPhone" isrequired="false"><label id="label_for_field_cellPhone" for="cellPhone"> Cell Phone:</label>
+</td>
+<td class="left top" colspan="1" style="width: 40%"><input class="text errorEnabledField " type="text" name="cellPhone" id="cellPhone" value="" maxlength="30" tabindex="18"></td>
+</tr>
+<tr>
+<td class="width160 right top nowrapFormLabel" discoverableelement="formField" fieldname="city" isrequired="false"><label id="label_for_field_city" for="city"> City:</label>
+</td>
+<td class="left top" colspan="1" style="width: 40%"><input class="text errorEnabledField " type="text" name="city" id="city" value="" maxlength="30" tabindex="12"></td>
+<td class="topRegular nowrap" style="width: 20px">&nbsp;</td>
+<td class="width160 right top nowrapFormLabel" discoverableelement="formField" fieldname="CUSTOM_353" isrequired="false"><label id="label_for_field_CUSTOM_353" for="CUSTOM_353"> Direct Phone:</label>
+</td>
+<td class="left top" colspan="1" style="width: 40%"><input class="text errorEnabledField " type="text" name="CUSTOM_353" id="CUSTOM_353" value="" tabindex="19"></td>
+</tr>
+<tr>
+<td class="width160 right top nowrapFormLabel" discoverableelement="formField" fieldname="state" isrequired="false"><label id="label_for_field_state" for="state"> State/Territory:</label>
+</td>
+<td class="left top" colspan="1" style="width: 40%"><select class="text" name="state" id="state" tabindex="13">
+<option value="">Please select</option>
+<option value="AL">AL</option>
+<option value="AK">AK</option>
+<option value="AZ">AZ</option>
+<option value="AR">AR</option>
+<option value="CA">CA</option>
+<option value="CO">CO</option>
+<option value="CT">CT</option>
+<option value="DE">DE</option>
+<option value="FL">FL</option>
+<option value="GA">GA</option>
+<option value="HI">HI</option>
+<option value="ID">ID</option>
+<option value="IL">IL</option>
+<option value="IN">IN</option>
+<option value="IA">IA</option>
+<option value="KS">KS</option>
+<option value="KY">KY</option>
+<option value="LA">LA</option>
+<option value="ME">ME</option>
+<option value="MD">MD</option>
+<option value="MA">MA</option>
+<option value="MI">MI</option>
+<option value="MN">MN</option>
+<option value="MS">MS</option>
+<option value="MO">MO</option>
+<option value="MT">MT</option>
+<option value="NE">NE</option>
+<option value="NV">NV</option>
+<option value="NH">NH</option>
+<option value="NJ">NJ</option>
+<option value="NM">NM</option>
+<option value="NY">NY</option>
+<option value="NC">NC</option>
+<option value="ND">ND</option>
+<option value="OH">OH</option>
+<option value="OK">OK</option>
+<option value="OR">OR</option>
+<option value="PA">PA</option>
+<option value="RI">RI</option>
+<option value="SC">SC</option>
+<option value="SD">SD</option>
+<option value="TN">TN</option>
+<option value="TX">TX</option>
+<option value="UT">UT</option>
+<option value="VT">VT</option>
+<option value="VA">VA</option>
+<option value="WA">WA</option>
+<option value="WV">WV</option>
+<option value="WI">WI</option>
+<option value="WY">WY</option>
+<option value="DC">DC</option>
+<option value="Other">Other</option>
+</select>
+</td>
+<td class="topRegular nowrap" style="width: 20px">&nbsp;</td>
+<td class="width160 right top nowrapFormLabel" discoverableelement="formField" fieldname="CUSTOM_355" isrequired="false"><label id="label_for_field_CUSTOM_355" for="CUSTOM_355"> Work Phone:</label>
+</td>
+<td class="left top" colspan="1" style="width: 40%"><input class="text errorEnabledField " type="text" name="CUSTOM_355" id="CUSTOM_355" value="" tabindex="20"></td>
+</tr>
+<tr>
+<td class="width160 right top nowrapFormLabel" discoverableelement="formField" fieldname="CUSTOM_373" isrequired="false"><label id="label_for_field_CUSTOM_373" for="CUSTOM_373"> Other Territory/Province:</label>
+</td>
+<td class="left top" colspan="1" style="width: 40%"><input class="text errorEnabledField " type="text" name="CUSTOM_373" id="CUSTOM_373" value="" tabindex="14"></td>
+<td class="topRegular nowrap" style="width: 20px">&nbsp;</td>
+<td class="width160 right top nowrapFormLabel" discoverableelement="formField" fieldname="CUSTOM_352" isrequired="false"><label id="label_for_field_CUSTOM_352" for="CUSTOM_352"> Other Phone:</label>
+</td>
+<td class="left top" colspan="1" style="width: 40%"><input class="text errorEnabledField " type="text" name="CUSTOM_352" id="CUSTOM_352" value="" tabindex="21"></td>
+</tr>
+<tr>
+<td colspan="5"><hr width="100%" size="1" color="silver">
+<h1><span class="head1">How did you hear about us?</span></h1></td>
+</tr>
+<tr>
+<td class="width160 right top nowrapFormLabelRequired" discoverableelement="formField" fieldname="source" isrequired="true"><label id="label_for_field_source" for="source"> Source:<span style="color: red"> * </span></label>
+</td>
+<td class="left top" colspan="4" style="width: 100%"><select class="text errorEnabledField minWidth220 fit" name="source" id="source" tabindex="37">
+<option value="-1">--None--</option>
+<option value="7">Agency</option>
+<option value="23">Career Builder.com</option>
+<option value="1">Careers Website</option>
+<option value="24">Craigslist</option>
+<option value="20">Dice.com</option>
+<option value="2">Employee Referral</option>
+<option value="62">Glassdoor</option>
+<option value="21">IEEE</option>
+<option value="18" selected="">Indeed</option>
+<option value="22">LinkIn</option>
+<option value="3">Monster</option>
+<option value="63">Nature Jobs</option>
+<option value="16">Personal Referral</option>
+<option value="19">Phd.org</option>
+<option value="17">Recruiter</option>
+<option value="9">Sharp Corporate Website</option>
+<option value="25">SID</option>
+<option value="27">Simply Hired</option>
+<option value="26">SPIE</option>
+<option value="28">The Ladders</option>
+<option value="64">Vetjobs.com</option>
+</select>
+</td>
+</tr>
+<tr>
+<td class="width160 right top nowrapFormLabel" discoverableelement="formField" fieldname="CUSTOM_292" isrequired="false"><label id="label_for_field_CUSTOM_292" for="CUSTOM_292"> Other (Specify Source):</label>
+</td>
+<td class="left top" colspan="4" style="width: 100%"><input class="text errorEnabledField " type="text" name="CUSTOM_292" id="CUSTOM_292" value="" tabindex="38"></td>
+</tr>
+<tr>
+<td colspan="5"><hr width="100%" size="1" color="silver">
+<h1><span class="head1">Email Registration</span></h1></td>
+</tr>
+<tr>
+<td colspan="5" width="100%"><br>
+Your email address will be used as your login name allowing you to return to our website update your profile.</td>
+</tr>
+<tr>
+<td class="width160 right top nowrapFormLabelRequired" discoverableelement="formField" fieldname="email" isrequired="true"><label id="label_for_field_email" for="email"> Primary Email:<span style="color: red"> * </span></label>
+</td>
+<td class="left top" colspan="4" style="width: 100%"><input class="text errorEnabledField " type="text" name="email" id="email" value="" maxlength="75" tabindex="44" aria-required="true"></td>
+</tr>
+<tr>
+<td colspan="5" width="100%">Please create your password<br>
+<i>Passwords must be at least six(6) characters</i></td>
+</tr>
+<tr>
+<td class="width160 right top nowrapFormLabelRequired" discoverableelement="formField" fieldname="cwsPassword" isrequired="true"><label id="label_for_field_cwsPassword" for="cwsPassword"> Password:<span style="color: red"> * </span></label>
+</td>
+<td class="left top" colspan="4" style="width: 100%"><input type="hidden" name="cwsPassword_3" value="**********"><input type="hidden" name="cwsPassword_4" value="**********"><input aria-required="true" class="text errorEnabledField" type="password" autocomplete="off" name="cwsPassword" id="cwsPassword" maxlength="30" tabindex="46">
+<br>
+<label id="label_for_field_cwsPassword_2" for="cwsPassword_2">Re-type new password:<span style="color: red"> * </span></label><br>
+<input aria-required="true" class="text errorEnabledField" type="password" autocomplete="off" name="cwsPassword_2" id="cwsPassword_2" maxlength="30" tabindex="46"></td>
+</tr>
+<tr>
+<td colspan="5"><hr width="100%" size="1" color="silver">
+<h1><span class="head1">Additional Information</span></h1></td>
+</tr>
+<tr>
+<td class="width160 right top nowrapFormLabelRequired" discoverableelement="formField" fieldname="legalStatus" isrequired="true"><label id="label_for_field_legalStatus" for="legalStatus"> Work Authorization:<span style="color: red"> * </span></label>
+</td>
+<td class="left top" colspan="4" style="width: 100%"><select class="text errorEnabledField fit minWidth220" name="legalStatus" id="legalStatus" tabindex="53" aria-required="true">
+<option value="-1">Please select</option>
+<option value="441">I am authorized to work in this country for any employer</option>
+<option value="442">I am authorized to work in this country for my present employer only</option>
+<option value="443">I require sponsorship to work in this country</option>
+<option value="444">My status to work in this country is unknown</option>
+</select>
+</td>
+</tr>
+<tr>
+<td class="width160 right top nowrapFormLabelRequired" discoverableelement="formField" fieldname="CUSTOM_288" isrequired="true"><label id="label_for_field_CUSTOM_288" for="CUSTOM_288"> Highest Education Level:<span style="color: red"> * </span></label>
+</td>
+<td class="left top" colspan="4" style="width: 100%"><select class="text errorEnabledField fit minWidth220" name="CUSTOM_288" id="CUSTOM_288" tabindex="54" aria-required="true">
+<option value="-1">Please select</option>
+<option value="526">Associate Degree</option>
+<option value="527">Bachelor</option>
+<option value="517">Certification</option>
+<option value="518">Doctorate</option>
+<option value="519">Equivalent Experience</option>
+<option value="528">High School</option>
+<option value="529">Masters</option>
+<option value="481">Other</option>
+<option value="520">Post Doc</option>
+<option value="521">Some College</option>
+<option value="530">Technical College</option>
+</select>
+</td>
+</tr>
+<tr>
+<input type="hidden" name="WORK_HISTORY_workHistoryPageName" value="WKHST">
+<input type="hidden" name="WORK_HISTORY_workHistoryPageVersion" value="0">
+<input type="hidden" name="WKHST.initIndex" value="1">
+<input type="hidden" name="WKHST.endIndex" value="11">
+<input type="hidden" id="WKHST.removedIds" name="WKHST.removedIds" value="">
+		<style type="text/css">
+.TBE_status_panel_div{
+ display:none;
+ float:right;
+ background-color:red;
+ color:#fff;
+ font-size:110%;
+ position:absolute;
+ z-index:100;
+}
+</style><td colspan="5"><hr width="100%" size="1" color="silver">
+<h1><span class="head1">Employment History:</span></h1></td>
+<script type="text/javascript">
+var data_APPLY_0_8661 = new RlentData(10, 0, 1, 0, "addAnother_APPLY_0_8661", "lastRow_APPLY_0_8661", "Are you sure that you want to delete all information for this work history entry?", "Delete", 55, { 1:new RlentFormParams("1_APPLY_0_8661",1, false),2:new RlentFormParams("2_APPLY_0_8661",2, false),3:new RlentFormParams("3_APPLY_0_8661",3, false),4:new RlentFormParams("4_APPLY_0_8661",4, false),5:new RlentFormParams("5_APPLY_0_8661",5, false),6:new RlentFormParams("6_APPLY_0_8661",6, false),7:new RlentFormParams("7_APPLY_0_8661",7, false),8:new RlentFormParams("8_APPLY_0_8661",8, false),9:new RlentFormParams("9_APPLY_0_8661",9, false),10:new RlentFormParams("10_APPLY_0_8661",10, false)}, 5, '&lt;com.rf.common.pres.ui.WFDwrRq&gt;\n  &lt;pageType&gt;WKHST&lt;/pageType&gt;\n  &lt;pageVersion&gt;0&lt;/pageVersion&gt;\n  &lt;etString&gt;&lt;/etString&gt;\n  &lt;inSeparateWindow&gt;false&lt;/inSeparateWindow&gt;\n  &lt;formIndex&gt;0&lt;/formIndex&gt;\n  &lt;initTabIndex&gt;0&lt;/initTabIndex&gt;\n  &lt;clearWebBean&gt;false&lt;/clearWebBean&gt;\n  &lt;initialState&gt;IN_FORM&lt;/initialState&gt;\n  &lt;finalState&gt;IN_FORM&lt;/finalState&gt;\n  &lt;async&gt;false&lt;/async&gt;\n  &lt;isRequiredAfterChange&gt;false&lt;/isRequiredAfterChange&gt;\n  &lt;hash&gt;1322f10f4af30f23d6673d1af6bbff316d5d695c&lt;/hash&gt;\n  &lt;seqNo&gt;-1&lt;/seqNo&gt;\n  &lt;isInRollingEntity&gt;false&lt;/isInRollingEntity&gt;\n&lt;/com.rf.common.pres.ui.WFDwrRq&gt;', [], "deleteButton_APPLY_0_8661");
+</script>
+</tr><tr id="lastRow_APPLY_0_8661"><td style="display: none;" colspan="5"></td></tr><tr>
+<td colspan="5">
+<table cellpadding="0" cellspacing="0" role="presentation">
+<tbody><tr>
+<td nowrap="" id="addAnother_APPLY_0_8661" style="padding-right: 15; display: ;">
+<b>
+<a name="addAnother_APPLY_0_8661_link" onclick="data_APPLY_0_8661.addRollEntity(); return false;" href="javascript:void(0);" tabindex="3054">
++&nbsp;Add Another Work History</a>
+</b>
+&nbsp;&nbsp;&nbsp;</td>
+<td id="deleteButton_APPLY_0_8661" nowrap="" style="display: none;">
+<div id="deleteButton_APPLY_0_8661_div"><b><a href="javascript:void(0);" onclick="data_APPLY_0_8661.deleteRollingEntity(&#39;WKHST&#39;); return false;" tabindex="3055">-&nbsp;Remove Previous Work History</a></b></div>
+</td>
+</tr>
+</tbody></table>
+<br>
+</td>
+</tr>
+
+<tr>
+<td colspan="5"><hr width="100%" size="1" color="silver">
+<h1><span class="head1">Resume Attachment</span></h1></td>
+</tr>
+<tr>
+<td colspan="5" width="100%">Your resume can be uploaded in any of the following formats: DOC, DOCX, RTF, PDF, TXT, HTML.</td>
+</tr>
+<tr>
+<td class="width160 right top nowrapFormLabelRequired" discoverableelement="formField" fieldname="resume" isrequired="true"><label id="label_for_field_resume" for="resume"> Attach resume:<span style="color: red"> * </span></label>
+</td>
+<td class="left top" colspan="4" style="width: 100%"><input type="hidden" name="resumeUniqueId" value="3043712772162134023"><div id="resume_div">
+<input type="file" name="resume" tabindex="3062" aria-required="true" onchange="checkResume0(this, resume_var);" class="text">
+</div>
+<script type="text/javascript">
+var resume_var = "" + document.getElementById('resume_div').innerHTML;
+</script>
+<script language="JavaScript">
+function checkResume0(fileObj, emptyFileField) {
+   if (!checkResume(fileObj)) {
+       document.getElementById(fileObj.name + "_div").innerHTML = emptyFileField;
+   }
+}
+</script>
+<script language="JavaScript">
+function checkResume(fileObj) {
+var fileName = fileObj.value;
+var index;
+if (fileName==null || fileName.length == 0) {
+   if (document.getElementById('currentResume') != null) {
+       return true;
+   }
+   alert('Resume file must be attached.');
+   return false;
+}
+if (fileName.length > 300) {
+fileObj.value = "";
+alert('File name is too long. Use \"Browse\" button to select valid file name.');
+return false;
+}
+index = fileName.lastIndexOf('/');
+if (index >= 0) fileName = fileName.substring(index+1);
+index = fileName.lastIndexOf('\\');
+if (index >= 0) fileName = fileName.substring(index+1);
+for (var k=0; k<fileName.length; k++) {
+var ch = fileName.charAt(k);
+if (ch==':' || ch=='*' || ch=='?' || ch=='"' || ch=='<' || ch=='>' || ch=='|') {
+fileObj.value = "";
+alert('File name contains illegal character '+ch);
+return false;
+}
+}
+index = fileName.lastIndexOf('.');
+if (index < 0) {
+fileObj.value = "";
+alert('Cannot determine file extension.');
+return false;
+}
+var extension = fileName.substring(index+1);
+if (extension.length == 0) {
+fileObj.value = "";
+alert('Cannot determine file extension.');
+return false;
+}
+extension = extension.toLowerCase();
+var extensions = new Array("doc","docx","rtf","pdf","txt");
+for (var i=0; i<extensions.length; i++){
+    if (extension == extensions[i]){
+        return true;
+    }
+}
+var extsString = "";
+var comma = "";
+for (var i=0; i<extensions.length; i++){
+   extsString += comma + "*."+extensions[i];
+   comma = ", ";
+}
+alert('You have attempted to upload a file type that is not in a format that is supported for upload. Currently you are able to upload files with the following extensions:'+extsString+'\nYour file was not uploaded.  Please try again with a supported file type.');
+return false;
+}
+</script>
+</td>
+</tr>
+<tr>
+<td colspan="5" width="100%"><br><b>Cover Letter</b><br>
+You can use the text area for a cover letter and any supplementary information you would like to provide about your career goals, availability, best times to contact you, etc.</td>
+</tr>
+<tr>
+<td class="width160 right top nowrapFormLabel" discoverableelement="formField" fieldname="resumeText" isrequired="false"><label id="label_for_field_resumeText" for="__id_txt_resumeText"> Cover Letter:</label>
+</td>
+<td class="left top" colspan="4" style="width: 100%"><textarea class="errorEnabledField" rows="8" cols="70" name="resumeText" id="__id_txt_resumeText" tabindex="3064"></textarea>
+<div id="__id_txt_resumeText_spellcheck">
+</div>
+</td>
+</tr>
+<tr>
+<td colspan="5"><hr width="100%" size="1" color="silver">
+<h1><span class="head1">Voluntary Equal Opportunity Questionnaire</span></h1></td>
+</tr>
+<tr>
+<td colspan="5" width="100%">As an equal opportunity employer, we hire without consideration to race, religion, creed, color, national origin, age, gender, sexual orientation, marital status, veteran status or disability. We invite you to complete the optional self-identification fields below used for compliance with government regulations and record-keeping guidelines.</td>
+</tr>
+<tr>
+<td class="width160 right top nowrapFormLabel" discoverableelement="formField" fieldname="gender" isrequired="false"><label id="label_for_field_gender" for="gender"> Gender:</label>
+</td>
+<td class="left top" colspan="4" style="width: 100%"><select class="text errorEnabledField fit minWidth220" name="gender" id="gender" tabindex="3074">
+<option value="-1">Please select</option>
+<option value="95">Female</option>
+<option value="96">Male</option>
+<option value="622">Choose Not to Disclose</option>
+</select>
+</td>
+</tr>
+<tr>
+<td class="width160 right top nowrapFormLabel" discoverableelement="formField" fieldname="race" isrequired="false"><label id="label_for_field_race" for="race"> Race:</label>
+</td>
+<td class="left top" colspan="4" style="width: 100%"><select class="text errorEnabledField fit minWidth220" name="race" id="race" tabindex="3075">
+<option value="-1">Please select</option>
+<option value="97">Hispanic or Latino</option>
+<option value="627">White</option>
+<option value="628">Black or African American</option>
+<option value="629">Native Hawaiian or Other Pacific Islander</option>
+<option value="630">Asian</option>
+<option value="631">American Indian or Alaska Native</option>
+<option value="632">Multiracial (Two or more races.)</option>
+<option value="633">Do not wish to disclose</option>
+</select>
+</td>
+</tr>
+<tr>
+<td class="width160 right top nowrapFormLabel" discoverableelement="formField" fieldname="veteran" isrequired="false"><label id="label_for_field_veteran" for="veteran"> Veteran/Disability:</label>
+</td>
+<td class="left top" colspan="4" style="width: 100%"><select class="text fit minWidth220" name="veteran" id="veteran" tabindex="3076" multiple="" size="4">
+<option value="634">Not Applicable</option>
+<option value="105">Vietnam Era Veteran</option>
+<option value="106">Special Disabled Veteran</option>
+<option value="635">Other Eligible Veteran</option>
+<option value="108">Newly Separated Veteran</option>
+<option value="109">Disabled</option>
+<option value="636">Campaign/Expedition Vet</option>
+<option value="637">Do not wish to disclose</option>
+</select>
+</td>
+</tr>
+<tr><td colspan="5" valign="bottom" align="center"><br>
+<div style="margin:0 auto;width:74px">
+<div style="float:right;">
+<input type="submit" name="tbe_cws_submit" value="Submit" style="
+padding:2px;margin-right:5px;
+color:#FFFFFF;
+border-left: 2px solid #11A9F7;
+border-bottom:1px solid #333333;
+border-right:1px solid #333333;
+border-top:2px solid #11A9F7;
+font-size: 10px;
+font-weight: bold;
+font-family:Verdana;" tabindex="3077">&nbsp;
+<div style="vertical-align: middle; display: inline-block; visibility: hidden;" id="spinner"><img src="./Career Opportunities_files/waitingSpinner.gif" alt="Processing please wait"></div></div>
+</div>
+</td></tr>
+</tbody></table>
+</form><br><br>
+</td>
+</tr>
+</tbody></table>
+
+
+
+
+
+
+
+
+
+
+
+    <script type="text/javascript">
+        //jQuery Calendar
+        jQuery(document).ready(function($) {
+	$('.jquerycalendar').datepicker({
+altField:'',altFormat:'',appendText:'',buttonImage:'https://staticchk.tbe.taleo.net/chk01/ats/cacheable/R15-05-12-16-49-25-15.A2_prod/img/UIv8/calendar.gif',buttonImageOnly:true,buttonText:'Calendar',changeMonth:true,changeYear:true,closeText:'\'Close\'',constrainInput:true,currentText:'Today',dateFormat:'mm/dd/yy',monthYearDateFormat:'MM/yy',dayNames:['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'],dayNamesShort:['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'],dayNamesMin:['Su','Mo','Tu','We','Th','Fr','Sa'],defaultDate:null,duration:'normal',firstDay:0,gotoCurrent:false,hideIfNoPrevNext:false,isRTL:false,maxDate:null,minDate:null,monthNames:['January','February','March','April','May','June','July','August','September','October','November','December'],monthNamesShort:['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'],navigationAsDateFormat:false,nextText:'Next',numberOfMonths:1,prevText:'Previous',shortYearCutoff:'+10',showAnim:'show',showButtonPanel:false,showCurrentAtPos:0,showMonthAfterYear:false,showOn:'button',showOptions:{},showOtherMonths:false,stepMonths:1,yearRange:'1940:2020'});});
+    </script>
+
+
+
+
+
+</body></html>

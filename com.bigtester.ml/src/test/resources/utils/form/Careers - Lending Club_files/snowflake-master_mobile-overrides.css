@@ -1,0 +1,19 @@
+/* If enableSnowflake=true, this file appears after inclusion of "master_mobile.css" (in htmlhead.jsp) to 
+   undo some of the mobile-specific styles.
+
+   This is a temporary file, until we can redo the header.jsp with Snowflake and not include "master_mobile.css".
+*/
+
+/* set link colors back to Snowflake */
+body.master_invest.mobile a,
+body.mobile.master_invest #master_utilities_menu.toggle a {
+    color: #0086D6;
+}
+
+body.master_invest.mobile a.btn-investor {
+    color: #FFFFFF;
+}
+
+body.master_invest.mobile a.btn-secondary {
+    color: #494949;
+}

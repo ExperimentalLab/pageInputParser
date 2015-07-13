@@ -1,0 +1,113 @@
+/* 
+	CSS just for the banner/header
+	Pulled from master.css
+	For use with a Snowflake-CSS-enabled page
+*/
+
+/* relevant parts for banner pulled from YUI reset.css */
+#master_banner ul, #master_banner li {padding: 0; margin; 0}
+#master_banner li {list-style: none;}
+
+/* common classes */
+.master_clearfix:after { clear:both;content:'.';display:block;visibility:hidden;height:0 }
+.master_hidden, .hidden { display:none; }
+.clear {clear:both;}
+
+/*------1. master banner start-------*/
+#master_banner { padding:40px 0px 9px 0px;position:relative;background: #fff; margin-bottom:3px; }
+	#master_banner-wrapper{float: left;}
+	#master_banner span a {
+		background:url(masterSpriteV2.png) 0 0 no-repeat;
+		display:block;
+		height:36px;
+		left:19px;
+		outline:0;
+		text-indent:-9999px;
+		width:239px;
+		float:left;
+		position:relative;
+	}
+
+	.master_fmenu li{float:left; width:auto;line-height:1.231;}
+	.master_fmenu a { float:left;width:auto; }
+	.master_fmenu li.first a { padding-left:0; }
+
+		#master_utilities { position:absolute;right:20px;top:14px; }
+			#master_utilities li {
+				color: #999;
+				background: url(masterSpriteV2.png) -237px -41px transparent no-repeat scroll;
+			}
+			#master_utilities li.first {position:relative; background-image:none; }
+			#master_utilities li.first + .master_help-link{background: none;position:relative;top:2px; right: 2px;}
+			#master_utilities a {color: #999;padding:3px 10px 7px 10px;xxxheight:14px; }	/* height:14px conflicts with snowflake box-sizing model */
+			#master_utilities span { padding:3px 10px 7px 0;xxxheight:14px; }				/* height:14px conflicts with snowflake box-sizing model */
+			#master_utilities .master_help-link a{padding-right:0; }
+		
+		#master_top-nav {float: right; margin: 6px 0 0 0;}
+			#master_top-nav li {
+				padding-left:14px;
+				padding-right: 14px;
+				background:url(masterSpriteV2.png) -237px -35px transparent no-repeat scroll; 
+			}
+			#master_top-nav li.first { background-image:none; padding-left:0;}
+			#master_top-nav a { color:#231f20;padding:10px 0; line-height: 116%; font-size: 14px; font-weight: 200;}
+			#master_top-nav a.active {font-weight: bold; padding-bottom: 2px; border-bottom: 2px solid #de0000;}
+			#master_top-nav a:hover{text-decoration: none;}
+				body.borrower-reg #master_top-nav,body.lender-reg #master_top-nav {display:none;}/*------1. master banner end-------*/
+
+
+#master_banner ul, 
+#master_banner ol { margin-left: 2em; }
+#master_banner ul,
+#master_banner ol,
+#master_banner dl {	line-height: 1.5em;margin-bottom: 1em;} 
+/* END standard treatments */
+
+/* messaging */
+
+.master_message-wrapper{ clear:both;font-size:108%;padding:5px 20px 5px 15px;}
+.master_top-message-wrapper{ clear:both;font-size:100%; margin-bottom:-34px; margin-left:4px;}
+.master_top-message { 
+	/* LAYERNAME masterSprite.psd:Warning */
+	background:url(masterSpriteV2.png) -214px -352px #fdf5d1 no-repeat scroll; 
+	border-width:1px;border-style:solid;padding:5px 10px 5px 32px;margin-bottom:5px;
+	border-color:#fed992;
+}
+.master_message { background-position:-977px -22px;background-repeat:no-repeat;border-width:1px;border-style:solid;padding:10px 10px 10px 32px;margin-bottom:5px; }
+.master_error { 
+	/* LAYERNAME masterSprite.psd:exclamation */
+	background:url(masterSpriteV2.png) -214px -575px no-repeat #fdeade;
+	background-color:#fdeade;border-color:#f7c1b0; 
+}
+.master_alert { 
+	/* LAYERNAME masterSprite.psd:Warning */
+	background:url(masterSpriteV2.png) -214px -352px no-repeat #fdf5d1;
+	background-color:#fdf5d1;border-color:#fed992; 
+}
+.active.master_error {
+	/* LAYERNAME masterSprite.psd:exclamation */ 
+	background:url(masterSpriteV2.png) -214px -575px no-repeat #fdeade;
+}
+.active.master_alert { 
+	/* LAYERNAME masterSprite.psd:Warning */
+	background:url(masterSprite.png) -214px -352px no-repeat #fdf5d1;
+}
+
+ /* Modal mask for dialogs*/
+body .mask {
+	-moz-opacity: 0.7;
+	opacity: 0.70;
+	filter: alpha(opacity=70);
+	background-color: black;
+}
+
+/* start mobile rea */
+ /* mobile navigation */
+ #master_mobile_utilities{
+    display:none;
+}
+.master_mobile_only {
+	display:none;
+}
+/* end mobile area */
+

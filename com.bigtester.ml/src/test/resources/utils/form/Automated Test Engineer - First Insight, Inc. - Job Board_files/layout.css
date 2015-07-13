@@ -1,0 +1,325 @@
+/* --------------------------------------------------------------
+Reset 
+-------------------------------------------------------------- */
+
+html, body, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, font, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	outline: 0;
+	font-weight: normal;
+	font-style: normal;
+	font-size: 100%;
+	vertical-align: baseline;
+}
+/* remember to define focus styles! */
+:focus {
+	outline: 0;
+}
+body {
+	line-height: 1;
+	color: black;
+	background: white;
+}
+ol, ul {
+	list-style: none;
+}
+/* tables still need 'cellspacing="0"' in the markup */
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+caption, th, td {
+	text-align: left;
+	font-weight: normal;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: "";
+}
+blockquote, q {
+	quotes: "" "";
+}
+
+select {
+	margin: 0;
+}
+
+
+/* --------------------------------------------------------------
+Tags 
+-------------------------------------------------------------- */
+
+body {
+	background-color: #FFF;
+}
+
+table, caption, tbody, tfoot, thead, tr, th, td {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	outline: 0;
+	font-weight: normal;
+	font-style: normal;
+	font-size: 100%;
+}
+
+textarea, pre {
+	text-align: left;
+}
+
+strong {
+	font-weight: bold;
+}
+
+a {
+	color: #494489; /* #468FCB */
+	font-weight: inherit;
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+div {
+	text-align: left;
+}
+
+img {
+	border: none;
+}
+
+label {
+	display: block;
+	font-weight: bold;
+	clear: both;
+}
+
+/* --------------------------------------------------------------
+Buttons 
+-------------------------------------------------------------- */
+
+a.button {
+    background: #494489;    
+    color: #fff;
+    display: block;
+    float: left;
+    font-size: 12px;
+    margin-right: 6px;
+    text-decoration: none !important;
+    padding: 7px 12px 6px 12px;
+	border: 2px solid #DDD;
+	border-width: 0 2px 2px 0;
+/*	-moz-border-radius: 4px;
+	-webkit-border-radius: 4px;
+	border-radius: 4px;  */  
+}
+a.button:hover {background: #676491;}
+
+a.button span {
+	font-weight: bold;
+}
+
+a.button:active {
+    outline: none; /* hide dotted outline in Firefox */
+	border-width: 2px 0 0 2px;
+	border-color: #EEE;
+}
+
+a.grn {
+	background: #84b329;
+}
+a.grn:hover {
+	background: #91c52d;
+}
+
+a.gry {
+	background: #666;
+}
+a.gry:hover {
+	background: #999;
+}
+
+a.red, a.redbtn {background: #f7701e;}
+a.red:hover, a.redbtn:hover {background: #e1661b;}
+
+a.clear,
+a.clear span {
+	background: none;
+	font-weight: normal;
+	color: #494489;
+	border: none;
+}
+
+a.clear:hover {
+	text-decoration: underline !important;
+	background: none !important;
+}
+
+/* --------------------------------------------------------------
+Big Buttons 
+-------------------------------------------------------------- */
+
+a.bigbutton {
+    color: #fff;
+    display: block;
+    float: left;
+    font-size: 16px;
+    margin-right: 10px;
+    text-decoration: none !important;
+    background: #494489;  
+    display: block;
+    line-height: 1.25em;
+    padding: 12px 24px;
+	border: 3px solid #CCC;
+	border-width: 0 3px 3px 0;
+/*	-moz-border-radius: 4px;
+  	-webkit-border-radius: 4px;  
+    border-radius: 4px; */       
+}
+a.bigbutton span {	font-weight: bold;}
+a.bigbutton:hover {background: #827eb7;}
+a.bigbutton:active {
+    outline: none;
+	border-width: 3px 0 0 3px;
+	border-color: #FFF;
+}
+
+a.biggreen {
+	background: #92BB35;
+}
+
+a.biggreen:hover {
+	background: #799B2B;
+}
+
+a.bigred {
+	background: #f7701e;
+}
+a.bigred:hover {
+	background: #e1661b;
+	color: #fff;
+}
+
+a.bigblue {
+	background-image: url('/img/v1/app/btns/btn_lightblue_right.gif');
+	background-repeat: no-repeat;
+	color: #7773A7;
+}
+
+a.bigblue span {
+	background-image: url('/img/v1/app/btns/btn_lightblue_left.gif');
+	background-repeat: no-repeat;
+}
+
+a.bigyellow {
+	background-image: url('/img/v1/app/btns/btn_yellow_right.gif');
+	background-repeat: no-repeat;
+	color: #7773A7;
+}
+
+a.bigyellow span {
+	background-image: url('/img/v1/app/btns/btn_yellow_left.gif');
+	background-repeat: no-repeat;
+	color: #3b3b3b;
+}
+
+a.bigclear,
+a.bigclear span {
+	background: none;
+	font-weight: normal;
+	color: #7773A7;
+	padding-left: 5px;
+	padding-top: 14px;
+	font-size: 14px;
+	border: none;
+}
+
+a.bigclear:hover {
+	text-decoration: underline !important;
+	background: none;
+}
+
+/* -------------------------------------------------------------- */
+
+.btn_header {
+	float: right !important;
+	margin: 28px 30px 0 0 !important;
+}
+
+.working_msg {
+	font-size: 14px;
+	margin: 0;
+	padding: 5px;
+	color: #999;
+}
+
+/* --------------------------------------------------------------
+Rounded Containers 
+-------------------------------------------------------------- */
+
+.rtop, .rbottom{
+	display:block; 
+}
+.rtop *, .rbottom *{
+	display: block; 
+	height: 1px; 
+	overflow: hidden
+}
+.r1{margin: 0 5px; background:#DDD;}
+.r2{margin: 0 3px; background:#DDD;}
+.r3{margin: 0 2px; background:#DDD;}
+.r4{margin: 0 1px; height: 2px; background:#DDD;}
+
+/* --------------------------------------------------------------
+Special settings for radios and checkboxes
+-------------------------------------------------------------- */
+input.radio, 
+input.checkbox {
+	border:			none;
+	height:			auto !important;
+	width:			auto  !important;
+	vertical-align: middle;
+	margin:	0px;
+}
+
+/* --------------------------------------------------------------
+Debugging styles
+-------------------------------------------------------------- */
+#dv_debug_stats {
+	width: 100%;
+	margin: 10px, 0;
+	border-top: 10px solid #DDD;
+	background-color: #EEE;
+	padding: 0;
+	color: #000 !important;
+}
+
+#dv_debug_stats pre {
+	white-space: pre-wrap;       /* css-3 */
+	white-space: -moz-pre-wrap;  /* Mozilla, since 1999 */
+}
+
+/*
+*DC: To test Indeed Apply on desktops, comment this out
+*/
+@media only screen and (min-device-width: 480px) {
+	#resumator-apply-with-indeed-wrapper {
+		display: none !important;
+	}
+}
+
+/**
+ * Warnings for IE11 Linkedin Issues
+ */
+#ie11-warning {
+	display: none;
+	padding: 10px 0;
+}

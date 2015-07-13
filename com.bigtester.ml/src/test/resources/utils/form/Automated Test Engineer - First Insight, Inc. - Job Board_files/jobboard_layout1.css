@@ -1,0 +1,557 @@
+body {
+	font-family: Arial, Verdana, sans-serif;
+	background-color: #EBF8FF;
+	color: #000;
+	margin: 0 auto;
+}
+
+a img {
+	border: none;
+}
+
+strong {
+	font-weight: bold;
+	font-style: inherit;
+}
+
+h1 {
+	font: bold 26px/30px Arial, Verdana, sans-serif;
+	color: #000;
+	margin-bottom: 15px;
+	text-align: left;
+}
+
+h2 {
+	font: normal 16px/23px Arial, Verdana, sans-serif;
+	text-align: left;
+}
+
+h3 {
+	font: normal 14px/18px Arial, Verdana, sans-serif;
+	text-align: left;
+}
+
+#resumator-job-description, p, li {
+	font: normal 12px/16px Arial, Verdana, sans-serif;
+	margin-bottom: 8px;
+	text-align: left;
+}
+
+ul, ol {
+	list-style-type: disc;
+	margin: 0 0 8px 50px;
+	text-align: left;
+}
+
+li {
+	margin-bottom: 4px;
+	text-align: left;
+}
+
+ol {
+	list-style-type: decimal;
+	text-align: left;
+}
+
+em {
+	font-style: italic !important;
+}
+
+#resumator-site-wrapper {
+	width: 960px;
+	margin: 0 auto;
+}
+
+#resumator-rounded-container {
+	margin-bottom: 25px;
+}
+
+#resumator-site-header {
+	width: 960px;
+	margin: 0 auto;
+	padding: 20px 0 10px 0;
+	border-bottom: 2px solid #EBF8FF;
+	text-align: left;
+}
+
+#resumator-jobboard-logo {
+	width: 660px;
+	margin-left: 25px;
+}
+
+#resumator-company-name {
+	width: 960px;
+	text-align: left;
+}
+
+#resumator-company-name h1 {
+	font: normal 20px/24px Arial, Verdana, sans-serif;
+	color: #929292;
+	margin-left: 30px;
+	text-align: left;
+}
+
+#resumator-company-website {
+	float: right;
+	margin: 5px 30px 0 0;
+}
+
+#resumator-body {
+	width: 960px;
+	margin: 0px auto;
+	border-top: none;
+}
+
+#resumator-body div {
+	text-align: left;
+}
+
+#resumator-content-introduction {
+	margin-top: 20px;
+	margin-right: 30px;
+}
+
+#resumator-content-top-wrapper {
+	margin-top: 20px;
+}
+
+#resumator-content-left-wrapper {
+	margin-left: 30px;
+	padding-bottom: 30px;
+	float: left;
+}
+
+#resumator-content-left {
+	width: 445px;
+	text-align: left;
+}
+
+#resumator-content-right-wrapper {
+	width: 450px;
+	float: right;
+}
+
+#resumator-content-right {
+	text-align: left;
+	margin-bottom: 30px;
+}
+
+.resumator-home-joblist {
+	margin-top: 20px;
+}
+
+#resumator-job-overview {
+	margin-bottom: 20px;
+	padding: 10px 30px;
+	border-top: 2px solid #EBF8FF;
+	border-bottom: 1px solid #EBF8FF;
+	text-align: left;
+}
+
+#resumator-job-overview h2 {
+	font-size: 14px;
+	line-height: 1.6em;
+	float: left;
+	margin-right: 20px;
+}
+
+#resumator-job-overview h2 strong {
+	font-size: 12px;
+	font-style: inherit;
+}
+
+#resumator-job-description {
+	margin-bottom: 20px;
+	text-align: left;
+}
+
+.resumator-job {
+	padding: 4px 0 0 0;
+	/* border-top: 2px solid #E9E9E9; */
+}
+
+.resumator-job-info {
+	margin-bottom: 10px;
+}
+
+.resumator-job-forward-form-buttons {
+	margin-top: 15px;
+	font-size: 16px;
+}
+
+.resumator-job-forward-field {
+	width: 335px;
+	font-size: 16px;
+}
+
+#resumator-footer-wrapper {
+	border-top: 2px solid #EBF8FF;
+	padding: 3px 10px 10px 10px;
+}
+
+#resumator-logo {
+	display: none;
+}
+
+#resumator-job-button-back-top {
+	float: right;
+	margin-right: 30px;
+}
+
+#resumator-job-button-back-bottom {
+	margin-bottom: 40px;
+}
+
+#resumator-resume-upload {
+	background: none;
+	border: none;
+	margin-bottom: 0px;
+	padding-left: 5px;
+	padding-bottom: 5px;
+	width: 440px;
+}
+
+.resumator-label,
+.resumator-field-wrapper {
+	width: 390px;
+}
+
+#resumator-jobs {
+	width: 390px;
+	margin-bottom: 30px;
+}
+
+#resumator-resumes-title,
+#resumator-forward-title,
+#resumator-jobs-title {
+	margin-top: 0px;
+	padding-top: 0px;
+}
+
+#resumator-job-title,
+#resumator-questionnaire-title {
+	margin-left: 30px;
+}
+
+.resumator-job-title {
+	padding: 4px 0 0 0;
+	margin-top: 0px;
+}
+
+.resumator-job-title a, a {
+	color: #376CAD;
+	text-decoration: none;
+}
+
+.resumator-job-title a:hover, a:hover {
+	text-decoration: underline;
+}
+
+#resumator-message-text,
+#resumator-wmyu-value,
+#resumator-eeo-message,
+#resumator-wmyu-label {
+	width: 90%;
+}
+
+/* Content area --------------------------------------------------------- */
+
+#resumator-jobboard-home-content {
+	font: normal 12px/16px Arial, Verdana, sans-serif;
+	word-wrap: break-word;
+}
+
+#resumator-jobboard-home-content h1,
+#resumator-jobboard-home-content h2,
+#resumator-jobboard-home-content h3,
+#resumator-jobboard-home-content h4,
+#resumator-jobboard-home-content h5,
+#resumator-jobboard-home-content h6,
+#resumator-jobboard-home-content p,
+#resumator-jobboard-home-content ol,
+#resumator-jobboard-home-content ul,
+#resumator-jobboard-home-content li {
+	margin-bottom: 8px;
+	text-align: left;
+	color: #000;
+}
+
+#resumator-jobboard-home-content h1 {
+	font: bold 26px/30px Arial, Verdana, sans-serif;
+}
+           
+#resumator-jobboard-home-content h2 {
+	font: bold 20px/24px Arial, Verdana, sans-serif;
+}
+
+#resumator-jobboard-home-content h3 {
+	font: bold 18px/22px Arial, Verdana, sans-serif;
+}
+
+#resumator-jobboard-home-content h4 {
+	font: bold 16px/20px Arial, Verdana, sans-serif;
+}
+
+#resumator-jobboard-home-content h5 {
+	font: bold 14px/18px Arial, Verdana, sans-serif;
+}
+
+#resumator-jobboard-home-content h6 {
+	font: bold 12px/16px Arial, Verdana, sans-serif;
+}
+
+#resumator-jobboard-home-content p, li {
+	font: normal 12px/16px Arial, Verdana, sans-serif;
+}
+
+#resumator-jobboard-home-content ul, 
+#resumator-jobboard-home-content ol {
+	margin: 0 0 8px 50px;
+	text-align: left;
+}
+
+#resumator-jobboard-home-content li {
+	margin-bottom: 4px;
+	text-align: left;
+}
+
+#resumator-jobboard-home-content ul {
+	list-style-type: disc;
+}
+
+#resumator-jobboard-home-content ol {
+	list-style-type: decimal;
+}
+
+.rounded_container{
+	padding: 0px !important;
+}
+
+/* MESSAGES --------------------------------------------------------- */
+
+.dv_message {
+	background-color: #a9c442;
+	padding: 15px;
+	margin-bottom: 15px;
+}
+
+.dv_message p {
+	font-weight: bold;
+	margin: 0px;
+	color: #FFF;
+	font-size: 16px;
+}
+
+.msg_error {
+	border: none;
+	background-color: #cb4621;
+	padding: 15px;
+}
+
+.msg_error .msg p {
+	color: #FFF;
+}
+
+a.btn_collapse {
+	display: none;
+}
+
+.dv_error {
+	font: bold 12px/15px Arial, Verdana, sans-serif;
+	color: #BD1300;
+}
+
+/* SOCIAL --------------------------------------------------------- */
+
+#resumator-social-links ul {
+	padding: 15px 0;
+	margin: 0px;
+	border-top: 2px solid #EBF8FF;
+	border-bottom: 2px solid #EBF8FF;
+}
+
+#resumator-social-links li {
+	float: left;
+	list-style-type: none;
+	margin: 0 8px 0 0;
+	padding: 0;
+}
+
+#resumator-social-links ul li.resumator-twitter {
+	float: right;
+}
+
+#resumator-social-links ul li.resumator-buzz,
+#resumator-social-links ul li.resumator-facebook,
+#resumator-social-links ul li.resumator-linkedin {
+	float: right;
+}
+
+#resumator-social-links ul li.resumator-buzz {
+	margin-right: 0px;
+}
+
+#resumator-social-links ul li.resumator-email a {
+	font-weight: bold;
+}
+
+#resumator-job-forward-form {
+	border: 1px solid #CCD8DD;
+	padding: 15px 20px 20px 20px;
+	margin-bottom: 20px;
+	background-color: #EBF8FF;
+	text-align: left;
+}
+
+#resumator-job-forward-form #resumator-resumes-title {
+	margin-left: 0px;
+}
+
+#resumator-job-forward-form p {
+	font-weight: bold;
+	margin-top: 6px;
+	margin-bottom: 0px;
+	color: #000;
+	text-align: left;
+}
+
+#resumator-job-forward-form textarea {
+	font: normal 16px/20px Arial, Verdana, sans-serif;
+	padding: 5px;
+}
+
+#resumator-job-forward-form div.resumator-field-wrapper {
+	margin-left: 0px;
+	margin-right: 0px;
+	width: 360px;
+}
+
+#resumator-job-forward-form .resumator-field {
+	width: 100%;
+}
+
+#resumator-job-forward-form {
+	width: 95%;
+}
+
+#resumator-job-forward-form .resumator-label {
+	margin: 0 0 3px 0;
+	width: 350px;
+}
+
+#resumator_forward_message {
+	height: 150px;
+}
+
+#resumator-no-jobs-text {
+	line-height: 22px;
+}
+
+.resumatorFullFrame {
+	position: absolute !important;
+	top: 0 !important;
+	left: 0 !important;
+	width: 100% !important;
+	height: 100% !important;
+	background: #0073B2 !important;
+}
+
+ul.resumator_checkboxes {
+	margin-left: 0;
+	margin-bottom: 0;
+	list-style-type: none;
+}
+
+ul.resumator_checkboxes li {
+	margin-left: 0;
+	margin-bottom: 0;
+}
+
+/**
+ * Warnings for IE11 Linkedin Issues
+ */
+#ie11-warning {
+	display: none;
+	padding: 10px 0;
+}
+
+/*
+*DC: To test Indeed Apply on desktops, comment this out
+*/
+@media only screen and (min-device-width: 480px) {
+	#resumator-apply-with-indeed-wrapper {
+		display: none !important;
+	}
+}
+
+/**
+ * New EEOC fields
+ */
+ #new-eeoc-fields-module p, #new-eeoc-fields-module strong, #new-eeoc-fields-module ul, #new-eeoc-fields-module li, #new-eeoc-fields-module .resumator-label{
+ 	font-size:11pt; /* Apparently this is a government requirement, just go with it */
+ 	line-height:24px;
+ }
+
+ #new-eeoc-fields-module ul{
+ 	margin:10px 0 8px 22px;
+ }
+
+ #new-eeoc-fields-module hr{
+ 	background-color: #EBF8FF;
+ 	height: 2px;
+ 	border: 0;
+ }
+
+ #new-eeoc-fields-module .centered-message{
+ 	text-align: center !important;
+ }
+
+ #new-eeoc-fields-module .box-message{
+ 	border:1px solid #000;
+ 	padding:0px 0 4px 0;
+ 	margin-top:20px;
+ 	margin-bottom:10px;
+ }
+
+ #new-eeoc-fields-module .footnote{
+ 	top: -0.5em;
+ 	font-size: 75%;
+	line-height: 0;
+	position: relative;
+	vertical-align: baseline;
+ }
+
+ #new-eeoc-fields-module #resumator-eeo-new-veteran{
+ 	clear:both;
+ 	margin-bottom:10px;
+ 	font-size:11pt;
+ 	line-height: 24px;
+ }
+
+ #new-eeoc-fields-module #disabilities-list ul{
+ 	margin-left:0px;
+ 	-moz-column-count: 2;
+    -moz-column-gap: 20px;
+    -webkit-column-count: 2;
+    -webkit-column-gap: 20px;
+    column-count: 4;
+    column-gap: 20px;
+    list-style-position: inside;
+ }
+
+ #new-eeoc-fields-module #disability-input-area{
+ 	clear:both;
+ 	margin-bottom:10px;
+ 	font-size:11pt;
+ 	line-height: 24px;
+ }
+
+ #new-eeoc-fields-module #disability-signature-area{
+ 	width: 100%;
+	text-align: center;
+	margin-bottom: 20px;
+ }
+
+ #new-eeoc-fields-module #disability-signature-area tr, #new-eeoc-fields-module #disability-signature-area td{
+ 	text-align: center;
+ }

@@ -1,0 +1,130 @@
+﻿.jvdlgtext
+{
+	font-family: Trebuchet MS, Trebuchet, Verdana, Arial, Helvetica, sans-serif;
+	font-size: 12px;
+}
+.jvdlgborder1
+{
+	border: solid 2px White;
+	background-color: White;
+}
+.jvdlgborder2
+{
+	border: solid 2px #8c8c8c;
+}
+.jvdlgtitle
+{
+	padding: 3px 3px 3px 3px;
+	background-color: #8c8c8c;
+	font-family: Trebuchet MS, Trebuchet, Verdana, Arial, Helvetica, sans-serif;
+	font-size: 20px;
+	color: White;
+}
+.jvdlgborder3
+{
+	padding: 5px 5px 5px 5px;
+}
+.jvpopupcss
+{
+	position: absolute;
+	z-index: 20;
+}
+.jverror
+{
+	background-color: #ffd8d9;
+}
+.jvrecipient
+{
+	padding-top: 5px;
+}
+.jvbutton2
+{
+	cursor: pointer;
+}
+.button2space
+{
+	width: 5px;
+}
+.jvprimary
+{
+   color:#ffffff;
+   font-family: Trebuchet MS, Trebuchet,helvetica,sans-serif;
+   font-size:12px;
+   font-weight:bold;
+   border: 0px;
+   background-image: url(../images2/primarybutton.gif);
+   background-position: left top;
+   background-repeat:repeat-x;
+   padding-left: 0px; padding-right: 0px; padding-top: 4px; padding-bottom: 3px;
+   line-height: 12px;
+}
+a.jvprimarylink, a.jvprimarylink:hover
+{
+   color:#ffffff;
+   font-family: Trebuchet MS, Trebuchet,helvetica,sans-serif;
+   font-size:12px;
+   font-weight:bold;
+   text-decoration: none;
+}
+.jvsecondary
+{
+   color:#6b6a6a;
+   font-family: Trebuchet MS, Trebuchet,helvetica,sans-serif;
+   font-size:12px;
+   font-weight:bold;
+   border: 0px;
+   background-image: url(../images2/secondarybutton.gif);
+   background-position: left top;
+   background-repeat:repeat-x;
+   padding-left: 0px; padding-right: 0px; padding-top: 4px; padding-bottom: 3px;
+   line-height: 12px;
+}
+a.jvsecondarylink, a.jvsecondarylink:hover
+{
+   color:#6b6a6a;
+   font-family: Trebuchet MS, Trebuchet,helvetica,sans-serif;
+   font-size:12px;
+   font-weight:bold;
+   text-decoration: none;
+}
+#calendar
+{
+	background-color: #ffffff;
+	border: 1px solid #cccccc;	
+}
+
+#calendar td
+{
+	padding: 5px;
+	cursor: pointer;
+}
+.jv-page-error {
+    margin: 1em 0 2em 0;
+    padding: 0.5em;
+    background-color: #f8f8f8;
+}
+.jv-page-error p {
+    margin: 0;
+}
+.jv-page-error .jv-icon-warning{
+    font-weight: 700;
+    border-radius: 50%;
+    border: solid 0.1em #cb0013;
+    color: #cb0013;
+    float: left;
+    font-size: 1.5em;
+    font-style: normal;
+    height: 1em;
+    line-height: 1;
+    margin-right: 0.3em;
+    margin-top: 0;
+    text-align: center;
+    width: 1em;
+}
+.jv-icon-warning:before {
+  content: '!';
+}
+.jv-page-error-header {
+    font-size: 1.2em;
+    font-weight: 800;
+}

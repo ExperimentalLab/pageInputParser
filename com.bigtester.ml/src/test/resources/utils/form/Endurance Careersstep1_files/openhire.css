@@ -1,0 +1,370 @@
+/********** PAGE SPECIFIC FIXES **********/
+
+
+/********** CONTENT PADDDING **********/
+.cssOpenhireMain 
+{
+        padding-top: 0px;
+        padding-left: 0px;        
+	   width: 650px;
+}
+
+/********** PAGE HEADINGS **********/
+.cssDspJobTitle,
+.cssAgencyLoginHead,
+.cssApplyPreviewHead,
+.cssWelcomeNote,
+.cssApplyHead,
+.cssErrorHead
+{
+ 	color:;
+ 	font-size:px;
+     font-weight:700;
+	font-family: ,;
+	padding-top: 0px;
+}
+/********** MAIN HEADINGS **********/
+.cssPreviewResHdrs,
+.cssSectionhead,
+.cssSectionHead,
+.cssHelpHead,
+.cssEditResTitle,
+.cssEEOCHead,
+.cssJobListHead,
+.cssLatestListHead,
+.cssNoJobsHead,
+.cssQuestionsHead,
+.cssSearchResultsTitle,
+.cssQuestionsHead
+{
+	color:;
+	font-size:px;
+	font-weight:700;
+	font-family: ,;
+}
+/********** SUBHEADINGS ***********/
+.cssApplySubhead,
+.cssApplyJobTitle,
+.cssDspJobHead,
+.cssAllJobListMainTitle
+{
+	color:; 
+	font-size:px; 
+	font-weight:700;
+	font-family: ,;
+}
+/********** BODY TEXT **********/
+.cssAgencyLoginBody,
+.cssAllJobListBody,
+.cssAllJobListCatTitle,
+.cssAllJobListChildTitle,
+.cssAllJobListParentTitle,
+.cssAllJobListPosition,
+.cssApplyBody,
+.cssApplyFormLabel,
+td.cssApplyFormLabel,
+.cssApplyHighlight,
+.cssApplyNote,
+.cssApplyPreviewBody,
+.cssDspJobBody,
+.cssEditResBody,
+.cssEEOCMessage,
+.cssEEOCINFO,
+.cssEEOCBody,
+.cssEEOCSex,
+.cssEEOCDisabled,
+.cssEEOCEthnicity,
+.cssEEOCLabel,
+.cssError,
+.cssExplainNote,
+.cssFormSelect,
+.cssFormInput,
+.cssHelpBody,
+.cssJobCatsBody,
+.cssJobListBody,
+.cssJobListBodyHref,
+.cssLatestListBody,
+.cssNoJobsBody,
+.cssQuestionsBody,
+.cssQuestionsMessage,
+.cssSearchHead,
+.cssSearchBody,
+.cssSearchResults,
+.cssSearchResultsHead 
+{
+	font-size: px;
+	color:;
+	font-family: ,;
+	font-weight:normal;
+	text-align: justify;
+}
+/********** RED HIGHLIGHT TEXT **********/
+td.cssPreviewResHdrs,
+li.cssApplyHighlight,
+.cssApplyHighlight
+{
+	.color: Red;
+}
+
+/********** FINE PRINT (NEXT TO NEW RESUME BUTTON) **********/
+.cssFineprint,
+.cssFinePrint,
+.cssfineprint
+{
+	font-weight: normal;
+	font-size: 8pt;
+	font-family: ,;
+}
+/********** SECTIONS **********/
+.cssAgencyLogin,
+.cssApply,
+.cssApplyPreview,
+.cssDspJob,
+.cssHelp,
+.cssJobList,
+.cssNoJobs,
+.cssNote,
+.cssQuestions,
+.cssSearch
+{
+ 	color:; 
+ 	font-family: ,;
+}
+
+	.cssSearchResultsColHead,
+	.cssSearchResultsBody
+{
+	font-size: px;
+	font-family: ,;
+	text-align: left;
+}
+.cssSearchResults
+{
+	/*white-space: nowrap;*/
+	color:; 
+   	font-family: ,;
+	font-size: 12px;
+	width:100%;
+	
+
+}
+table.cssApply
+{
+	width: 550px;
+}
+/********** RESUME PREVIEW **********/
+.cssPreviewResSubhd,
+.cssApplyFormLabel
+{
+	color:;
+	font-family: ,;
+	font-size: px;
+	font-weight:normal;
+}
+
+.cssPreviewResTxt
+{
+	color:;
+	font-family: ,;
+	font-size: px;
+	font-weight:normal;
+}
+
+table.cssResList
+{
+	width: 500px;
+}
+/********** FORM ELEMENTS **********/
+.cssApplyFormSelect,
+input.cssApplyFormData,
+textarea.cssApplyFormData,
+select.cssEEOCFormData,
+textarea.cssEEOCFormData,
+input.cssFormData,
+textarea.cssFormData,
+input.cssQuestionsFormData,
+select.cssQuestionsFormData,
+textarea.cssQuestionsFormData,
+.cssApplyFormSelect,
+.cssApplyFormLabel,
+textarea.cssApplyBody,
+textarea.cssQuestionsBody
+{
+	color:;
+	font-family: ,;
+	font-size: px;
+	width: 255px;
+}
+select.cssFormData,
+select.cssApplyFormData
+{
+	width: auto;
+}
+
+/********** BUTTON **********/
+.cssFormButton
+{
+	margin: 0;
+	font-size: px;
+	padding: 0px;
+	width: 175px;
+	font-family: ,;
+		
+}
+/********** LISTBOX **********/
+.cssApplyFormSelect
+{
+	width: 200px;
+}
+/********** LISTBOX (WORK AUTHORIZATION + EDUCATION) **********/
+select.cssApplyFormSelect
+{
+	width: 200px;
+}
+
+/********** RESUME BUILDER SKILLS SCREEN **********/
+#skillname.cssApplyFormInput
+{
+	width: 270px;
+}
+#YearsUsed.cssApplyFormSelect
+{
+	width: 70px;
+}
+#level.cssApplyFormSelect
+{
+	width: 100px;
+}
+
+/********** TEXTBOX **********/
+.cssApplyFormInput
+{
+	width: 200px;
+}
+/********** TEXTBOX (LONG TEXTBOX RESUME BUILDER) **********/
+textarea.cssApplyFormText
+{
+	color:; 
+	font-family: ,;
+	font-size: px;
+	height: 100px;
+	width: 525px;
+}
+
+/********** LINKS **********/
+.cssAgencyLoginBody 		a:link,
+.cssAllJobListPosition		a:link,
+.cssAllJobListPositionHref	a:link,
+.cssApplyBody			a:link,
+.cssEditResBody			a:link,
+.csseditreslinks		a:link,
+.cssError			a:link,
+.cssExplainNote			a:link,
+.cssHelpBody			a:link,
+.cssJobCatsBody			a:link,
+.cssJobListBody			a:link,
+.cssJobListBodyHref		a:link,
+.cssLatestListBody		a:link,
+.cssNoJobsBodyLink		a:link,
+.cssSearchResultsBody		a:link,
+.cssSearchResultsHead		a:link
+
+{
+	color: ;
+	text-decoration: ;
+	font-weight: ;
+}
+
+.cssAgencyLoginBody		a:visited,
+.cssAllJobListPosition		a:visited,
+.cssAllJobListPositionHref	a:visited,
+.cssApplyBody			a:visited,
+.cssEditResBody			a:visited,
+.csseditreslinks		a:visited,
+.cssError			a:visited,
+.cssExplainNote			a:visited,
+.cssHelpBody			a:visited,
+.cssJobCatsBody			a:visited,
+.cssJobListBody			a:visited,
+.cssJobListBodyHref		a:visited,
+.cssLatestListBody		a:visited,
+.cssNoJobsBodyLink		a:visited,
+.cssSearchResultsBody		a:visited,
+.cssSearchResultsHead		a:visited
+{
+	color: ;
+	text-decoration: ;
+	font-weight: ;
+}
+.cssAgencyLoginBody		a:hover,
+.cssAllJobListPosition		a:hover,
+.cssAllJobListPositionHref	a:hover,
+.cssApplyBody			a:hover,
+.cssEditResBody			a:hover,
+.csseditreslinks		a:hover,
+.cssError			a:hover,
+.cssExplainNote			a:hover,
+.cssHelpBody			a:hover,
+.cssJobCatsBody			a:hover,
+.cssJobListBody			a:hover,
+.cssJobListBodyHref		a:hover,
+.cssLatestListBody		a:hover,
+.cssNoJobsBodyLink		a:hover,
+.cssSearchResultsBody		a:hover,
+.cssSearchResultsHead		a:hover
+{
+	color: ;
+	text-decoration: ;
+	font-weight: ;
+}
+
+/********** PERMANENT (DO NOT REMOVE) **********/
+br.cssJobListHead
+{
+	display:none;
+}
+
+#OhContainer
+{
+          WIDTH: 100%;
+}
+
+#OhContainer td.cssSectionhead
+{
+width:100%;
+cursor:pointer;
+}
+
+/* Individual Sections WITH Section Header Included */
+#OhContactInfoContainer,
+#ohJobPrefContainer,
+#ohWorkStatusContainer,
+#OhEducationContainer,
+#OhAdditionalContainer,
+#OhAdditionalFilesContainer,
+#OhResumeContentContainer,
+#OhResumeBuildContainer,
+#OhEEOInfoContainer
+{
+width:100%;
+}
+
+/* Individual Sections WITHOUT Section Header Included */
+#OhContact,
+#OhJobPref,
+#OhWorkStat,
+#OhEdu,
+#OhAdditional,
+#OhAddFile,
+#OhResContent,
+#OhResumeBuild,
+#OhEEO
+{
+width:100%;
+}
+
+/* DO NOT REMOVE */
+#box_search
+{
+display: none;
+}

@@ -1,0 +1,183 @@
+/************************************************************************** jqModal ***************************************************************************/
+/* jqModal base Styling courtesy of;
+        Brice Burgess <bhb@iceburg.net> */
+
+/* The Window's CSS z-index value is respected (takes priority). If none is supplied,
+        the Window's z-index value will be set to 3000 by default (via jqModal.js). */
+       
+.jqmWindow {
+    display: none;
+    position: fixed;
+    top: 5%;
+    left: 50%;
+   
+    margin-left: -300px;
+    /*
+     * Modified
+        width: 600px;
+    padding: 12px;      
+    background-color: #EEE;   
+    color: #333;
+    border: 1px solid black;
+   */
+}
+
+.jqmOverlay {
+  background: #fff;
+  opacity: 0.8; /* This is adjusted inline by js*/
+}
+/* Background iframe styling for IE6. Prevents ActiveX bleed-through (<select> form elements, etc.) */
+* iframe.jqm {position:absolute;top:0;left:0;z-index:-1;
+        width: expression(this.parentNode.offsetWidth+'px');
+        height: expression(this.parentNode.offsetHeight+'px');
+}
+
+/* Fixed posistioning emulation for IE6
+     Star selector used to hide definition from browsers other than IE6
+     For valid CSS, use a conditional include instead */
+* html .jqmWindow {
+     position: absolute;
+     top: expression((document.documentElement.scrollTop || document.body.scrollTop) + Math.round(17 * (document.documentElement.offsetHeight || document.body.clientHeight) / 100) + 'px');
+}
+
+/************************* customized changes for the modal dialog *******************************/
+
+.jv-modalHeader{
+
+       border: 1px solid #3A5898;
+        /*
+        -moz-border-radius-topleft: 3px; 
+        -webkit-border-top-left-radius: 3px;
+    -moz-border-radius-topright: 3px;
+        -webkit-border-top-right-radius: 3px;  
+        */     
+}
+
+.jv-fbModalContents{
+        background-color: #ffffff;
+        border: 1px solid #555;
+        padding: 10px 20px;
+        width: 505px;
+        *width: 500px;
+        font-size: 15px;
+        float: left;
+        border: 1px solid #555;
+        border-bottom: none;
+        font-family: Arial, Helvetica, sans-serif;
+        color: #666;
+        border-top: none;
+}
+
+.jv-modalGreenButton, .jv-modalGreyButton{
+        background-color: #627AAD;
+        border:1px solid #555;
+        padding: 3px;
+        float: right;
+        color: #fff;
+        font-size: 18;
+        cursor: pointer;
+        margin-right: 10px;
+        font-size: 13px;
+		margin-bottom: 5px;
+        margin-top: 5px;
+}
+
+.jv-modalGreyButton{
+        background-color: #eee;
+        border: 1px solid #999;
+        color: #333;
+        
+}
+
+.jv-quickProfile{
+        min-height: 100px;
+        max-height: 350px;
+        overflow-y: auto;
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 11px;
+		*position: relative;
+		color: #808080;
+}
+
+.jv-modalHistoryContainer{
+        text-align: left;
+        position: relative;
+}
+
+.jv-modalHistoryContainerInPage{
+        /*border-top: 1px solid #ddd;*/
+        text-align: left;
+        position: relative;
+}
+
+
+
+.jv-modalHistoryContainer * td{
+        padding: 10px 0px 0px;
+}
+
+.jv-modalSection{
+        color: #aaa;
+        font-size: 13px;       
+}
+
+#jv-modalDialog {
+	border: solid 10px rgba(82, 82, 82, .7);
+	border-radius: 8px;
+	*border: 1px solid #ccc;
+	-moz-border-radius: 8px;
+	-webkit-border-radius: 8px;
+	max-width: 550px;
+}
+.jv-signDiff{
+        float: left;
+        font-size: 10px;
+        cursor: pointer;
+        margin-right: 10px;
+        color: #A9D371;
+}
+
+.jv-signDiff:hover{
+        color: #7AB032;        
+}
+
+.jv-entry{
+        list-style-type:none;
+        padding: 2px;
+	background: url();
+}
+
+.jv-modalButtonContainer
+{
+	height: 40px;
+	background-color: #f5f5f5;
+	position: relative;
+	border-top: 1px solid #686868;
+}
+
+.jv-modalButtonContainer input {
+  display: inline-block;
+  width: auto;
+  float: right;
+  padding: 5px 9px;
+  border-radius: 0;
+  font-weight: bold;
+}
+
+#jv-applyFB{
+        padding: 3px 6px;
+        text-shadow: 0px 0px 3px#fff;
+        font-family: Arial, Helvetica, sans-serif;
+        cursor: pointer;
+}
+
+.jv-fbModalContents * ul, .jv-modalHistoryContainerInPage * ul
+{
+	margin: 0px;
+	padding: 0px;
+}
+
+#jv-fbAttachProfileContainer
+{
+	margin-top: 10px;
+}

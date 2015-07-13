@@ -1,0 +1,1430 @@
+/*************************************************************************************
+PS Developer CSS Notes:
+
+- This web site uses a 100% CSS based layout.
+- There should be NO formatting references in the HTML
+- All formatting references should be contained within the CSS
+- Nearly all CSS entries should be replaced by Eprise variables
+- Developers should note: The total height and width of a div is comprised of the height/width + padding + margin + border
+
+- Notes key:
+SS1 = Standard Skin Settings
+SS2 = Advanced Skin Settings
+LOCKED = Locked settings - not open for configuration
+
+Each section should contain settings grouped by:
+1 FONT
+2 BACKGROUND
+3 SIZE
+4 PADDING
+5 BORDER
+6 LOCKED
+7 OTHER (If necessary)
+8 LINKS
+
+Font-family options: Arial, Verdana, Helvetica, Tahoma, Trebuchet, Arial Black, Times New Roman
+See this link: http://www.codestyle.org/css/font-family/sampler-WindowsResults.shtml
+
+Regarding the use of redundant or overly specific references:
+
+In many cases, settings are not listed because it is highly unlikely that the setting are needed in that particular section.
+This may be because the style is already defined in parent or child elements or that it is unlikely the style would be necessary.
+CSS settings can later be expanded based on overall feedback. It is known that there will be a need for a large amount of settings.
+This core CSS is intended to only use CSS entries that are likely to be used. Settings are consolidate in the case of hyperlinks because it is unlikely that there is a need to differentiate other than link and hover styles.
+(9/21/2009 WC)
+*************************************************************************************/
+
+/******************
+STANDARD ELEMENTS
+OVERALL PAGE STYLES
+******************/
+
+/***Prevent extra margin around header tages***/
+h1,h2,h3,h4,h5,h6,h7					
+{
+margin: 0;							/*LOCKED*/
+}
+
+/********
+PAGE BODY
+********/
+
+#ps-body
+{
+/***FONT***/ /***Unnecessary - already defined in parent and/or child elements***/
+/***BACKGROUND***/
+background-color: ;
+background-image: url("/map_images/main/SiteGen/eigext/Content/Uploads/Images/skin/headerbg.png");
+background-repeat: repeat-x;
+/***SIZE***/ 							/***N/A***/
+/***PADDING***/ 						/***N/A***/
+/***BORDER***/ 						/***N/A***/
+/***LOCKED***/
+margin: 0; 							/*LOCKED*/
+padding: 0;			 				/*LOCKED*/
+text-align: left;
+}
+/***LINKS***/ /***Unnecessary - already defined in parent and/or child elements***/
+
+/*************
+PAGE CONTAINER
+*************/
+
+#page_container
+{
+/***FONT***/ /***Unnecessary - already defined in parent and/or child elements***/
+/***BACKGROUND***/
+background-color: ;
+background-image: url("");
+background-repeat: no-repeat;
+/***SIZE***/ 
+width: 980px;
+/***PADDING***/ /***Unnecessary - already defined in parent and/or child elements***/
+/***BORDER***/
+border-color: #000000;
+border-style: solid;
+border-top-width: 0px;
+border-right-width: 0px;
+border-bottom-width: 0px;
+border-left-width: 0px;
+/***LOCKED***/
+margin-right: auto;						/*LOCKED*/
+margin-left: auto;						/*LOCKED*/
+/***OTHER***/
+margin-top: 0px;
+margin-bottom: 0px;
+}
+
+/***LINKS***/ /***Unnecessary - already defined in parent and/or child elements***/
+
+/**********************************************************************
+                                PAGE BOXES
+**********************************************************************/
+
+/*********
+HEADER BOX
+*********/
+
+#box_header
+{
+/***FONT***/
+font-family: arial,arial;
+font-size:12px;
+color:#666666;
+/***BACKGROUND***/
+background-color:;
+background-image: url("");
+background-repeat: repeat;
+/***SIZE (Width must descrease when adding border or padding) ***/
+height: 66px;
+width: 980px;
+/***PADDING***/
+padding: 0px;
+/***BORDER***/
+border-color: ;
+border-style: solid;
+border-top-width: 0px;
+border-right-width: 0px;
+border-bottom-width: 0px;
+border-left-width: 0px;
+float:left;							/*LOCKED*/
+}
+
+/***LINKS***/
+#box_header a:link,
+#box_header a:active,
+#box_header a:visited
+{
+color: #0000FF;
+text-decoration: underline;
+font-weight: bold;
+}
+#box_header a:hover
+{
+color: #FF0000;
+text-decoration: underline;
+font-weight: bold;
+}
+
+/************
+SUBHEADER BOX
+************/
+
+#box_subheader
+{
+/***FONT***/ /***Unnecessary - already defined in parent and/or child elements***/
+/***BACKGROUND***/ /***!BACKGROUND-COLOR IS SET IN MAIN NAV SETTINGS BELOW!***/
+/***SIZE (Width must descrease when adding border or padding) ***/
+/***!HEIGHT IS SET IN MAIN NAV SETTINGS BELOW!***/
+width: 980px;
+/***PADDING***/
+padding: 0px;
+/***BORDER***/
+border-color: #A52426;
+border-style: solid;
+border-top-width: 0px;
+border-right-width: 0px;
+border-bottom-width: 0px;
+border-left-width: 0px;
+/***LOCKED***/
+float:left;							/*LOCKED*/
+}
+
+/***LINKS***/ /***Unnecessary - already defined in parent and/or child elements***/
+
+/*************
+BODY CONTAINER
+*************/
+
+#body_container
+{
+/***FONT***/ /***Unnecessary - already defined in parent and/or child elements***/
+/***BACKGROUND***/
+background-color:;
+background-image: url("/map_images/main/SiteGen/eigext/Content/Uploads/Images/skin/contentbgmiddle.png");
+background-repeat: repeat-y;
+/***SIZE (Width must descrease when adding border or padding / CHILD WIDTHs MUST DESCREASE ALSO) ***/
+width: 960px;
+min-height: 500px; /* LOCKED */
+/***PADDING***/
+padding-top:0px;
+padding-right:20px;
+padding-bottom:0px;
+padding-left:0px;
+/***BORDER***/
+border-color: ;
+border-style: solid;
+border-top-width: 0px;
+border-right-width: 0px;
+border-bottom-width: 0px;
+border-left-width: 0px;
+/***LOCKED***/
+float: left;							/*LOCKED*/
+}
+
+/***LINKS***/ /***Unnecessary - already defined in parent and/or child elements***/
+
+/***************************************
+LEFT COLUMN BOX / RIGHT COLUMN BOX
+BOTH COLUMNS SHOULD HAVE THE SAME STYLES
+***************************************/
+
+#box_col_left,
+#box_col_right
+{
+/***FONT***/ /***Unnecessary - already defined in parent and/or child elements***/
+/***BACKGROUND***/ /***Unnecessary - already defined in parent and/or child elements***/
+/***SIZE (Width must descrease when adding border or padding) ***/
+width: 200px;
+/***PADDING***/
+padding-top: 20px;
+padding-right: 0px;
+padding-bottom: 20px;
+padding-left: 0px;
+/***BORDER***/ /***Unnecessary - already defined in parent and/or child elements***/
+/***LOCKED***/
+float: left;							/*LOCKED*/					
+}
+
+/***LINKS***/ /***Unnecessary - already defined in parent and/or child elements***/
+
+/***************************************************************
+CENTER COLUMN BOX
+CENTER COL DIV REFERENCE CHANGES IN HTML ACCORDING TO THE LAYOUT
+***************************************************************/
+
+#box_col_center_two_col,
+#box_col_center_left_col,
+#box_col_center_right_col,
+#box_col_center_no_col,
+#box_col_center_2_Col,
+#box_col_center_L_Col,
+#box_col_center_R_Col,
+#box_col_center_0_Col
+{
+/***FONT***/
+font-family: arial,arial;
+font-size:14px;
+color:#333333;
+/***BACKGROUND***/ /***Unnecessary - already defined in parent and/or child elements***/
+/***SIZE***/ /***This is set below***/
+/***PADDING***/
+padding-top: 20px;
+padding-right: 20px;
+padding-bottom: 20px;
+padding-left: 20px;
+/***BORDER***/ /***Unnecessary - already defined in parent and/or child elements***/
+/***LOCKED***/
+float: left;							/*LOCKED*/
+}
+
+/***SIZE (Width must descrease when adding border or padding) ***/
+#box_col_center_two_col,#box_col_center_2_Col
+{
+width: 440px;
+}
+#box_col_center_left_col,
+#box_col_center_L_Col,
+#box_col_center_R_Col,
+#box_col_center_right_col
+{
+width: 680px;
+}
+#box_col_center_no_col,
+#box_col_center_0_Col
+{
+width: 920px;
+}
+
+#box_col_center_two_col h1,
+#box_col_center_2_Col h1,
+#box_col_center_left_col h1,
+#box_col_center_L_Col h1,
+#box_col_center_right_col h1,
+#box_col_center_R_Col h1,
+#box_col_center_0_Col h1,
+#box_col_center_no_col h1
+{
+/***FONT***/
+font-family:arial,arial;
+font-size:22px;
+color:#222222;
+}
+
+#box_col_center_two_col h2,
+#box_col_center_left_col h2,
+#box_col_center_right_col h2,
+#box_col_center_no_col h2,
+#box_col_center_2_Col h2,
+#box_col_center_L_Col h2,
+#box_col_center_R_Col h2,
+#box_col_center_0_Col h2
+{
+/***FONT***/
+font-family:arial,arial;
+font-size:22px;
+color:#222222;
+}
+
+/***LINKS***/
+#box_col_center_two_col a:link,
+#box_col_center_left_col a:link,
+#box_col_center_right_col a:link,
+#box_col_center_no_col a:link,
+#box_col_center_two_col a:active,
+#box_col_center_left_col a:active,
+#box_col_center_right_col a:active,
+#box_col_center_no_col a:active,
+#box_col_center_two_col a:visited,
+#box_col_center_left_col a:visited,
+#box_col_center_right_col a:visited,
+#box_col_center_no_col a:visited,
+#box_col_center_2_Col a:link,
+#box_col_center_L_Col a:link,
+#box_col_center_R_Col a:link,
+#box_col_center_0_Col a:link,
+#box_col_center_2_Col a:active,
+#box_col_center_L_Col a:active,
+#box_col_center_R_Col a:active,
+#box_col_center_0_Col a:active,
+#box_col_center_2_col a:visited,
+#box_col_center_L_Col a:visited,
+#box_col_center_R_Col a:visited,
+#box_col_center_0_Col a:visited
+{
+color: #178DC2;
+text-decoration: none;
+font-weight: normal;
+}
+#box_col_center_two_col a:hover,
+#box_col_center_left_col a:hover,
+#box_col_center_right_col a:hover,
+#box_col_center_no_col a:hover,
+#box_col_center_2_Col a:hover,
+#box_col_center_L_Col a:hover,
+#box_col_center_R_Col a:hover,
+#box_col_center_0_Col a:hover
+{
+color: #178DC2;
+text-decoration: none;
+font-weight: normal;
+}
+
+/***************
+CENTER COLUMN BOX
+BANNER AND TITLE
+***************/
+
+#box_col_center_banner
+{
+text-align: left;
+}
+
+#box_col_center_title
+{
+text-align: left;
+}
+
+/***************
+FOOTER BOX
+***************/
+
+#box_footer
+{
+/***FONT***/
+font-family: arial,arial;
+font-size: 11px;
+color:#333333;
+/***BACKGROUND***/
+background-color:;
+background-image: url("/map_images/main/SiteGen/eigext/Content/Uploads/Images/skin/contentbgbottom.png");
+background-repeat: no-repeat;
+/***SIZE (Width must descrease when adding border or padding) ***/
+height: 50px;
+width: 960px;
+/***PADDING***/
+padding: 0px;
+/***BORDER***/
+border-color: ;
+border-style: solid;
+border-top-width: 0px;
+border-right-width: 0px;
+border-bottom-width: 0px;
+border-left-width: 0px;
+/***LOCKED***/
+clear: both;							/*LOCKED*/
+}
+
+/***LINKS***/
+#box_footer a:link,
+#box_footer a:active,
+#box_footer a:visited
+{
+color: #333333;
+text-decoration: none;
+font-weight: normal;
+}
+#box_footer a:hover
+{
+color: #333333;
+text-decoration: none;
+font-weight: normal;
+}
+
+/*********
+SEARCH BOX
+*********/
+
+#box_search
+{
+/***FONT***/ /***Unnecessary - already defined in parent and/or child elements***/
+/***BACKGROUND***/
+background-color:#BBBBBB;
+/***SIZE (Width must descrease when adding border or padding) ***/
+height: 26px;
+width: 170px;
+/***PADDING***/
+padding: 5px;
+/***BORDER***/
+border-color: #000000;
+border-style: dotted;
+border-width: 1px;
+}
+
+/***LINKS***/ /***Unnecessary - already defined in parent and/or child elements***/
+
+#search_textbox
+{
+/***FONT***/
+font-family:bookman old style,arial;
+font-size:12px;
+color:#000000;
+/***SIZE***/
+height: 18px;
+width: 120px;
+}
+
+#search_button
+{
+/***NOTE: Button text should be configurable in SS2***/
+/***FONT***/
+font-family:bookman old style,serif;
+font-size:12px;
+color:#000000;
+/***SIZE***/
+height: 23px;
+width: 30px;
+/***LOCKED***/
+padding: 0;							/*LOCKED*/
+}
+
+/**********
+LOGOUT LINK
+**********/
+
+#logout_link
+{
+/***Unnecessary - already defined in parent and/or child elements***/
+}
+
+/***LINKS***/
+#logout_link a:link,
+#logout_link a:active,
+#logout_link a:visited
+{
+/***Unnecessary - already defined in parent and/or child elements***/
+}
+#logout_link a:hover
+{
+/***Unnecessary - already defined in parent and/or child elements***/
+}
+
+/**************
+CONTENT SNIPPET
+**************/
+
+.content_snippet
+{
+/***FONT***/ /***Unnecessary - already defined in parent and/or child elements***/
+/***BACKGROUND***/ /***Unnecessary - already defined in parent and/or child elements***/
+/***SIZE (Width must descrease when adding border or padding) ***/
+width: 170px;
+/***PADDING***/ /***Unnecessary - already defined in parent and/or child elements***/
+/***BORDER***/ /***Unnecessary - already defined in parent and/or child elements***/
+/***OTHER***/
+margin-bottom: 10px; /*SPACING BETWEEN CONTENT SNIPPETS*/
+}
+
+/***LINKS***/ /***Unnecessary - already defined in parent and/or child elements***/
+
+/*********************
+CONTENT SNIPPET HEADER
+**********************/
+
+.content_snippet_header
+{
+/***FONT***/
+font-family:arial,arial;
+font-size:18px;
+font-weight:bold;
+text-align: left;
+color: #000000;
+/***BACKGROUND***/
+background-color:;
+background-image: url("");
+background-repeat: repeat;
+/***SIZE***/ /***Unnecessary - already defined in parent and/or child elements***/
+width: 170px;
+/***PADDING***/
+padding: 5px;
+/***BORDER***/ 
+border-color: #000000;
+border-style: solid;
+border-top-width: 0px;
+border-right-width: 0px;
+border-bottom-width: 0px;
+border-left-width: 0px;
+}
+
+/***LINKS***/ /***Unnecessary - already defined in parent and/or child elements***/
+
+/*********************
+CONTENT SNIPPET BODY
+**********************/
+
+.content_snippet_body
+{
+/***FONT***/
+font-family:arial,arial;
+font-size:13px;
+text-align: left;
+color:#000000;
+/***BACKGROUND***/
+background-color:#FFFFFF;
+background-image: url("");
+background-repeat: repeat;
+/***SIZE***/ /***Unnecessary - already defined in parent and/or child elements***/
+width: 170px;
+/***PADDING***/
+padding: 5px;
+/***BORDER***/
+border-color: #000000;
+border-style: solid;
+border-top-width: 0px;
+border-right-width: 0px;
+border-bottom-width: 0px;
+border-left-width: 0px;
+}
+
+/***LINKS***/
+.content_snippet_body a:link,
+.content_snippet_body a:active,
+.content_snippet_body a:visited
+{
+color: #178DC2;
+text-decoration: normal;
+font-weight: bold;
+text-align: left;
+}
+.content_snippet_body a:hover
+{
+color: #178DC2;
+text-decoration: underline;
+font-weight: bold;
+text-align: left;
+}
+
+td.content_snippet_body,
+#theID td
+{
+text-align: left;
+}
+
+/*******
+MAIN NAV
+*******/
+
+#main_nav
+{
+/***FONT***/
+font-family: arial,arial;
+font-size: 12px;
+/***POSITION***/
+float: right;
+}
+
+#box_subheader
+{
+height: 25px;
+background-color:;
+background-image: url("/map_images/main/SiteGen/eigext/Content/Uploads/Images/skin/contentbgtop.png");
+background-repeat: no-repeat;
+}
+
+#main_nav_list
+{
+margin-top: 16px;
+margin-right: 0;						/*LOCKED*/ /*Because we want 0 margin right of the UL*/
+margin-left: 0;						/*LOCKED*/ /*Because we want 0 margin left of the UL*/
+/*DO NOT SET A MARGIN-BOTTOM 0 ELSE IE6 + IE7 WILL NICELY LOP OFF YOUR BOTTOM BORDER IF YOU HAVE ONE*/
+padding: 0;							/*LOCKED*/ /*Because we want 0 padding around the UL*/
+}
+
+#main_nav li
+{
+display: inline;						/*LOCKED*/ /*This makes this UL display horizontal*/
+list-style-type: none;					/*LOCKED*/ /*Because this UL is not using bullets*/
+}
+
+#main_nav a
+{
+padding-top: 23px;
+padding-right: 20px;
+padding-bottom: 23px;
+padding-left: 20px;
+font-size: 12px; /*RED-1683 font size for ViewTask.html*/
+}
+
+#main_nav a:link,
+#main_nav a:visited
+{
+color: #676767;
+background-color: ;
+text-decoration: none;
+border-top: 0px;
+border-right: 0px;
+border-bottom: 0px;
+border-left: 0px;
+border-style: solid;
+border-color: #FFFFFF;
+}
+
+#main_nav #active a,
+#main_nav a:active,
+#main_nav a:hover
+{
+color:#35B3DD;
+background-color: ;
+text-decoration: none;
+border-top: 0px;
+border-right: 0px;
+border-bottom: 0px;
+border-left: 0px;
+border-style: solid;
+border-color: #FFFFFF;
+}
+
+
+
+
+/*******
+SUB NAV
+*******/
+
+#sub_nav
+{
+width: 180px;
+margin-bottom: 10px;
+font-size: 13px;
+font-family: arial,arial;
+}
+
+#sub_nav_list
+{
+margin: 0;						/*** LOCKED ***/
+}
+
+#sub_nav ul
+{
+margin-left: 0;					/*** LOCKED ***/					
+padding-left: 0;					/*** LOCKED ***/
+}
+
+#sub_nav_list li
+{
+list-style: none;					/*** LOCKED ***/
+margin-bottom: 0px;					
+}
+
+#sub_nav_list a
+{
+display: block;					/*** LOCKED ***/
+padding-top: 5px;
+padding-right: 0px;
+padding-bottom: 5px;
+padding-left: 0px;
+width: 180px;
+}
+
+#sub_nav_list a,
+#sub_nav a:link,
+#sub_nav a:visited
+{
+border-top-width: 0px;
+border-right-width: 0px;
+border-bottom-width: 0px;
+border-left-width: 0px;
+text-decoration: none;
+border-style: solid;
+border-color: #999999;
+color: #178DC2;
+background-color: ;
+}
+
+#sub_nav #current a,
+#sub_nav a:active,
+#sub_nav a:hover
+{
+border-top-width: 0px;
+border-right-width: 0px;
+border-bottom-width: 0px;
+border-left-width: 0px;
+text-decoration: none;
+border-style: solid;
+border-color: #FFFFFF;
+color: #178DC2;
+background-color: ;
+}
+
+.sub_nav_header
+{
+/***FONT***/
+font-family:arial,arial;
+font-size:18px;
+font-weight:bold;
+text-align: left;
+color: #000000;
+/***BACKGROUND***/
+background-color:;
+background-image: url("");
+background-repeat: no-repeat;
+/***SIZE***/ /***Unnecessary - already defined in parent and/or child elements***/
+width: 200px;
+/***PADDING***/
+padding: px;
+/***BORDER***/ 
+border-color: #000000;
+border-style: solid;
+border-top-width: 0px;
+border-right-width: 0px;
+border-bottom-width: 0px;
+border-left-width: 0px;
+/***MARGIN***/ 
+margin-bottom: 0px;
+}
+
+/*******
+CALENDAR
+*******/
+
+.calendar_prevdatetitle img,
+.calendar_nextdatetitle img
+{
+border: 0;
+}
+
+.calendar_prevdatetitle
+{
+color: #333333;
+text-align: center;						/*LOCKED*/
+font-size: 14px;
+font-weight: bold;						/*LOCKED*/
+}
+
+.calendar_prevdatetitle:hover
+{
+color: #333333;
+background-color: ;
+}
+
+.calendar_datetitle
+{
+color: #222222;
+text-align: center;						/*LOCKED*/
+font-size: 22px;
+font-weight: bold;						/*LOCKED*//
+}
+
+.calendar_nextdatetitle
+{
+color: #333333;
+text-align: center;						/*LOCKED*/
+font-size: 14px;
+font-weight: bold;						/*LOCKED*/
+}
+
+.calendar_nextdatetitle:hover
+{
+color: #333333;
+background-color: ;
+}
+
+td.calendar_head
+{
+background-color: #A6A6A6;
+color: #222222;
+text-align: center;						/*LOCKED*/
+font-size: 14px;
+font-weight: bold;						/*LOCKED*/
+}
+
+td.calendar_shade_nd
+{
+background-color: #A6A6A6;				/*SS1*/
+}
+
+td.calendar_shade_d
+{
+background-color: #D4D4D4;				/*SS1*/
+}
+
+td.calendar_date
+{
+font-size: 14px;
+color:#333333;
+}
+
+.calendar_data_link
+{
+font-size: 14px;
+text-decoration: none;					/*LOCKED*/
+color: #178DC2;
+}
+
+.calendar_data_link:hover
+{
+color: #178DC2;
+text-decoration: none;
+}
+
+td.calendar_data
+{
+padding-left: 5px;
+}
+
+/***
+BLOG
+***/
+
+#blog
+{
+
+}
+
+#blog img
+{
+border: 0;							/*LOCKED*/
+}
+
+#blog h1
+{
+font-size: 22px;
+font-family: arial,arial;
+color: #222222;
+}
+
+/***LINKS***/
+#blog a:link,
+#blog a:active,
+#blog a:visited
+{
+color: #178DC2;						
+text-decoration: underline;					
+font-weight: bold;						/*LOCKED*/					
+}
+#blog a:hover
+{
+color:#178DC2;							
+text-decoration: underline;				
+font-weight:bold;						/*LOCKED*/				
+}
+
+.blog_date_box
+{
+font-size: 14px;
+font-family: arial,arial;
+color: #333333;
+text-align: center;						/*LOCKED*/
+background-color: ;
+width: 60px;
+float: left;							/*LOCKED*/
+margin-right: 10px;						/*LOCKED*/
+margin-top: 8px;						/*LOCKED*/
+margin-bottom: 8px;						/*LOCKED*/
+}
+
+.blog_entry_list_item
+{
+border-top-width: 1px;			/*LOCKED*/
+border-right-width: 0px;
+border-bottom-width: 0px;
+border-left-width: 0px;
+border-style: dotted;					/*LOCKED*/
+clear: left;							/*LOCKED*/
+}
+
+.blog_title
+{
+margin-top: 8px;
+}
+
+.blog_comments
+{
+text-align: right;
+}
+
+/********************
+FAQ / ANNOUNCEMENT LISTINGS
+********************/
+
+#faq
+{
+
+}
+
+#faq h1
+{
+font-size: 22px;
+font-family: arial,arial;
+color: #222222;
+}
+
+#faq img
+{
+border: 0;							/*LOCKED*/
+}
+
+/***LINKS***/
+#faq a:link,
+#faq a:active,
+#faq a:visited
+{
+color: #178DC2;						
+text-decoration: underline;					
+font-weight: bold;						/*LOCKED*/						
+}
+#faq a:hover
+{
+color:#178DC2;							
+text-decoration:none;				
+font-weight:bold;						/*LOCKED*/				
+}
+
+.faq_date_box
+{
+font-size: 14px;
+font-family: arial,arial;
+color: #333333;
+text-align: center;						/*LOCKED*/
+background-color: ;
+width: px;
+float: left;							/*LOCKED*/
+margin-right: 10px;						/*LOCKED*/
+}
+
+.faq_entry_list_item
+{
+border-top-width: 1px;					/*LOCKED*/
+border-right-width: 0px;
+border-bottom-width: 0px;
+border-left-width: 0px;
+border-style: dotted;					/*LOCKED*/
+clear: left;							/*LOCKED*/
+padding-top: 10px;
+padding-bottom: 10px;
+}
+
+
+/***************
+DOCUMENT LISTING
+***************/
+
+#document_listing
+{
+
+}
+
+#document_listing img
+{
+border: 0;							/*LOCKED*/
+}
+
+#document_category
+{
+font-size: 22px;
+font-family: arial,arial;
+color: #222222;
+background-color: ;
+}
+
+#document_list table
+{
+border-collapse: collapse;				/*LOCKED*/
+}
+
+#document_list tr
+{
+
+}
+
+#document_list td
+{
+padding-right: 10px;					/*LOCKED*/
+}
+
+/***LINKS***/
+#document_listing a:link,
+#document_listing a:active,
+#document_listing a:visited
+{
+color: #178DC2;						
+text-decoration: none;					
+font-weight: bold;						/*LOCKED*/					
+}
+#document_listing a:hover
+{
+color:#178DC2;							
+text-decoration: underline;				
+font-weight:bold;						/*LOCKED*/						
+}
+
+/********************
+RC FIX FOR NUMBERED TASK LIST
+********************/
+.rcTaskList ol li 
+{
+list-style-type:none;
+margin-left: 0px;
+padding-left: 0px
+}
+
+.content_snippet_body ol li
+{
+list-style-type:none;
+margin-left: 0px;
+padding-left: 0px
+}
+
+.rcTaskList ol 
+{ 
+margin-left: 0px; 
+padding-left: 0px 
+} 
+
+
+/*********************************
+FIXES NEW LEAF MENU IE7 ISSUE
+*********************************/
+#leafToolbar hr { width:80px !important; text-align: center; }
+
+
+/*********************************
+YUI PANEL
+*********************************/
+#examplecontainer {
+        padding:10px;
+    }
+ 
+    #resizablepanel .bd {
+        overflow:auto;
+        background-color:#fff;
+        padding:10px;
+    }
+ 
+    #resizablepanel .ft {
+        height:15px;
+        padding:0;
+    }
+     #resizablepanel .hd {
+         font-size: 11px;
+         font-family: arial;
+   }
+
+    #resizablepanel .yui-resize-handle-br {
+        right:0;
+        bottom:0;
+        height: 8px;
+        width: 8px;
+        position:absolute;
+    }
+  #resizablepanel_c.hide-scrollbars .yui-resize .bd {
+        overflow: hidden;
+    }
+ 
+    #resizablepanel_c.show-scrollbars .yui-resize .bd {
+        overflow: auto;
+    }
+#resizablepanel_c.show-scrollbars .underlay {
+        overflow: visible;
+    }
+
+
+/**********************************
+CSS For Job Search Result Page
+**********************************/
+
+#SRTJobSearchListings
+{
+clear: both;
+border-color: #9A9A9A; 
+border-style: solid;
+border-top-width: 0px;	 /**Needs to be editable in Portal Studio **/
+border-right-width: 0px;	/**Needs to be editable in Portal Studio **/
+border-bottom-width: 1px;	/**Needs to be editable in Portal Studio **/
+border-left-width: 0px;	/**Needs to be editable in Portal Studio **/
+}
+
+
+#SRTResultTitle_On
+{
+font-family: arial;
+font-size: 12px;
+color:#000000;
+font-style:normal;
+font-weight:normal;
+text-decoration: none;
+padding-top:15px;
+padding-right:0px;
+padding-bottom:10px;
+padding-left:0px;
+}
+
+.SRTResultNumber
+{
+font-family: arial;
+font-size: 12px;
+color:#000000;
+font-style:normal;
+font-weight:bold;
+text-decoration: none;
+}
+
+.SRTJobResults_On
+{
+clear: both;
+/***BORDER***/
+border-color: #9A9A9A; 
+border-style: solid;	
+
+border-top-width: 1px;	/**Needs to be editable in Portal Studio **/
+border-right-width: 0px;	/**Needs to be editable in Portal Studio **/
+border-bottom-width: 0px;	/**Needs to be editable in Portal Studio **/
+border-left-width: 0px;	/**Needs to be editable in Portal Studio **/
+
+padding-top:15px;
+padding-right:0px;
+padding-bottom:15px;
+padding-left:0px;
+}
+
+.SRTJobHeader_On
+{
+padding-top:0px;
+padding-right:0px;
+padding-bottom:5px;
+padding-left:0px;
+}
+
+.SRTJobTitle_On
+{
+font-family: arial;
+font-size: 12px;
+color:#000000;
+font-style:normal;
+font-weight:normal;
+text-decoration: none;
+}
+
+.SRTJobHeaderDash1_On,
+.SRTJobHeaderDash2_On
+{
+font-family: arial;
+font-size: 12px;
+color:#000000;
+}
+
+.SRTJobTrackNum_On
+{
+font-family: arial;
+font-size: 12px;
+color:#000000;
+font-style:normal;
+font-weight:normal;
+text-decoration: none;
+}
+
+.SRTJobLoc_On
+{
+font-family: arial;
+font-size: 12px;
+color:#000000;
+font-style:normal;
+font-weight:normal;
+text-decoration: none;
+}
+
+.SRTJobCat_On
+{
+clear:both;
+padding-top:0px;
+padding-right:0px;
+padding-bottom:5px;
+padding-left:0px;
+font-family: arial;
+font-size: 12px;
+color:#000000;
+font-style:normal;
+font-weight:normal;
+text-decoration: none;
+}
+
+.SRTJobDescpt_On
+{
+clear:both;
+font-family: arial;
+font-size: 12px;
+color:#000000;
+font-style:normal;
+font-weight:normal;
+text-decoration: none;
+}
+
+.SRTJobPostDate_On
+{
+clear:both;
+text-align:right !important; 
+padding-top:5px;
+font-family: arial;
+font-size: 12px;
+color:#000000;
+font-style:normal;
+font-weight:normal;
+text-decoration: none;
+}
+
+.SRTJobPostDateNum
+{
+font-family: arial;
+font-size: 12px;
+color:#000000;
+font-style:italic;
+font-weight:normal;
+text-decoration: none;
+}
+
+.SRTJobHeaderDash1_Off,
+.SRTJobHeaderDash2_Off
+{
+display:none;
+}
+
+.SRTJobDescpt_Off
+{
+display:none;
+}
+
+.SRTJobTrackNum_Off
+{
+display:none;
+}
+
+.SRTJobLoc_Off
+{
+display:none;
+}
+
+.SRTJobCat_Off
+{
+display:none;
+}
+
+#SRTResultTitle_Off
+{
+display:none;
+}
+
+.SRTJobPostDate_Off
+{
+display:none;
+}
+
+
+#breadcrumbs {
+  margin-top: 60px;
+  margin-right: 0px;
+  margin-bottom: 0px;
+  margin-left: 10px;
+  padding-top: 0px;
+  padding-right: 0px;
+  padding-bottom: 0px;
+  padding-left: 0px;
+  font-size: 12px;
+  font-family: arial,arial;
+  color: #ffffff;
+  background-color: ;
+  text-decoration: none;
+  font-weight: normal;
+  font-style: normal;
+  font-variant: normal;
+}
+
+
+#breadcrumbs a, a:link, a:visited {
+   color: #ffffff;
+   text-decoration: underline;
+  font-weight: normal;
+  font-style: normal;
+  font-variant: normal;
+}
+
+#breadcrumbs a:hover {
+   color: #ffffff;
+   text-decoration: underline;
+  font-weight: normal;
+  font-style: normal;
+  font-variant: normal;
+}
+
+ .breadcrumb_item {
+  color: #ffffff;
+  text-decoration: none;
+  font-weight: normal;
+  font-style: normal;
+  font-variant: normal;
+ }
+
+#panel_popout_c {
+ display:none; 
+} 
+
+/********************
+SKIN DEFINED CSS OVERRIDES FROM ADVANCED SKIN SETTINGS
+********************/
+#testdiv{}
+
+.main_nav_list_first {
+display:none !important;
+}
+
+#pslogo{
+margin-top:15px;
+}
+
+html{
+background:url(/map_images/main/SiteGen/eigext/Content/Uploads/Images/skin/bg_textures.png) no-repeat center top scroll transparent;
+}
+
+
+#box_subheader, #body_container{
+background-position:-20px 0px;
+}
+
+
+#main_nav{
+margin-top:-82px;
+margin-right:20px;
+}
+
+
+
+
+#main_nav a{
+font-weight:bold;
+text-transform:uppercase;
+line-height:60px;
+}
+
+#main_nav a:hover, #main_nav #active a:hover{
+color:#ffffff;
+background-color:#35b3dd;
+}
+
+#box_col_center_two_col, #box_col_center_2_Col{
+    line-height: 1.6;
+}
+
+#box_col_center_no_col, #box_col_center_0_Col{
+    line-height: 1.6;
+}
+
+#box_col_center_L_Col,#box_col_center_left_col{
+    line-height: 1.6;
+}
+
+#box_col_center_right_col, #box_col_center_R_Col{
+    line-height: 1.6;
+}
+
+#box_col_center_two_col h2, #box_col_center_left_col h2, #box_col_center_right_col h2, #box_col_center_no_col h2, #box_col_center_2_Col h2, #box_col_center_L_Col h2, #box_col_center_R_Col h2, #box_col_center_0_Col h2, #blog h1, #document_category{
+}
+
+.sub_nav_header, .content_snippet_header{
+background:url(/map_images/main/SiteGen/eigext/Content/Uploads/Images/skin/slash.png) no-repeat left center scroll transparent;
+padding-left:10px;
+padding-top:10px;
+padding-bottom:10px;
+}
+
+#box_col_left{
+padding-left:20px;
+padding-right:20px;
+}
+
+#box_col_right{
+padding-right:20px; 
+padding-left:20px;
+}
+
+#sub_nav a{
+font-weight:bold;
+}
+
+#box_footer{
+background-position:-20px -50px;
+padding-top:50px;
+padding-right:20px;
+}
+
+/********************
+USER DEFINED CSS OVERRIDES
+********************/<b>Unable to include file /RedCarpetDotNet/Portal/TurboTask/TurboTask.css</b><br />

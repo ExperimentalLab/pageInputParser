@@ -1,0 +1,399 @@
+#resumator-rounded-container {
+	width: 960px;
+	margin: 20px auto 0px auto;
+}
+
+.rounded_container {
+	background: #FFFFFF;
+	color:#000000;
+}
+
+#resumator { display: none !important;	}
+
+.resumator-job-info,
+.resumator-job-description p,
+.MsoNormal,
+.MsoNormal span,
+.message p,
+.resumator-job-description li,
+.resumator-job-description ul,
+.resumator-job-description ol,
+.resumator-job-info-details,
+.resumator-field-wrapper,
+.resumator-label, 
+.resumator-job-placeholder,
+#resumator-credit,
+a.resumator-job-link,
+#resumator-resume-upload div.error {
+	font: normal 12px/1.3em Arial, Verdana, sans-serif;
+	color: #333;
+	padding: 0px;
+	margin: 0 0 1.2em 0;
+	text-align: left;
+	
+}
+
+.MsoNormal, .MsoNormal span, .MsoNormal span { font-size: inherit !important; }
+
+#resumator { margin-bottom: 40px; }
+
+.resumator-job {
+	clear: both;
+}
+
+.resumator-job-description {
+	display: none;
+	padding-bottom: 20px;
+}
+
+.resumator-job-description strong {
+	font-weight: bold;
+	font-style: inherit;
+}
+
+.resumator-job-description em {
+	font-style: italic !important;
+}
+
+.resumator-job-description ul,
+.resumator-job-description ol {
+	margin: 0 0 1.2em 40px;
+	padding: 0px;
+}
+
+.resumator-job-description ul li { list-style-type: disc !important; }
+
+.resumator-job-description ol li { list-style-type: decimal !important; }
+
+.resumator-job-description li {
+	margin-bottom: .25em;
+	padding: 0px;
+}
+
+.resumator-job-description a {
+	color: #3C79A8;
+}
+
+a.resumator-job-link {
+	text-decoration: none;
+	color: #3C79A8;
+}
+
+a.resumator-job-link:hover { text-decoration: underline; }
+
+#resumator-resumes-title,
+#resumator-forward-title,
+#resumator-jobs-title {
+	font: bold 20px/1.3em Arial, Verdana, sans-serif;
+	margin: 10px 0 10px 0;
+	color: #000;
+}
+
+#resumator-resumes-title {
+	margin-left: 25px;
+}
+
+#resumator-jobs-title {
+	margin-left: 0px;
+	margin-top: 0px;
+}
+
+.resumator-job-title {
+	font: bold 16px/1.3em Arial, Verdana, sans-serif;
+	margin: 15px 0 0 0;
+	border-top: 2px dotted #DDD;
+	padding: 3px 0 0 0;
+	color: #000;
+}
+
+.resumator-buttons,
+.resumator-job-title,
+.resumator-jobs-text { text-align: left; }
+
+#resumator-resume-upload {
+	margin: 0;
+	border: 1px solid #DDD;
+	background-color: #FFF;
+	padding: 0;
+	text-align: left;
+}
+		
+#resumator-resume-upload a img { border: none; }
+
+#resumator-resume-upload div.error {
+	color: #BD1300;
+	margin-bottom: 2px;
+}
+
+div.resumator-field-wrapper {
+	margin-left: 25px;
+	text-align: left;
+	margin-bottom: 12px;
+	color: #000;
+}
+
+#resumator-message {
+	color: #000;
+	margin-top: 10px;
+	margin-bottom: 15px;
+}
+
+select#resumator-applied-value { height: auto; }
+
+.resumator-label, #resumator-credit {
+	margin: 8px 0 2px 0;
+	padding: 0;
+	font-weight: bold;
+	color: #000;
+}
+
+#resumator-jobboard #resumator-credit {
+	float: right;
+}
+
+#resumator-resume-upload-wrapper p {
+	margin-bottom: 0;
+}
+
+#resumator-resume-paste-wrapper p {
+	margin-bottom: 3px;
+}
+
+.resumator-field {
+	width: 90%;
+	font: normal 16px/1.2em Arial, Verdana, sans-serif;
+	color: #000;
+	padding: 5px;
+	margin: 0px;
+}
+
+#resumator-message-required {
+	font-size: 12px;
+}
+
+#resumator-coverletter-value,
+#resumator-wmyu-value,
+#resumator-resumetext-value {
+	font-size: 12px;
+	height: 200px;
+}
+
+#resumator-wmyu-value,
+#resumator-references-value {
+	font-size: 12px;
+	height: 80px;
+}
+
+#resumator-felonyexplain-value {
+	font-size: 12px;
+	height: 100px;
+}
+
+#resumator-phone-value,
+#resumator-salary-value,
+#resumator-start-value
+{ width: 50%; }
+
+#resumator-gpa-value,
+#resumator-flighthours-value 
+{ width: 25%; }
+
+#resumator-submit {
+	color: #000;
+	font-size: 16px;
+}
+
+#resumator-submit a { color: #5BB6CF; }
+
+#resumator-submit-resume,
+#resumator-submit-forward,
+#resumator-cancel-forward { font-size: 14px; }
+
+#resumator-submit-forward,
+#resumator-cancel-forward { margin-bottom: 15px; }
+
+#resumator-jobs {
+	border: 0px solid #BBB;
+	border-top-color: #DDD;
+	border-left-color: #DDD;
+	padding: 0;
+}
+
+#resumator-credit-logo { margin-top: 10px; }
+
+.resumator-job-info-details,
+.resumator-job-info {
+	margin: 0 1em .25em 0;
+	line-height: 1.5em;
+	display: block;
+	float: left;
+}
+
+.resumator-job-info-details {
+	display: none;
+}
+
+.resumator-job-view-details {
+	clear: both;
+}
+
+.resumator-department-heading,
+.resumator-type-heading {
+	clear: both;
+	font-size: 22px;
+	margin: 10px 0 8px 0;
+	color: #000;
+}
+
+.resumator-job-heading {
+	font-weight: bold;
+	color: #000;
+}
+
+.resumator-job-department,
+.resumator-job-experience { 
+	margin-left: 10px; 
+}
+
+.resumator-job-placeholder { 
+	padding-bottom: 10px;
+ }
+
+.resumator-form .message {
+	background-color: #a9c442;
+	border: 1px solid #a9c442;
+	font-size: 14px;
+}
+
+.resumator-form .message p {
+	font-weight: bold;
+	font-size: 14px;
+	margin: 0px;
+	color: #FFF;
+	padding: 15px;
+}
+
+.resumator-form .message img { display: none; }
+
+.resumator-form .msg_error_message {
+	background-color: #cb4621;
+	border-color: #cb4621;
+}
+
+.resumator-form .error {
+	font: bold 12px/15px Arial, Verdana, sans-serif;
+	color: #BD1300;
+}
+
+#resumator-message-text,
+.resumator-message-text { width: 90%; }
+
+.resumator-buttons {
+	margin: 15px 0 10px 0;
+}
+
+.resumator-fallback { margin-bottom: 15px; }
+
+.resumator-selected { border: 1px solid #555; }
+
+.resumator-job-description-text {
+	margin-top: 10px;
+}
+
+#resumator-resume-value {
+	margin: 3px 0 0 0;
+}
+
+#resumator-resume-options p {
+	margin-bottom: 0;
+}
+
+#resumator-address-value {
+	margin-bottom: 5px;
+}
+
+#resumator-city-value { 
+	width: 51%; 
+	margin-right: 5px;
+}
+
+#resumator-state-value { 
+	width: 15%;
+	margin-right: 5px; 
+}
+
+#resumator-postal-value { 
+	width: 21%; 
+}
+
+.resumtor-dimmed-text {
+	color: #AAA;
+}
+
+#resumator-eeo-message {
+	margin-top: 20px;
+}
+
+#resumator-eeo-message strong {
+	font-weight: bold;
+	font-style: inherit;
+}
+
+#resumator-eeo_race-value {
+	width: 330px;
+}
+
+#resumator-eeo_disability-value {
+	margin-bottom: 10px;
+}
+
+#resumator-eeo_gender-value,
+#resumator-eeo_disability-value {
+	width: 200px;
+}
+
+#resumator-cancel-resume {
+	display: none;
+}
+
+p.resumator-social-links {
+	float: right;
+}
+
+#resumator-footer-wrapper p,
+#resumator-footer-wrapper a {
+	color: #666;
+}
+
+#resumator-footer-wrapper p {
+	font-size: .75em;
+	padding: 15px 0 0 20px;
+}
+
+.resumator-textfield-tiny {
+	width: 15%
+}
+
+.resumator-textfield-small {
+	width: 25%
+}
+
+.resumator-textfield-medium {
+	width: 50%;
+}
+
+.resumator-textfield-large {
+	width: 90%;
+}
+
+.resumator-textarea-small {
+	height: 100px;
+}
+
+.resumator-textarea-medium {
+	height: 130px;
+}
+
+.resumator-textarea-large {
+	height: 180px;
+}

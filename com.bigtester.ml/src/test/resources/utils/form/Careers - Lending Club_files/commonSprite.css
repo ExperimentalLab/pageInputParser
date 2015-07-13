@@ -1,0 +1,239 @@
+.icon {
+  background-image: url('commonSprite.png');
+}
+
+@media (min--moz-device-pixel-ratio: 1.5), (-o-min-device-pixel-ratio: 3/2), (-webkit-min-device-pixel-ratio: 1.5), (min-device-pixel-ratio: 1.5), (min-resolution: 1.5dppx) {
+  .icon {
+    background-image: url('commonSprite@2x.png');
+    background-size: 274px 233px;
+  }
+}
+
+.icon\-401k {
+  background-position: -162px -71px;
+  width: 30px;
+  height: 22px;
+}
+
+.icon-EHL {
+  background-position: -244px -216px;
+  width: 19px;
+  height: 14px;
+}
+
+.icon-add-circle {
+  background-position: -244px -188px;
+  width: 24px;
+  height: 24px;
+}
+
+.icon-arrow-left-dark {
+  background-position: -170px -101px;
+  width: 15px;
+  height: 15px;
+}
+
+.icon-arrow-right-light {
+  background-position: -208px -101px;
+  width: 15px;
+  height: 15px;
+}
+
+.icon-blog {
+  background-position: -161px -164px;
+  width: 37px;
+  height: 30px;
+}
+
+.icon-cal-large {
+  background-position: -2px -164px;
+  width: 37px;
+  height: 36px;
+}
+
+.icon-cal {
+  background-position: -214px -124px;
+  width: 26px;
+  height: 22px;
+}
+
+.icon-collapsed-arrow {
+  background-position: -215px -41px;
+  width: 15px;
+  height: 15px;
+}
+
+.icon-down-arrow-circle {
+  background-position: -244px -130px;
+  width: 28px;
+  height: 28px;
+}
+
+.icon-down-arrow-large {
+  background-position: -64px -204px;
+  width: 15px;
+  height: 9px;
+}
+
+.icon-expanded-arrow {
+  background-position: -151px -101px;
+  width: 15px;
+  height: 15px;
+}
+
+.icon-facebook {
+  background-position: -202px -164px;
+  width: 37px;
+  height: 30px;
+}
+
+.icon-form-error {
+  background-position: -132px -101px;
+  width: 15px;
+  height: 15px;
+}
+
+.icon-form-success {
+  background-position: -189px -101px;
+  width: 15px;
+  height: 15px;
+}
+
+.icon-googleplus {
+  background-position: -120px -164px;
+  width: 37px;
+  height: 30px;
+}
+
+.icon-help-circle {
+  background-position: -46px -204px;
+  width: 14px;
+  height: 14px;
+}
+
+.icon-house-large {
+  background-position: -56px -124px;
+  width: 50px;
+  height: 36px;
+}
+
+.icon-house {
+  background-position: -244px -162px;
+  width: 28px;
+  height: 22px;
+}
+
+.icon-ira-large {
+  background-position: -2px -124px;
+  width: 50px;
+  height: 36px;
+}
+
+.icon-ira {
+  background-position: -128px -71px;
+  width: 30px;
+  height: 22px;
+}
+
+.icon-laptop-large {
+  background-position: -164px -124px;
+  width: 46px;
+  height: 30px;
+}
+
+.icon-license {
+  background-position: -180px -41px;
+  width: 31px;
+  height: 22px;
+}
+
+.icon-lightbulb {
+  background-position: -43px -164px;
+  width: 32px;
+  height: 36px;
+}
+
+.icon-logo-big {
+  background-position: -2px -2px;
+  width: 238px;
+  height: 35px;
+}
+
+.icon-logo-footer {
+  background-position: -2px -101px;
+  width: 126px;
+  height: 19px;
+}
+
+.icon-logo-little {
+  background-position: -2px -41px;
+  width: 174px;
+  height: 26px;
+}
+
+.icon-mail-large {
+  background-position: -2px -204px;
+  width: 40px;
+  height: 27px;
+}
+
+.icon-option-arrows {
+  background-position: -227px -101px;
+  width: 9px;
+  height: 15px;
+}
+
+.icon-privacy-security {
+  background-position: -2px -71px;
+  width: 122px;
+  height: 26px;
+}
+
+.icon-right-arrow-large {
+  background-position: -230px -71px;
+  width: 9px;
+  height: 15px;
+}
+
+.icon-ssn-large {
+  background-position: -110px -124px;
+  width: 50px;
+  height: 36px;
+}
+
+.icon-ssn {
+  background-position: -196px -71px;
+  width: 30px;
+  height: 22px;
+}
+
+.icon-step-active {
+  background-position: -244px -66px;
+  width: 28px;
+  height: 28px;
+}
+
+.icon-step-completed {
+  background-position: -244px -98px;
+  width: 28px;
+  height: 28px;
+}
+
+.icon-step-inactive {
+  background-position: -244px -34px;
+  width: 28px;
+  height: 28px;
+}
+
+.icon-twitter {
+  background-position: -79px -164px;
+  width: 37px;
+  height: 30px;
+}
+
+.icon-up-arrow-circle {
+  background-position: -244px -2px;
+  width: 28px;
+  height: 28px;
+}
+
